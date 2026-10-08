@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root { color-scheme: light; scroll-behavior: smooth; }
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; background: #fff; color: #373334; font-family: 'DM Sans', sans-serif; }
+  ::selection { background: #a30d1b; color: #fff; }
+}
+
+@layer components {
+  .serif { font-family: 'Playfair Display', serif; }
+  .ticket-title { font-family: 'Roboto Condensed', 'Arial Narrow', sans-serif; }
+  .eyebrow { @apply text-xs font-semibold uppercase tracking-[.18em] text-rose; }
+  .card-arrow { @apply absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full border border-white/60 text-white transition; }
+  .group:hover .card-arrow { @apply bg-white text-rose; }
+  .site-nav a { transition: color .2s ease; }
+  .site-nav a:hover { color: #a30d1b; }
+  .button { display: inline-flex; min-height: 50px; align-items: center; justify-content: center; gap: .55rem; padding: .75rem 1.25rem; border: 1px solid transparent; border-radius: 9999px; font-size: .75rem; font-weight: 600; line-height: 1.25; letter-spacing: .08em; text-align: center; text-transform: uppercase; transition: color .2s ease, background-color .2s ease, border-color .2s ease, transform .2s ease; }
+  .button-primary { border-color: #a30d1b; background: #a30d1b; color: #fff; }
+  .button-primary:hover { border-color: #7e0a15; background: #7e0a15; }
+  .button-outline { border-color: rgb(163 13 27 / 35%); background: #fff; color: #a30d1b; }
+  .button-outline:hover:not(:disabled) { border-color: #a30d1b; background: #f8e8e9; }
+  .button-small { min-height: 44px; padding: .65rem 1.15rem; font-size: .75rem; }
+  .button:disabled { cursor: not-allowed; border-color: #e6dfe0; background: #fff; color: #696364; }
+  .text-link { display: inline-flex; align-items: center; gap: .8rem; color: #373334; font-size: .8125rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; transition: color .2s ease; }
+  .text-link:hover { color: #a30d1b; }
+  .icon-arrow { display: inline-flex; width: 2.65rem; height: 2.65rem; flex: 0 0 auto; align-items: center; justify-content: center; border-radius: 9999px; background: #a30d1b; color: white; transition: transform .2s ease, background-color .2s ease; }
+  .icon-arrow svg { width: 1.15rem; height: 1.15rem; }
+  .text-link:hover .icon-arrow { transform: translateX(3px); background: #7e0a15; }
+  .image-card img { transition: transform .7s cubic-bezier(.2,.75,.25,1); }
+  .image-card:hover img { transform: scale(1.035); }
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  .menu-open { overflow: hidden; }
+  .menu-panel { visibility: hidden; opacity: 0; transform: translateY(-8px); transition: opacity .2s ease, transform .2s ease, visibility .2s; }
+  .menu-panel.open { visibility: visible; opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
