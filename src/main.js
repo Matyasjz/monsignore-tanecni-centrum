@@ -3,6 +3,7 @@ import './style.css';
 const toggle = document.getElementById('menu-toggle');
 const menu = document.getElementById('mobile-menu');
 const desktopDropdowns = document.querySelectorAll('.site-nav .nav-dropdown');
+const mobileDropdowns = document.querySelectorAll('.mobile-nav-group');
 
 function closeMenu() {
   menu.classList.remove('open');
@@ -20,12 +21,49 @@ toggle.addEventListener('click', () => {
 });
 
 desktopDropdowns.forEach((dropdown) => {
-  dropdown.addEventListener('mouseenter', () => { dropdown.open = true; });
-  dropdown.addEventListener('mouseleave', () => { dropdown.open = false; });
-  dropdown.addEventListener('focusin', () => { dropdown.open = true; });
-  dropdown.addEventListener('focusout', (event) => {
-    if (!dropdown.contains(event.relatedTarget)) dropdown.open = false;
-  });
+  let closeTimer;
+  const submenu = dropdown.querySelector('.nav-submenu');
+  const keepOpen = () => {
+    window.clearTimeout(closeTimer);
+    if (!dropdown.open) {
+      dropdown.open = true;
+      dropdown.classList.remove('is-opening');
+      void submenu.offsetHeight;
+      dropdown.classList.add('is-opening');
+    }
+  };
+  const scheduleClose = () => {
+    window.clearTimeout(closeTimer);
+    closeTimer = window.setTimeout(() => {
+      if (!dropdown.matches(':hover') && !dropdown.contains(document.activeElement)) {
+        dropdown.open = false;
+        dropdown.classList.remove('is-opening');
+      }
+    }, 180);
+  };
+
+  dropdown.addEventListener('mouseenter', keepOpen);
+  dropdown.addEventListener('mouseleave', scheduleClose);
+  submenu.addEventListener('mouseenter', keepOpen);
+  submenu.addEventListener('mouseleave', scheduleClose);
+  dropdown.addEventListener('focusin', keepOpen);
+  dropdown.addEventListener('focusout', scheduleClose);
+});
+
+mobileDropdowns.forEach((dropdown) => {
+  const submenu = dropdown.querySelector('.nav-submenu');
+  const setSubmenuHeight = () => {
+    if (!dropdown.open) {
+      submenu.style.setProperty('--submenu-height', '0px');
+      return;
+    }
+    requestAnimationFrame(() => {
+      submenu.style.setProperty('--submenu-height', `${submenu.scrollHeight}px`);
+    });
+  };
+
+  setSubmenuHeight();
+  dropdown.addEventListener('toggle', setSubmenuHeight);
 });
 
 document.querySelectorAll('[data-inert-nav]').forEach((link) => {
