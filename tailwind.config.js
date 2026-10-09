@@ -12,6 +12,10 @@ export default {
         roseMist: '#fff8f8',
         muted: '#696364',
       },
+      fontSize: {
+        xs: '0.9375rem',
+        sm: '1.0625rem',
+      },
       fontFamily: {
         sans: ['DM Sans', 'sans-serif'],
         display: ['Playfair Display', 'serif'],
