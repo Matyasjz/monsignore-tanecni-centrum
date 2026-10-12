@@ -67,7 +67,7 @@
       <div class="flex flex-col text-lg">
         <a class="mobile-nav-link" href="#domu">Domů</a>
         <details class="mobile-nav-group">
-          <summary>O nás<span class="nav-indicator" aria-hidden="true"></span></summary>
+          <summary><span>O nás</span><span class="nav-indicator" aria-hidden="true"></span></summary>
           <div class="nav-submenu">
             <a href="#" data-inert-nav aria-disabled="true">O nás</a>
             <a href="#" data-inert-nav aria-disabled="true">Náš příběh</a>
@@ -77,14 +77,14 @@
           </div>
         </details>
         <details class="mobile-nav-group">
-          <summary>Kurzy<span class="nav-indicator" aria-hidden="true"></span></summary>
+          <summary><span>Kurzy</span><span class="nav-indicator" aria-hidden="true"></span></summary>
           <div class="nav-submenu">
             <a href="#" data-inert-nav aria-disabled="true">Kurzy</a>
             <a href="#" data-inert-nav aria-disabled="true">Individuální výuka, děti, mládež, dospělí</a>
           </div>
         </details>
         <details class="mobile-nav-group">
-          <summary>Program<span class="nav-indicator" aria-hidden="true"></span></summary>
+          <summary><span>Program</span><span class="nav-indicator" aria-hidden="true"></span></summary>
           <div class="nav-submenu">
             <a href="#" data-inert-nav aria-disabled="true">Letní taneční škola</a>
             <a href="#" data-inert-nav aria-disabled="true">Akce &amp; Workshopy a tematické taneční večery</a>
@@ -93,7 +93,7 @@
           </div>
         </details>
         <a class="mobile-nav-link" href="#" data-inert-nav aria-disabled="true">Kontakt</a>
-        <a class="button button-primary mx-6 mt-3 w-[240px]" href="#" data-inert-nav
+        <a class="button button-outline button-small mx-6 mt-3 w-[240px]" href="#" data-inert-nav
           aria-disabled="true">Přihlásit se na kurz</a></div>
     </div>
   </header>
@@ -103,7 +103,13 @@
       <div class="relative z-10 pb-1 md:py-16">
         <p class="eyebrow mb-6 flex items-center gap-3 tracking-[.2em]"><span class="h-px w-8 bg-rose"></span>Pardubice
           · od roku 1992</p>
-        <h1 class="serif max-w-[650px] text-[clamp(3.45rem,8.2vw,7.6rem)] leading-[.91] tracking-[-.055em]">
+        <svg aria-hidden="true" viewBox="0 0 120 240" fill="none"
+          class="pointer-events-none absolute -right-1 top-[4.5rem] z-0 h-[220px] w-[110px] md:hidden">
+          <path d="M14 225C105 188 21 143 57 103S116 50 59 13" stroke="#a30d1b" stroke-width="2" stroke-linecap="round" opacity=".22" />
+          <path d="M44 236C125 185 59 148 82 111S132 61 96 29" stroke="#a30d1b" stroke-width="1.2" stroke-linecap="round" opacity=".16" />
+          <path d="M23 195C43 175 46 159 43 142" stroke="#a30d1b" stroke-width="1" stroke-linecap="round" opacity=".3" />
+        </svg>
+        <h1 class="serif relative z-10 max-w-[650px] text-[clamp(3.45rem,8.2vw,7.6rem)] leading-[.91] tracking-[-.055em]">
           Tanec,<br>který v nás<br><i class="font-normal text-rose">zůstává</i></h1>
         <p class="mt-7 max-w-[390px] text-[17px] leading-[1.85] text-muted">Umělecké taneční centrum zaměřené na klasický,
           moderní a jazzový tanec. Místo, kde se technika setkává s osobností tanečníka.</p>
@@ -121,7 +127,7 @@
     <section class="bg-[#2b2829] text-white">
       <div id="o-nas"
         class="mx-auto grid max-w-[1320px] gap-8 px-5 pb-20 pt-10 md:grid-cols-2 md:items-center md:gap-16 md:px-10 md:pb-32 md:pt-20 lg:px-16">
-        <div class="reveal border-l-2 border-[#e60012] py-1 pl-3">
+        <div class="reveal border-l-2 border-[#e60012] pt-0 pb-2 pl-3">
           <h2
             class="serif max-w-[620px] text-4xl leading-[1.1] tracking-[-.035em] text-white md:text-5xl lg:text-[3.7rem]">
             Technika, která rozvíjí<br><i class="font-normal text-rose">osobnost</i></h2>
@@ -140,8 +146,8 @@
     <section id="kurzy" class="course-section border-y border-[#f4e4e5] py-16 md:py-24">
       <div class="mx-auto max-w-[1440px] px-5 md:px-10 lg:px-16">
         <div class="reveal mb-9 flex items-end justify-between gap-4 md:mb-12">
-          <div>
-            <h2 class="serif text-4xl tracking-[-.035em] md:text-6xl">Najděte svůj <i class="font-normal text-rose">pohybový
+          <div class="w-full">
+            <h2 class="serif text-center text-4xl tracking-[-.035em] md:text-left md:text-6xl">Najděte svůj <i class="font-normal text-rose">pohybový
                 jazyk</i></h2>
           </div>
         </div>
@@ -238,8 +244,6 @@
               </div>
             </article>
           </div>
-          <p id="akce-info" class="mt-4 text-sm leading-[1.8] text-muted">Ukázkové datum a čas slouží jen pro návrh;
-            skutečný termín doplníme po potvrzení programu.</p>
         </div>
       </div>
     </section>
@@ -261,8 +265,8 @@
           <a class="text-sm text-white/75 transition hover:translate-x-1 hover:text-white" href="#" data-inert-nav aria-disabled="true">Reference</a>
           <a class="text-sm text-white/75 transition hover:translate-x-1 hover:text-white" href="#" data-inert-nav aria-disabled="true">FAQ</a>
         </nav>
-        <nav aria-label="Taneční program" class="flex flex-col items-start gap-3">
-          <h2 class="mb-1 text-sm font-semibold uppercase tracking-[.16em] text-[#c83c47]">Taneční program</h2>
+        <nav aria-label="Program" class="flex flex-col items-start gap-3">
+          <h2 class="mb-1 text-sm font-semibold uppercase tracking-[.16em] text-[#c83c47]">Program</h2>
           <a class="text-sm text-white/75 transition hover:translate-x-1 hover:text-white" href="#" data-inert-nav aria-disabled="true">Kurzy</a>
           <a class="text-sm text-white/75 transition hover:translate-x-1 hover:text-white" href="#" data-inert-nav aria-disabled="true">Individuální výuka</a>
           <a class="text-sm text-white/75 transition hover:translate-x-1 hover:text-white" href="#" data-inert-nav aria-disabled="true">Letní taneční škola</a>
