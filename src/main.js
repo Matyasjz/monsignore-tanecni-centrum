@@ -1,5 +1,15 @@
 import './style.css';
 
+const browserThemeColor = document.querySelector('meta[name="theme-color"]');
+const paperColor = getComputedStyle(document.documentElement)
+  .getPropertyValue('--color-paper')
+  .trim()
+  .split(/\s+/);
+
+if (browserThemeColor && paperColor.length === 3) {
+  browserThemeColor.content = `rgb(${paperColor.join(', ')})`;
+}
+
 const toggle = document.getElementById('menu-toggle');
 const menu = document.getElementById('mobile-menu');
 const desktopDropdowns = document.querySelectorAll('.site-nav .nav-dropdown');
