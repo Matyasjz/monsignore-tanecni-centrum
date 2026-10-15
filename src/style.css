@@ -31,6 +31,7 @@
 
 @layer components {
   .serif { font-family: 'Playfair Display', serif; }
+  .accent-text { color: rgb(var(--color-brand)); }
   .ticket-title { font-family: 'Roboto Condensed', 'Arial Narrow', sans-serif; }
   .eyebrow { @apply text-xs font-semibold uppercase tracking-[.18em]; color: rgb(var(--color-brand)); }
   .site-container { @apply mx-auto w-full max-w-[1440px] px-5 md:px-10 lg:px-16; }
