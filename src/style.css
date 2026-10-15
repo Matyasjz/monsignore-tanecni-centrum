@@ -42,7 +42,11 @@
   .section-space--quote { @apply py-20 md:py-24; }
   .site-footer__inner { @apply py-12 md:py-16; }
   .ticket-card-space { @apply px-6 py-7 sm:px-8 md:px-10 md:py-9; }
-  .ticket-layout { @apply grid gap-5 sm:grid-cols-[190px_minmax(0,1fr)] sm:gap-x-8 md:grid-cols-[220px_minmax(0,1fr)] md:gap-x-10; }
+  .hero-layout { @apply grid items-center gap-8 pb-16 pt-3 md:gap-8 md:pb-24 lg:pt-4; }
+  .story-layout { @apply grid gap-8 md:grid-cols-2 md:items-center md:gap-16; }
+  .individual-layout { @apply grid gap-8 p-6 md:items-center md:gap-12 md:p-8; }
+  .footer-grid { @apply grid gap-10 sm:grid-cols-2 lg:gap-12; }
+  .ticket-layout { @apply grid gap-5; }
   .course-section {
     --course-pattern: url("../assets/course-pattern-ribbons.svg");
     --course-pattern-size: 300px 260px;
@@ -115,7 +119,18 @@
   .menu-panel.open { visibility: visible; opacity: 1; transform: translateY(0); }
 }
 
+@media (min-width: 640px) {
+  .ticket-layout { grid-template-columns: 190px minmax(0, 1fr); column-gap: 2rem; }
+}
+
+@media (min-width: 768px) {
+  .hero-layout { grid-template-columns: .84fr 1.16fr; }
+  .individual-layout { grid-template-columns: .8fr 1.5fr; }
+  .ticket-layout { grid-template-columns: 220px minmax(0, 1fr); column-gap: 2.5rem; }
+}
+
 @media (min-width: 1024px) {
+  .footer-grid { grid-template-columns: 1.35fr 1.95fr .9fr; }
   .site-nav .nav-dropdown { position: relative; }
   .site-nav .nav-dropdown > .nav-submenu { position: absolute; top: 100%; left: -.5rem; z-index: 60; display: flex; max-height: 0; min-width: 18rem; max-width: 22rem; overflow: hidden; padding: 0; border: 1px solid rgb(var(--color-line-soft)); border-top: 2px solid rgb(var(--color-brand)); background: rgb(var(--color-paper)); box-shadow: 0 16px 36px rgb(var(--color-ink) / 9%); opacity: 0; pointer-events: none; transform: translateY(-5px); visibility: hidden; transition: max-height .22s cubic-bezier(.22,.61,.36,1), opacity .16s ease, transform .22s cubic-bezier(.22,.61,.36,1), padding .22s cubic-bezier(.22,.61,.36,1), visibility 0s linear .22s; }
   .site-nav .nav-dropdown[open] > .nav-submenu { max-height: 32rem; padding: .75rem 0; opacity: 1; pointer-events: auto; transform: translateY(0); visibility: visible; transition-duration: .7s, .7s, .7s, .7s, 0s; transition-delay: 0s; }
