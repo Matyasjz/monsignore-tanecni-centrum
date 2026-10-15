@@ -24,7 +24,7 @@
 @layer components {
   .serif { font-family: 'Playfair Display', serif; }
   .ticket-title { font-family: 'Roboto Condensed', 'Arial Narrow', sans-serif; }
-  .eyebrow { @apply text-xs font-semibold uppercase tracking-[.18em] text-brand; }
+  .eyebrow { @apply text-xs font-semibold uppercase tracking-[.18em]; color: rgb(var(--color-brand)); }
   .site-container { @apply mx-auto w-full max-w-[1440px] px-5 md:px-10 lg:px-16; }
   .site-container--medium { @apply mx-auto w-full max-w-[1320px] px-5 md:px-10 lg:px-16; }
   .site-container--narrow { @apply mx-auto w-full max-w-[1240px] px-5 md:px-10 lg:px-16; }
