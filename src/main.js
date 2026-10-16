@@ -139,26 +139,93 @@ function observeReveals() {
   revealItems.forEach((element) => observer.observe(element));
 }
 
+let quoteTimer;
+
+function initQuotes() {
+  window.clearInterval(quoteTimer);
+  const root = main.querySelector('[data-quotes]');
+  if (!root) return;
+
+  const quotes = [...root.querySelectorAll('.quote')];
+  const dotsHolder = root.querySelector('.quotes__dots');
+  let current = 0;
+
+  const dots = quotes.map((_, index) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = 'quotes__dot';
+    dot.setAttribute('aria-label', `Citát ${index + 1}`);
+    dot.addEventListener('click', () => {
+      show(index);
+      window.clearInterval(quoteTimer);
+    });
+    dotsHolder.append(dot);
+    return dot;
+  });
+
+  function show(index) {
+    current = index;
+    quotes.forEach((quote, i) => quote.classList.toggle('is-active', i === index));
+    dots.forEach((dot, i) => dot.setAttribute('aria-current', String(i === index)));
+  }
+
+  show(0);
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    quoteTimer = window.setInterval(() => show((current + 1) % quotes.length), 7000);
+  }
+}
+
+function renderHome() {
+  main.id = 'domu';
+  main.classList.remove('page-view');
+  main.innerHTML = homeMarkup;
+  document.title = homeTitle;
+  observeReveals();
+  initQuotes();
+}
+
+let onHome = false;
+
+function findAnchor(hash) {
+  if (hash.length < 2 || hash.startsWith('#/')) return null;
+  return document.getElementById(decodeURIComponent(hash.slice(1)));
+}
+
 function renderRoute() {
-  const match = window.location.hash.match(/^#\/([a-z-]+)$/);
+  const { hash } = window.location;
+  const match = hash.match(/^#\/([a-z-]+)$/);
   const page = match ? getPage(match[1]) : null;
 
+  closeMenu();
+
   if (page) {
+    onHome = false;
     main.id = 'page';
     main.classList.add('page-view');
     main.innerHTML = page.html;
     document.title = page.title;
-  } else {
-    main.id = 'domu';
-    main.classList.remove('page-view');
-    main.innerHTML = homeMarkup;
-    document.title = homeTitle;
+    observeReveals();
+    window.scrollTo(0, 0);
+    return;
   }
 
-  closeMenu();
-  observeReveals();
-  window.scrollTo(0, 0);
+  // Kotvy mimo <main> (např. #kontakt v patičce) nemění aktuální stránku.
+  const outsideTarget = findAnchor(hash);
+  const staysOnPage = main.id === 'page' && outsideTarget && !main.contains(outsideTarget);
+  if (!onHome && !staysOnPage) {
+    renderHome();
+    onHome = true;
+  }
+
+  const anchor = findAnchor(hash);
+  if (anchor && anchor !== main) anchor.scrollIntoView();
+  else window.scrollTo(0, 0);
 }
+
+const header = document.querySelector('.site-header');
+const updateHeader = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
+window.addEventListener('scroll', updateHeader, { passive: true });
+updateHeader();
 
 document.querySelectorAll('[data-inert-nav]').forEach((link) => {
   link.addEventListener('click', (event) => event.preventDefault());

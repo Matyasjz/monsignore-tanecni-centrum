@@ -1,4 +1,3 @@
-import adult008 from '../assets/adult-008.jpg';
 import adult009 from '../assets/adult-009.jpg';
 import adult011 from '../assets/adult-011.jpg';
 import adult012 from '../assets/adult-012.jpg';
@@ -13,261 +12,363 @@ import style005 from '../assets/new-therapy-dance-style-005.jpg';
 import style006 from '../assets/new-therapy-dance-style-006.jpg';
 import style007 from '../assets/new-therapy-dance-style-007.jpg';
 
-const pageImage = (src, alt, className = '') => `
-  <figure class="page-image image-card ${className}">
-    <img src="${src}" alt="${alt}" loading="lazy">
+const paragraphs = (list) => list.map((text) => `<p>${text}</p>`).join('');
+
+const photo = (src, alt) => `<img class="photo" src="${src}" alt="${alt}" loading="lazy">`;
+
+const framed = (src, alt, shape = 'landscape', className = '') => `
+  <figure class="framed framed--${shape} ${className}">
+    <div class="framed__inner">${photo(src, alt)}</div>
   </figure>`;
 
-const copySection = (heading, paragraphs, extraClass = '') => `
-  <section class="page-copy-section reveal ${extraClass}">
-    <h2 class="serif page-section-title">${heading}</h2>
-    ${paragraphs.map((paragraph) => `<p>${paragraph}</p>`).join('')}
+const sectionTitle = ({ script, title, center = false }) => `
+  <div class="section-title ${center ? 'section-title--center' : ''}">
+    ${script ? `<span class="section-title__script" aria-hidden="true">${script}</span>` : ''}
+    <h2 class="section-title__heading">${title}</h2>
+  </div>`;
+
+const pageIntro = ({ script, title, lead }) => `
+  <section class="page-intro">
+    <div class="page-intro__inner reveal">
+      <span class="page-intro__script" aria-hidden="true">${script}</span>
+      <h1 class="page-intro__title">${title}</h1>
+      ${lead ? `<p class="page-intro__lead">${lead}</p>` : ''}
+    </div>
   </section>`;
 
-const pageHero = ({ kicker, title, lead, image, imageAlt, layout = '' }) => `
-  <section class="site-container page-hero ${layout}">
-    <div class="page-hero__copy">
-      <p class="eyebrow">${kicker}</p>
-      <h1 class="serif page-title">${title}</h1>
-      ${lead ? `<p class="page-lead">${lead}</p>` : ''}
+const split = ({ image, alt, shape = 'landscape', script, title, body, after = '', reverse = false, tone = '' }) => `
+  <section class="section ${tone}">
+    <div class="site-container split ${reverse ? 'split--reverse' : ''}">
+      ${framed(image, alt, shape, 'split__media reveal')}
+      <div class="split__copy reveal reveal-delay-1">
+        ${sectionTitle({ script, title })}
+        <div class="prose-copy">${paragraphs(body)}</div>
+        ${after}
+      </div>
     </div>
-    ${pageImage(image, imageAlt, 'page-hero__image')}
   </section>`;
 
-const courseCard = ({ title, description, image, imageAlt, note }) => `
-  <article class="page-course-card reveal">
-    ${pageImage(image, imageAlt, 'page-course-card__image')}
-    <div class="page-course-card__copy">
-      ${note ? `<p class="eyebrow">${note}</p>` : ''}
-      <h2 class="serif">${title}</h2>
-      <p>${description}</p>
+const timeline = (items) => `
+  <section class="section">
+    <div class="timeline">
+      ${items.map(({ marker, title, body }) => `
+        <article class="timeline__item reveal">
+          <span class="timeline__marker">${marker}</span>
+          <div class="timeline__body prose-copy">
+            <h2>${title}</h2>
+            ${paragraphs(body)}
+          </div>
+        </article>`).join('')}
     </div>
-  </article>`;
+  </section>`;
+
+const wideFigure = (src, alt) => `
+  <figure class="wide-figure reveal">
+    <div class="wide-figure__inner">${photo(src, alt)}</div>
+  </figure>`;
+
+const continueTo = ({ script, label, href }) => `
+  <section class="section section--tight">
+    <div class="site-container text-center reveal">
+      <span class="section-title__script" aria-hidden="true">${script}</span>
+      <a class="link-line relative" href="${href}">${label}</a>
+    </div>
+  </section>`;
 
 const pages = {
   'o-nas': {
-    title: 'O nás · Taneční centrum Monsignore',
-    html: `${pageHero({
-      kicker: 'Taneční centrum Monsignore',
-      title: 'Místo, kde se technika setkává s <i class="accent-text">osobností tanečníka</i>',
+    title: 'Náš přístup · Taneční centrum Monsignore',
+    html: `${pageIntro({
+      script: 'O nás',
+      title: 'Místo, kde se technika setkává s osobností',
       lead: 'Umělecké taneční centrum zaměřené na klasický, moderní a jazzový tanec.',
-      image: adult018,
-      imageAlt: 'Tanečnice při vystoupení na divadelním jevišti',
-      layout: 'page-hero--reverse',
     })}
-    <section class="site-container page-content page-about">
-      <div class="page-about__intro reveal">
-        <div class="page-about__intro-heading">
-          <p class="eyebrow">Náš přístup</p>
-          <h2 class="serif page-section-title">Naše výuka a naše <i class="accent-text">cíle</i></h2>
+    ${split({
+      image: adult012, alt: 'Tanečnice v černých kostýmech při jevištní choreografii', shape: 'portrait',
+      script: 'Přístup',
+      title: 'Naše výuka a naše cíle',
+      body: [
+        'Tanec vnímáme jako mnohem víc než soubor kroků a technik. Je to cesta k vlastnímu tělu, hudbě, emocím, disciplíně, tvořivosti i spolupráci s ostatními.',
+        'Nechceme vychovávat pouze technicky zdatné tanečníky. Rozvíjíme osobnosti, které rozumějí svému tělu, dokážou se vyjádřit pohybem a mají z tance radost.',
+      ],
+    })}
+    <section class="section section--mist">
+      <div class="site-container">
+        ${sectionTitle({ script: 'Principy', title: 'Na čem stavíme', center: true })}
+        <div class="principles">
+          ${[
+            ['Technika jako pevný základ', 'Správně vybudovaná technika dává tanečníkovi svobodu, jistotu a chrání jeho tělo. Nejde nám o mechanické opakování kroků, ale o porozumění tomu, odkud pohyb vychází a proč se provádí právě tak.'],
+            ['Porozumění vlastnímu tělu', 'Vedeme tanečníky k tomu, aby své tělo poznávali a pracovali s ním bezpečně. Kompenzační cvičení, stabilita, mobilita a regenerace pomáhají k lepšímu výkonu i dlouhodobě zdravému pohybu.'],
+            ['Všestrannost', 'Propojujeme klasický tanec, jazz, contemporary, moderní techniky, práci na zemi, improvizaci i muzikálové prvky. Každá technika rozvíjí jinou kvalitu a společně tvoří komplexního tanečníka.'],
+            ['Osobnost a individualita', 'Každý má jiné tělo, temperament i způsob učení, proto nikoho neformujeme podle šablony. Respektujeme individualitu a zároveň učíme pracovitosti, pravidelnosti a odpovědnosti za vlastní rozvoj.'],
+          ].map(([title, text], index) => `
+            <article class="principle reveal ${index % 2 ? 'reveal-delay-1' : ''}">
+              <span class="principle__number" aria-hidden="true">0${index + 1}</span>
+              <h3 class="principle__title">${title}</h3>
+              <p>${text}</p>
+            </article>`).join('')}
         </div>
-        <div class="page-about__intro-copy">
-          <p>V tanečním centru Monsignore vnímáme tanec jako mnohem víc než jen soubor kroků a technik. Tanec je cesta k vlastnímu tělu, hudbě, emocím, disciplíně, tvořivosti i spolupráci s ostatními.</p>
-          <p>Naším cílem není vychovat pouze technicky zdatné tanečníky. Chceme rozvíjet osobnosti, které rozumějí svému tělu, dokážou se prostřednictvím pohybu vyjádřit a mají z tance radost.</p>
-        </div>
-      </div>
-      <div class="page-about__principles">
-        ${copySection('Technika jako pevný <i class="accent-text">základ</i>', [
-          'Správně vybudovaná technika dává tanečníkovi svobodu, jistotu a chrání jeho tělo. Proto věnujeme velkou pozornost správnému držení těla, koordinaci, práci chodidel, stabilitě, síle, flexibilitě i zdravému provedení pohybu.',
-          'Nejde nám ale o mechanické opakování kroků. Chceme, aby tanečníci rozuměli tomu, co jejich tělo dělá, odkud pohyb vychází a proč se určitým způsobem provádí.',
-        ], 'page-about__principle page-copy-section--accent')}
-        ${copySection('Porozumění vlastnímu <i class="accent-text">tělu</i>', [
-          'Důležitou součástí našeho přístupu je respekt k tělu. Vedeme tanečníky k tomu, aby své tělo poznávali, vnímali jeho možnosti a dokázali s ním pracovat bezpečně.',
-          'Správná technika, kompenzační cvičení, práce se stabilitou, mobilitou a regenerací pomáhají nejen lepšímu výkonu, ale především dlouhodobému zdravému pohybu.',
-        ], 'page-about__principle page-copy-section--accent')}
-        ${copySection('<i class="accent-text">Všestrannost</i>', [
-          'Věříme, že dnešní tanečník potřebuje být všestranný. Proto propojujeme klasický tanec, jazz, contemporary, moderní taneční techniky, práci na zemi, improvizaci, muzikálové prvky i další pohybové zkušenosti.',
-          'Jednotlivé techniky nevnímáme odděleně. Každá rozvíjí jinou kvalitu a společně pomáhají vytvářet komplexního tanečníka.',
-        ], 'page-about__principle page-copy-section--accent')}
-        ${copySection('<i class="accent-text">Osobnost</i> a individualita', [
-          'Každý člověk má jiné tělo, jiné možnosti, temperament i způsob učení. Proto nechceme všechny formovat podle jedné šablony. Pedagog má tanečníka vést, podporovat jeho silné stránky a současně mu pomáhat překonávat vlastní limity.',
-          'Respektujeme individualitu, ale zároveň učíme pracovitosti, pravidelnosti a odpovědnosti za vlastní rozvoj.',
-        ], 'page-about__principle page-copy-section--accent')}
       </div>
     </section>
-    <section class="page-light-band">
-      <div class="site-container page-light-band__inner">
-        ${copySection('Tanec jako <i class="accent-text">umění</i>', [
-          'Tanec pro nás nekončí správně provedeným pohybem. Učíme tanečníky vnímat hudbu, rytmus, dynamiku, prostor i partnera. Vedeme je k tomu, aby dokázali pohybu dát význam, náladu a vlastní osobní projev.',
-          'Technika je prostředkem. Umělecký projev je tím, co dává tanci život.',
-        ])}
+    <section class="section">
+      <div class="site-container--read text-center reveal">
+        ${sectionTitle({ script: 'Umění', title: 'Tanec jako umění', center: true })}
+        <div class="prose-copy">${paragraphs([
+          'Tanec pro nás nekončí správně provedeným pohybem. Učíme vnímat hudbu, rytmus, dynamiku, prostor i partnera a dát pohybu význam, náladu a vlastní projev.',
+          '<span class="text-ink">Technika je prostředkem. Umělecký projev je tím, co dává tanci život.</span>',
+        ])}</div>
       </div>
     </section>
-    <section class="site-container page-content page-about__closing">
-      <div class="page-about__closing-copy">
-        ${copySection('Tanec jako cesta k <i class="accent-text">osobnosti</i>', [
-          'Tanec rozvíjí mnohem víc než pohybové schopnosti. Učí trpělivosti, vytrvalosti, soustředění, disciplíně a schopnosti přijímat korekci. Učí také respektu k ostatním, spolupráci a odpovědnosti vůči skupině.',
-          'Jsou to zkušenosti a hodnoty, které člověku zůstávají i tehdy, když se jednou rozhodne profesionální taneční cestou nepokračovat.',
-        ], 'page-copy-section--accent')}
-        ${copySection('Tvořivost a vlastní pohybový <i class="accent-text">jazyk</i>', [
-          'Součástí výuky je také improvizace a kreativní práce. Tanečník se učí nejen přijímat pohyb od pedagoga, ale také hledat vlastní řešení, reagovat na hudbu, prostor, téma nebo emoci a postupně objevovat svůj vlastní pohybový rukopis.',
-        ], 'page-copy-section--accent')}
-      </div>
-    </section>`,
+    ${split({
+      image: adult014, alt: 'Tanečnice v dramatické scéně divadelního představení',
+      script: 'Osobnost',
+      title: 'Tanec jako cesta k osobnosti',
+      body: [
+        'Tanec učí trpělivosti, vytrvalosti, soustředění a schopnosti přijímat korekci. Učí také respektu k ostatním, spolupráci a odpovědnosti vůči skupině, hodnotám, které zůstávají, i když se člověk profesionální taneční cestou nevydá.',
+        'Součástí výuky je improvizace a kreativní práce. Tanečník se učí hledat vlastní řešení, reagovat na hudbu, prostor i emoci a postupně objevovat svůj pohybový rukopis.',
+      ],
+      reverse: true,
+      tone: 'pt-0 md:pt-0',
+    })}
+    ${continueTo({ script: 'Dále', label: 'Prohlédněte si kurzy', href: '#/kurzy' })}`,
   },
   kurzy: {
     title: 'Kurzy · Taneční centrum Monsignore',
-    html: `${pageHero({
-      kicker: 'Kurzy pro mládež a dospělé',
-      title: '<i class="accent-text">Kurzy</i> pro mládež a dospělé',
-      lead: 'Moderní a jazzový tanec, klasický tanec, contemporary, mix tanečních stylů.',
-      image: adult008,
-      imageAlt: 'Skupina dospělých při taneční lekci v sále',
+    html: `${pageIntro({
+      script: 'Kurzy',
+      title: 'Kurzy pro mládež a dospělé',
+      lead: 'Moderní a jazzový tanec, klasický tanec, contemporary a mix tanečních stylů.',
     })}
-    <section class="site-container page-content page-courses">
-      ${courseCard({
-        title: '<i class="accent-text">Moderní</i> tanec',
-        description: 'Moderní tanec vznikl jako reakce na přísná pravidla klasického baletu. Hledá přirozenější, svobodnější pohyb a větší propojení těla, dechu, emocí a prostoru. Současná výuka propojuje techniky také s prací na zemi, improvizací, prací s těžištěm, pády, spirálami a vědomou prací s dechem. Cílem je rozvoj individuality, pohybové inteligence a schopnosti vyjádřit se pohybem.',
-        image: style003, imageAlt: 'Tanečnice při cvičení rukou v tanečním sále',
-      })}
-      ${courseCard({
-        title: '<i class="accent-text">Jazzový</i> tanec',
-        description: 'Jazzový tanec je dynamická a výrazová taneční technika, která propojuje rytmus, koordinaci, energii a osobitý pohybový projev. Pracuje s izolacemi jednotlivých částí těla, dynamikou, změnami tempa, skoky, točkami i výrazem. Rozvíjí muzikálnost, pohybovou přesnost, flexibilitu a schopnost tanečníka reagovat na různé hudební styly.',
-        image: style004, imageAlt: 'Tanečnice se pohybují v sále při lekci',
-      })}
-      ${courseCard({
-        title: '<i class="accent-text">Klasický</i> tanec',
-        description: 'Klasický tanec je základní taneční disciplínou, která rozvíjí správné držení těla, koordinaci, stabilitu, sílu, flexibilitu a přesnost pohybu. Výuka vychází z principů baletní techniky a postupně vede od základních pozic a cvičení u tyče až k práci v prostoru, skokům, točkám a tanečním variacím.',
-        image: style005, imageAlt: 'Skupina dospělých při tanečním cvičení',
-      })}
-      ${courseCard({
-        title: '<i class="accent-text">Contemporary</i>',
-        note: 'Současný tanec',
-        description: 'Contemporary propojuje prvky moderního tance, klasické techniky, práce na zemi, improvizace a přirozeného pohybu. Pracuje s dechem, těžištěm, gravitací, plynulostí, dynamikou a změnami kvality pohybu. Důležitá je individualita tanečníka, práce s emocí a schopnost vyjádřit myšlenku nebo příběh prostřednictvím pohybu.',
-        image: style006, imageAlt: 'Skupina tanečnic ve společném pohybovém cvičení',
-      })}
-      ${courseCard({
-        title: 'Mix <i class="accent-text">tanečních</i> stylů',
-        note: 'ENERGY 35+ · HARMONY 50+',
-        description: 'Lekce určené dospělým od 35 let propojují prvky klasického, moderního a jazzového tance, Port de bras, Lady Latin Dance a celkovou taneční průpravu. Výuka rozvíjí koordinaci, pohybový rozsah, držení těla, fyzickou kondici i paměť. Lekce probíhají v malé skupině a jsou vhodné i pro ty, kteří se k tanci vracejí po delší době nebo s ním začínají bez předchozích zkušeností.',
-        image: style007, imageAlt: 'Tanečnice při práci na zemi',
-      })}
-    </section>`,
+    ${split({
+      image: style003, alt: 'Tanečnice při cvičení rukou v tanečním sále',
+      script: 'Svoboda',
+      title: 'Moderní tanec',
+      body: [
+        'Moderní tanec vznikl jako reakce na přísná pravidla klasického baletu. Hledá přirozenější, svobodnější pohyb a propojení těla, dechu, emocí a prostoru.',
+        'Pracujeme na zemi, s improvizací, těžištěm, pády, spirálami i vědomým dechem. Cílem je rozvoj individuality, pohybové inteligence a schopnosti vyjádřit se pohybem.',
+      ],
+    })}
+    ${split({
+      image: style004, alt: 'Tanečnice se pohybují v sále při lekci',
+      script: 'Rytmus',
+      title: 'Jazzový tanec',
+      body: [
+        'Dynamická a výrazová technika, která propojuje rytmus, koordinaci, energii a osobitý projev.',
+        'Pracuje s izolacemi, změnami tempa, skoky a točkami. Rozvíjí muzikálnost, pohybovou přesnost, flexibilitu a schopnost reagovat na různé hudební styly.',
+      ],
+      reverse: true,
+      tone: 'section--mist',
+    })}
+    ${split({
+      image: style005, alt: 'Skupina dospělých při tanečním cvičení',
+      script: 'Základ',
+      title: 'Klasický tanec',
+      body: [
+        'Základní taneční disciplína, která rozvíjí držení těla, koordinaci, stabilitu, sílu, flexibilitu a přesnost pohybu.',
+        'Výuka vychází z principů baletní techniky a vede od základních pozic a cvičení u tyče k práci v prostoru, skokům, točkám a tanečním variacím.',
+      ],
+    })}
+    ${split({
+      image: style006, alt: 'Skupina tanečnic ve společném pohybovém cvičení',
+      script: 'Současnost',
+      title: 'Contemporary',
+      body: [
+        'Současný tanec propojuje moderní tanec, klasickou techniku, práci na zemi, improvizaci a přirozený pohyb. Pracuje s dechem, gravitací, plynulostí a změnami kvality pohybu.',
+        'Důležitá je individualita tanečníka a schopnost vyjádřit myšlenku, emoci nebo příběh prostřednictvím pohybu.',
+      ],
+      reverse: true,
+      tone: 'section--mist',
+    })}
+    ${split({
+      image: style007, alt: 'Tanečnice při práci na zemi',
+      script: 'Radost',
+      title: 'Mix tanečních stylů',
+      body: [
+        'Lekce pro dospělé od 35 let propojují prvky klasického, moderního a jazzového tance, Port de bras, Lady Latin Dance a celkovou taneční průpravu.',
+        'Rozvíjíme koordinaci, pohybový rozsah, držení těla, kondici i paměť. Malé skupiny jsou vhodné i pro ty, kdo se k tanci vracejí po delší době nebo začínají úplně od začátku.',
+      ],
+      after: '<p class="label mt-8 text-brand">Energy 35+ · Harmony 50+</p>',
+    })}
+    ${continueTo({ script: 'Osobně', label: 'Individuální výuka', href: '#/individualni-vyuka' })}`,
   },
   'individualni-vyuka': {
     title: 'Individuální výuka · Taneční centrum Monsignore',
-    html: `${pageHero({
-      kicker: 'Děti · mládež · dospělí',
-      title: 'Individuální <i class="accent-text">výuka</i>, děti, mládež, dospělí',
-      lead: 'Individuální lekce se přizpůsobují věku, zkušenostem i osobním cílům každého tanečníka.',
-      image: individual002,
-      imageAlt: 'Tanečnice pracuje individuálně na pohybovém cvičení',
-      layout: 'page-hero--reverse',
+    html: `${pageIntro({
+      script: 'Individuálně',
+      title: 'Individuální výuka',
+      lead: 'Pro děti, mládež i dospělé. Lekce přizpůsobíme věku, zkušenostem i vašim cílům.',
     })}
-    <section class="site-container page-content page-feature">
-      ${pageImage(individual003, 'Pedagožka při individuálním tanečním cvičení', 'page-feature__image')}
-      <div class="page-feature__copy">
-        ${copySection('Výuka vlastním <i class="accent-text">tempem</i>', [
-          'Zaměřit se můžete na techniku, koordinaci, výraz, choreografii nebo konkrétní taneční styl.',
-          'Výuka probíhá vlastním tempem a nabízí prostor pro rychlejší rozvoj a větší jistotu v pohybu.',
-          'Věnujeme se modernímu, jazzovému a klasickému tanci, contemporary i mixu tanečních stylů. Každý rozvíjí jinou kvalitu, společně tvoří všestranného tanečníka.',
-          'Lekce přizpůsobíme věku, zkušenostem i vašim cílům. Zaměřit se můžeme na techniku, koordinaci, výraz, choreografii nebo konkrétní taneční styl, vlastním tempem a s prostorem pro osobní rozvoj.',
-        ], 'page-copy-section--accent')}
-      </div>
-    </section>`,
+    ${split({
+      image: individual003, alt: 'Pedagožka při individuálním tanečním cvičení',
+      script: 'Tempo',
+      title: 'Výuka vlastním tempem',
+      body: [
+        'Individuální lekce nabízejí prostor pro rychlejší rozvoj a větší jistotu v pohybu.',
+        'Věnujeme se modernímu, jazzovému a klasickému tanci, contemporary i mixu stylů. Každý rozvíjí jinou kvalitu, společně tvoří všestranného tanečníka.',
+      ],
+      after: `<ul class="focus-list">${['Technika', 'Koordinace', 'Výraz', 'Choreografie', 'Konkrétní styl', 'Osobní rozvoj']
+        .map((item) => `<li>${item}</li>`).join('')}</ul>`,
+    })}
+    ${wideFigure(individual002, 'Tanečnice pracuje individuálně na pohybovém cvičení')}
+    ${continueTo({ script: 'Začněte', label: 'Domluvit lekci', href: '#kontakt' })}`,
   },
   'letni-skola': {
     title: 'Letní taneční škola · Taneční centrum Monsignore',
-    html: `${pageHero({
-      kicker: 'Taneční centrum Monsignore',
-      title: 'Letní <i class="accent-text">taneční</i> škola',
-      lead: 'Součástí vzdělávání se staly také víkendové semináře, workshopy s českými i zahraničními pedagogy a pravidelná Letní taneční škola.',
-      image: adult011,
-      imageAlt: 'Dospělí tanečníci při lekci',
-      layout: 'page-hero--reverse',
+    html: `${pageIntro({
+      script: 'Léto',
+      title: 'Letní taneční škola',
+      lead: 'Víkendové semináře, workshopy s českými i zahraničními pedagogy a pravidelná Letní taneční škola.',
     })}
-    `,
+    ${split({
+      image: adult011, alt: 'Dospělí tanečníci při lekci',
+      script: 'Intenzivně',
+      title: 'Léto plné pohybu',
+      body: [
+        'Letní taneční škola navazuje na dlouholetou tradici seminářů a workshopů, které jsou součástí vzdělávání v Monsignore.',
+        'Termíny a program dalšího ročníku připravujeme. Napište nám a dáme vám vědět, jakmile je zveřejníme.',
+      ],
+      after: '<a class="link-line mt-10" href="mailto:info@monsignore.cz?subject=Letn%C3%AD%20tane%C4%8Dn%C3%AD%20%C5%A1kola">Chci znát termíny</a>',
+    })}`,
   },
   akce: {
     title: 'Akce a workshopy · Taneční centrum Monsignore',
-    html: `${pageHero({
-      kicker: 'Akce & workshopy a tematické taneční večery',
-      title: 'Akce &amp; <i class="accent-text">Workshopy</i> a tematické taneční večery',
-      lead: 'Intenzivnější tréninky umožňují rychlejší rozvoj tanečníka.',
-      image: adult012,
-      imageAlt: 'Taneční představení na divadelním jevišti',
+    html: `${pageIntro({
+      script: 'Program',
+      title: 'Akce a workshopy',
+      lead: 'Intenzivnější tréninky, workshopy a tematické taneční večery.',
     })}
-    <section class="site-container page-content page-event">
-      <div class="page-event__date ticket-title accent-text">&amp;</div>
-      <div class="page-event__copy">
-        ${copySection('Workshopy a <i class="accent-text">tematické večery</i>', [
-          'Postupně se přechází na větší pohybovou přesnost jednotlivých oblastí těla, na souznění pohybu s hudbou, osvojování si taneční a pohybové improvizace a citlivého vnímání prostoru.',
-          'Součástí programu jsou také tematické taneční večery.',
-        ])}
+    ${split({
+      image: adult018, alt: 'Tanečnice při vystoupení na divadelním jevišti', shape: 'portrait',
+      script: 'Workshopy',
+      title: 'Workshopy a tematické večery',
+      body: [
+        'Intenzivnější tréninky umožňují rychlejší rozvoj tanečníka. Postupně se zaměřujeme na pohybovou přesnost jednotlivých částí těla, souznění pohybu s hudbou, taneční improvizaci a citlivé vnímání prostoru.',
+        'Součástí programu jsou také tematické taneční večery.',
+      ],
+    })}
+    <section class="section section--mist">
+      <div class="site-container">
+        ${sectionTitle({ script: 'Brzy', title: 'Nejbližší představení', center: true })}
+        <article class="event">
+          ${framed(adult009, 'Taneční soubor na jevišti při představení', 'landscape', 'reveal')}
+          <div class="reveal reveal-delay-1">
+            <div class="event__date" aria-label="Provizorní datum: 24. května 2027">
+              <span class="event__day" aria-hidden="true">24</span>
+              <span class="event__month" aria-hidden="true">Květen · ukázkový termín</span>
+            </div>
+            <h3 class="event__title">Závěrečné taneční představení</h3>
+            <p class="event__meta">Taneční centrum Monsignore · Pardubice<br>18:00 · místo konání bude upřesněno</p>
+            <div class="event__actions">
+              <a href="mailto:info@monsignore.cz?subject=Dotaz%20na%20vstupenky" class="btn btn--dark">Rezervovat vstupenky</a>
+            </div>
+          </div>
+        </article>
       </div>
     </section>`,
   },
   'nas-pribeh': {
     title: 'Náš příběh · Taneční centrum Monsignore',
-    html: `${pageHero({
-      kicker: 'Náš příběh',
-      title: 'Více než <i class="accent-text">tři desetiletí</i> s tancem',
-      lead: 'Příběh Tanečního centra Monsignore se začal psát již v roce 1988.',
-      image: adult009,
-      imageAlt: 'Dětský taneční soubor při vystoupení',
-      layout: 'page-hero--reverse',
+    html: `${pageIntro({
+      script: 'Příběh',
+      title: 'Více než tři desetiletí s tancem',
+      lead: 'Příběh Tanečního centra Monsignore se začal psát už v roce 1988.',
     })}
-    <section class="site-container page-content page-story">
-      ${copySection('Více než <i class="accent-text">tři desetiletí</i> s tancem', [
-        'Tehdy vznikla malá skupina osmi tanečníků, která připravovala krátká vystoupení pro kulturní a společenské akce. Z původně malého souboru se postupně stalo místo, kde se tanec začal vyučovat systematicky a kde během dalších desetiletí prošly tanečním vzděláváním stovky dětí, mladých lidí i dospělých.',
-        'V roce 1992 získala činnost jasnější podobu založením soukromého Tanečního centra Monsignore. Od počátku se zaměřovalo především na moderní, jazzový a scénický tanec a na kvalitní pohybovou a uměleckou průpravu dětí a mládeže.',
-        'Postupně vznikaly přípravné i pokročilé třídy a výuka se rozšiřovala o klasický tanec, contemporary, lyrický jazz, muzikálový tanec, improvizaci a scénickou praxi. Součástí vzdělávání se staly také víkendové semináře, workshopy s českými i zahraničními pedagogy a pravidelná Letní taneční škola.',
-      ])}
-      ${pageImage(adult014, 'Tanečnice v dramatické scéně divadelního představení', 'page-story__image')}
-      ${copySection('Z <i class="accent-text">taneční školy</i> na divadelní jeviště', [
-        'Monsignore nikdy nebylo pouze místem pravidelných tanečních lekcí. Důležitou součástí práce byla od počátku také jevištní zkušenost a vlastní taneční tvorba.',
-        'Tanečníci se představovali pardubickému publiku ve Východočeském divadle i na scénách dalších českých měst. Centrum spolupracovalo s profesionálními divadly a podílelo se na řadě kulturních a uměleckých projektů.',
-        'Mezi významné projekty patřila například spolupráce s Klicperovým divadlem v Hradci Králové, reprezentace Pardubic ve francouzském Bergeracu nebo účast na multimediálním projektu Pocta svatému Vojtěchovi připraveném při příležitosti návštěvy papeže Jana Pavla II.',
-        'Tanečníci Monsignore se úspěšně účastnili také tanečních soutěží. Centrum získalo mimo jiné titul Mistra České republiky v kategorii show dance s nominací na evropský šampionát. Řada absolventů později pokračovala v profesionálním tanci, herectví nebo taneční pedagogice.',
-      ])}
-      ${copySection('Tanec <i class="accent-text">v každém věku</i>', [
-        'Během posledních přibližně deseti let prošlo zaměření Tanečního centra Monsignore další výraznou proměnou. Vedle tradičního vzdělávání dětí a mladých tanečníků se stále více otevřelo také dospělým a starší generaci.',
-        'Vznikly kurzy pro dospělé určené začátečníkům i pokročilým a programy propojující tanec se zdravým pohybem, regenerací a aktivním odpočinkem.',
-        'Součástí této cesty je například projekt Tanec PLUS, který spojuje taneční lekce s relaxací a péčí o tělo, stejně jako fyzio-cvičení zaměřené na mobilitu, pružnost, stabilitu a prevenci pohybových obtíží.',
-      ])}
-      ${copySection('Od <i class="accent-text">taneční techniky</i> k péči o člověka', [
-        'Dalším důležitým mezníkem se stal rozvoj tanečně-pohybové terapie. Po získání odborného vzdělání v oblasti tanečně-pohybové terapie v roce 2017 začala umělecká vedoucí centra Magdalena Mauerová stále více propojovat své dlouholeté zkušenosti tanečního pedagoga a choreografa s terapeutickým působením pohybu.',
-        'Do práce centra se tak ještě výrazněji dostal individuální přístup, vědomá práce s tělem, psychická pohoda, zdravý pohyb a respekt k možnostem každého člověka.',
-      ])}
-      ${copySection('<i class="accent-text">Monsignore</i> dnes', [
-        'Dnešní Monsignore navazuje na více než třicetiletou tradici tanečního vzdělávání, ale současně se stále vyvíjí. Je místem pro mladé tanečníky, kteří chtějí své schopnosti rozvíjet na vysoké úrovni, ale také pro dospělé a seniory, kteří chtějí zůstat aktivní, pečovat o své tělo, objevovat nové možnosti pohybu a mít radost z hudby a tance.',
-        'Z původního osmičlenného tanečního souboru tak vzniklo centrum, jehož smyslem není pouze učit tančit, ale prostřednictvím pohybu rozvíjet člověka v každém období jeho života.',
-        'Tanec se může měnit spolu s námi. Radost z pohybu ale nemusí mít žádný věkový limit.',
-      ])}
-    </section>`,
+    ${timeline([
+      {
+        marker: '1988',
+        title: 'Osm tanečníků na začátku',
+        body: [
+          'Vznikla malá skupina osmi tanečníků, která připravovala krátká vystoupení pro kulturní a společenské akce. Z malého souboru se postupně stalo místo, kde se tanec začal vyučovat systematicky a kudy během dalších desetiletí prošly stovky dětí, mladých lidí i dospělých.',
+        ],
+      },
+      {
+        marker: '1992',
+        title: 'Vzniká Taneční centrum Monsignore',
+        body: [
+          'Činnost získala jasnější podobu založením soukromého Tanečního centra Monsignore. Od počátku se zaměřovalo na moderní, jazzový a scénický tanec a na kvalitní pohybovou a uměleckou průpravu dětí a mládeže.',
+          'Postupně vznikaly přípravné i pokročilé třídy a výuka se rozšířila o klasický tanec, contemporary, lyrický jazz, muzikálový tanec, improvizaci a scénickou praxi. Přibyly víkendové semináře, workshopy s českými i zahraničními pedagogy a Letní taneční škola.',
+        ],
+      },
+    ])}
+    ${wideFigure(adult014, 'Tanečnice v dramatické scéně divadelního představení')}
+    ${timeline([
+      {
+        marker: 'Jeviště',
+        title: 'Z taneční školy na divadelní jeviště',
+        body: [
+          'Monsignore nikdy nebylo jen místem pravidelných lekcí. Od počátku k němu patřila jevištní zkušenost a vlastní taneční tvorba. Tanečníci vystupovali ve Východočeském divadle i na scénách dalších českých měst.',
+          'Mezi významné projekty patřila spolupráce s Klicperovým divadlem v Hradci Králové, reprezentace Pardubic ve francouzském Bergeracu nebo multimediální projekt Pocta svatému Vojtěchovi při návštěvě papeže Jana Pavla II.',
+          'Centrum získalo mimo jiné titul Mistra České republiky v kategorii show dance s nominací na evropský šampionát. Řada absolventů pokračovala v profesionálním tanci, herectví nebo taneční pedagogice.',
+        ],
+      },
+      {
+        marker: 'Každý věk',
+        title: 'Tanec v každém věku',
+        body: [
+          'V posledních zhruba deseti letech se Monsignore stále více otevírá dospělým a starší generaci. Vznikly kurzy pro začátečníky i pokročilé a programy propojující tanec se zdravým pohybem a regenerací.',
+          'Patří sem projekt Tanec PLUS, který spojuje lekce s relaxací a péčí o tělo, i fyzio-cvičení zaměřené na mobilitu, pružnost, stabilitu a prevenci pohybových obtíží.',
+        ],
+      },
+      {
+        marker: '2017',
+        title: 'Od taneční techniky k péči o člověka',
+        body: [
+          'Po získání vzdělání v tanečně-pohybové terapii začala umělecká vedoucí Magdaléna Mauerová propojovat zkušenosti pedagožky a choreografky s terapeutickým působením pohybu. Do práce centra se ještě výrazněji dostal individuální přístup, vědomá práce s tělem a respekt k možnostem každého člověka.',
+        ],
+      },
+      {
+        marker: 'Dnes',
+        title: 'Monsignore dnes',
+        body: [
+          'Dnešní Monsignore navazuje na více než třicetiletou tradici a stále se vyvíjí. Je místem pro mladé tanečníky, kteří chtějí růst na vysoké úrovni, i pro dospělé a seniory, kteří chtějí zůstat aktivní a mít radost z hudby a tance.',
+          '<span class="text-ink">Tanec se může měnit spolu s námi. Radost z pohybu ale nemusí mít žádný věkový limit.</span>',
+        ],
+      },
+    ])}
+    ${continueTo({ script: 'Vedení', label: 'Kdo Monsignore vede', href: '#/vedeni' })}`,
   },
   vedeni: {
     title: 'Vedení · Taneční centrum Monsignore',
-    html: `${pageHero({
-      kicker: 'Umělecké vedení',
-      title: '<i class="accent-text">Magdaléna</i> Mauerová',
+    html: `${pageIntro({
+      script: 'Vedení',
+      title: 'Magdaléna Mauerová',
       lead: 'Umělecká vedoucí · choreografka · taneční pedagožka · tanečně-pohybová terapeutka',
-      image: individual001,
-      imageAlt: 'Tanečnice při individuální práci v tanečním sále',
-      layout: 'page-hero--reverse',
     })}
-    <section class="site-container page-content page-story">
-      ${copySection('Více než 30 let <i class="accent-text">propojuje</i> tanec, pedagogiku a práci s tělem', [
-        'Zakladatelka TC Monsignore věří, že tanec může člověka rozvíjet v každém věku.',
-        'Magdaléna Mauerová se více než třicet let věnuje taneční pedagogice, choreografii a práci s lidmi prostřednictvím pohybu. Je zakladatelkou a uměleckou vedoucí Tanečního centra Monsignore, které založila v roce 1992.',
-        'Její profesní cesta začala společenským tancem, ve kterém dosáhla výkonnostní třídy A. Postupně se začala věnovat klasickému, jazzovému a modernímu tanci. Baletní průpravu získávala u pedagogů Bulgakovové a Voroncovové z Petrohradu, Jazz dance studovala u Rastislava Letenaje, Limón techniku ve Vídni u mezinárodně uznávaného tanečníka a pedagoga Joea Alegada a Modern dance u Bruce Taylora.',
-      ])}
-      ${copySection('Pedagogika <i class="accent-text">jako celoživotní</i> cesta', [
-        'Od 90. let působila jako profesionální tanečnice, choreografka a pedagožka. Vyučovala také na konzervatoři v Hradci Králové a dlouhodobě spolupracovala s profesionálními divadly.',
-        'V Klicperově divadle v Hradci Králové působila jako tanečnice, herečka i choreografka. Několik let spolupracovala rovněž s Východočeským divadlem v Pardubicích, kde se věnovala choreografii a pohybové přípravě herců a tanečníků.',
-        'Během desítek let práce v TC Monsignore vychovala několik generací dětí a mladých lidí, z nichž řada pokračovala v profesionálním tanci, herectví nebo se sama začala věnovat taneční pedagogice.',
-        'Její pedagogická práce byla vždy založena na propojení kvalitní taneční techniky s muzikálností, výrazem a osobností tanečníka. Důležitější než samotný výkon je pro ni však člověk, který tančí.',
-      ])}
-      ${copySection('<i class="accent-text">Inspirace</i> ze zahraničí', [
-        'V letech 2012–2013 působila v australském Perthu, kde vyučovala v tanečních školách Vogue Performers a Dynamic Perth’s Performing Arts Specialists moderní tanec, jazz dance a contemporary a zároveň čerpala inspiraci z tamního tanečního prostředí.',
-        'Zahraniční zkušenosti ještě více posílily její zájem o přirozený pohyb, individualitu tanečníka a o hledání cest, jak může tanec člověka provázet v různých obdobích života.',
-      ])}
-      ${copySection('Tanec jako cesta <i class="accent-text">k tělu</i> i psychické rovnováze', [
-        'Postupně se její profesní zájem začal rozšiřovat od taneční pedagogiky také směrem k terapeutickému využití pohybu.',
-        'V roce 2014 absolvovala Mezinárodní konferenci uměleckých terapií ARS TERAPEUTICA, kde se věnovala arteterapii, muzikoterapii, dramaterapii a tanečně-pohybové terapii. V roce 2017 získala diplom v oboru tanečně-pohybové terapie, garantovaný Mezinárodní asociací uměleckých terapií MAUT a Českou hudební společností – Společností pro hudební terapii.',
-        'Ve své práci s tanečníky klade důraz na individuální možnosti každého člověka, zdravý pohyb, mobilitu, vnímání vlastního těla, psychickou pohodu a radost z pohybu.',
-      ])}
-    </section>`,
+    ${split({
+      image: individual001, alt: 'Tanečnice při individuální práci v tanečním sále',
+      script: 'Zakladatelka',
+      title: 'Třicet let tance, pedagogiky a práce s tělem',
+      body: [
+        'Magdaléna Mauerová založila Taneční centrum Monsignore v roce 1992 a dodnes je jeho uměleckou vedoucí. Věří, že tanec může člověka rozvíjet v každém věku.',
+        'Začínala společenským tancem, ve kterém dosáhla výkonnostní třídy A. Baletní průpravu získala u pedagožek Bulgakovové a Voroncovové z Petrohradu, Jazz dance studovala u Rastislava Letenaje, Limón techniku ve Vídni u Joea Alegada a Modern dance u Bruce Taylora.',
+      ],
+    })}
+    ${timeline([
+      {
+        marker: '90. léta',
+        title: 'Pedagogika jako celoživotní cesta',
+        body: [
+          'Působila jako profesionální tanečnice, choreografka a pedagožka, vyučovala na konzervatoři v Hradci Králové. V Klicperově divadle byla tanečnicí, herečkou i choreografkou a několik let spolupracovala s Východočeským divadlem v Pardubicích.',
+          'Vychovala několik generací tanečníků, z nichž řada pokračovala v profesionálním tanci, herectví nebo pedagogice. Důležitější než samotný výkon je pro ni vždy člověk, který tančí.',
+        ],
+      },
+      {
+        marker: '2012',
+        title: 'Inspirace ze zahraničí',
+        body: [
+          'V letech 2012–2013 vyučovala v australském Perthu moderní tanec, jazz dance a contemporary ve školách Vogue Performers a Dynamic Perth’s Performing Arts Specialists. Zkušenost posílila její zájem o přirozený pohyb a individualitu tanečníka.',
+        ],
+      },
+      {
+        marker: '2017',
+        title: 'Tanec jako cesta k tělu i psychické rovnováze',
+        body: [
+          'Po Mezinárodní konferenci uměleckých terapií ARS TERAPEUTICA (2014) získala v roce 2017 diplom v oboru tanečně-pohybové terapie, garantovaný asociací MAUT a Společností pro hudební terapii.',
+          'Ve své práci klade důraz na individuální možnosti každého člověka, zdravý pohyb, vnímání vlastního těla, psychickou pohodu a radost z pohybu.',
+        ],
+      },
+    ])}
+    ${continueTo({ script: 'Příběh', label: 'Přečtěte si náš příběh', href: '#/nas-pribeh' })}`,
   },
 };
 
