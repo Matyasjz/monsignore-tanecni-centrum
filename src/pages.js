@@ -1,7 +1,5 @@
-import adult007 from '../assets/adult-007.jpg';
 import adult008 from '../assets/adult-008.jpg';
 import adult009 from '../assets/adult-009.jpg';
-import adult010 from '../assets/adult-010.jpg';
 import adult011 from '../assets/adult-011.jpg';
 import adult012 from '../assets/adult-012.jpg';
 import adult014 from '../assets/adult-014.jpg';
@@ -53,7 +51,7 @@ const pages = {
       kicker: 'Taneční centrum Monsignore',
       title: 'Místo, kde se technika setkává s <i class="accent-text">osobností tanečníka</i>',
       lead: 'Umělecké taneční centrum zaměřené na klasický, moderní a jazzový tanec.',
-      image: adult007,
+      image: adult018,
       imageAlt: 'Tanečnice při vystoupení na divadelním jevišti',
       layout: 'page-hero--reverse',
     })}
@@ -87,13 +85,12 @@ const pages = {
         ], 'page-about__principle page-copy-section--accent')}
       </div>
     </section>
-    <section class="bg-ink text-paper page-dark-band">
-      <div class="site-container page-dark-band__inner">
-        ${pageImage(adult010, 'Tanečníci při skupinové jevištní choreografii', 'page-dark-band__image')}
-        <div>${copySection('Tanec jako <i class="accent-text">umění</i>', [
+    <section class="page-light-band">
+      <div class="site-container page-light-band__inner">
+        ${copySection('Tanec jako <i class="accent-text">umění</i>', [
           'Tanec pro nás nekončí správně provedeným pohybem. Učíme tanečníky vnímat hudbu, rytmus, dynamiku, prostor i partnera. Vedeme je k tomu, aby dokázali pohybu dát význam, náladu a vlastní osobní projev.',
           'Technika je prostředkem. Umělecký projev je tím, co dává tanci život.',
-        ], 'page-copy-section--accent')}</div>
+        ])}
       </div>
     </section>
     <section class="site-container page-content page-about__closing">
@@ -106,7 +103,6 @@ const pages = {
           'Součástí výuky je také improvizace a kreativní práce. Tanečník se učí nejen přijímat pohyb od pedagoga, ale také hledat vlastní řešení, reagovat na hudbu, prostor, téma nebo emoci a postupně objevovat svůj vlastní pohybový rukopis.',
         ], 'page-copy-section--accent')}
       </div>
-      ${pageImage(adult018, 'Tanečníci společně zkoušejí zvedačku', 'page-about__closing-image')}
     </section>`,
   },
   kurzy: {
