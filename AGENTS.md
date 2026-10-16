@@ -92,6 +92,17 @@ Současné fotky mají nejvýš 1024 px a jde o různorodé, sytě barevné jevi
 
 **Značka:** logo ve vektoru (SVG), pokud existuje (jinak zůstává nápis „Monsignore“ v Allura), favicon a obrázek pro sdílení 1200×630.
 
+## Budoucí migrace do vlastního WYSIWYG editoru
+
+Podstránky dnes nejsou samostatné HTML soubory. Jsou to pohledy vykreslované přes hash routing (`#/kurzy`) z `src/pages.js`. Je to **dočasné řešení**. Web se později převede do našeho vlastního WYSIWYG editoru, kde každý blok bude samostatná komponenta. Na samostatné stránky ve Vite ho proto nepřeváděj.
+
+Aby migrace šla hladce:
+
+- Každý blok drž jako **samostatnou komponentu s daty na vstupu**. Šablonové funkce v `pages.js` (`pageIntro`, `split`, `sectionTitle`, `timeline`, `wideFigure`, `continueTo`, `framed`) už odpovídají budoucím komponentám a jejich parametry (`script`, `title`, `lead`, `body`, `image`, `alt`, `reverse`, `tone`…) budou jejich editovatelná pole.
+- Bloky úvodní stránky v `index.html` (`hero`, `gallery`, `stats-band`, `quotes`, `event`, `founder`, `cta`) mají stejnou strukturu a stejné třídy. Při migraci se z nich stanou komponenty stejným způsobem.
+- Vzhled patří do tříd v `style.css`, ne do inline stylů. Komponenta v editoru pak jen skládá třídy a data.
+- Do bloků nepiš logiku závislou na routingu. JS chování (`.reveal`, rotace citátů, menu) se při migraci napojí na komponenty zvlášť.
+
 ## Plánovaná rozšíření
 
 1. **Týdenní rozvrh** (den × čas × kurz, filtr podle stylu). Typický blok Arabesque, na webu nejvíc chybí.
