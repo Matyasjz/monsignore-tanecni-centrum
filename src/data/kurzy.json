@@ -1,0 +1,256 @@
+{
+  "overview": {
+    "title": "TANČETE S NÁMI",
+    "cards": [
+      "mladez-a-dospeli",
+      "energy-harmony",
+      "vitadance"
+    ],
+    "cardCta": "Více informací",
+    "individual": {
+      "title": "INDIVIDUÁLNÍ VÝUKA",
+      "body": [
+        "Individuální lekce se přizpůsobují věku, zkušenostem i osobním cílům každého tanečníka. Zaměřit se můžete na techniku, koordinaci, výraz, choreografii nebo konkrétní taneční styl."
+      ],
+      "cta": {
+        "label": "Více informací",
+        "href": "#/kurzy/individualni-vyuka"
+      },
+      "image": {
+        "key": "individualni-vyuka/zrcadlo",
+        "alt": "Tanečnice v černém trénuje u baletní tyče před zrcadlem"
+      }
+    },
+    "schedule": {
+      "title": "ROZVRH, CENÍK",
+      "text": "Přihlásit se můžete e-mailem: info@monsignore.cz nebo po telefonu: 775765556. Po přihlášení vám zašleme platební údaje.",
+      "cta": {
+        "label": "Zobrazit rozvrh",
+        "href": "#/kurzy/rozvrh-a-cenik"
+      }
+    }
+  },
+  "courses": {
+    "mladez-a-dospeli": {
+      "title": "KURZY PRO MLÁDEŽ A DOSPĚLÉ",
+      "age": "Věk 16+",
+      "image": {
+        "key": "kurzy/mladez-a-dospeli",
+        "alt": "Pět tanečnic se zdviženýma rukama uprostřed tanečního sálu"
+      },
+      "card": {
+        "title": "PRO MLÁDEŽ A DOSPĚLÉ",
+        "subtitle": "Kombinace tanečních technik",
+        "text": "Výuka je zaměřená na komplexní taneční průpravu a propojuje několik tanečních technik: klasiku, modernu, jazz, contemporary, mix tanečních stylů"
+      },
+      "sections": [
+        {
+          "heading": "TANEČNÍ PRŮPRAVA - KOMBINACE TANEČNÍCH TECHNIK",
+          "paragraphs": [
+            "Výuka je zaměřená na komplexní taneční průpravu a propojuje několik tanečních technik: <strong>Klasiku, Modernu, Jazz, Contemporary, Mix tanečních stylů.</strong>",
+            "Jednotlivé techniky se během lekcí vzájemně doplňují a pomáhají rozvíjet správné držení těla, koordinaci, sílu, flexibilitu, práci s prostorem, dynamiku pohybu i taneční výraz."
+          ]
+        }
+      ],
+      "topics": [
+        {
+          "heading": "MODERNÍ TANEC",
+          "paragraphs": [
+            "Moderní tanec vznikl jako reakce na přísná pravidla klasického baletu. Hledá přirozenější, svobodnější pohyb a větší propojení těla, dechu, emocí a prostoru.",
+            "Mezi hlavní techniky patří například <strong>Graham</strong>, která pracuje s principem contraction and release, <strong>Limón</strong>, založená na dechu, váze těla a práci s gravitací, <strong>Cunningham</strong>, která zdůrazňuje čistotu pohybu, koordinaci a nezávislost pohybu na hudbě, a také <strong>Horton</strong>, zaměřená na sílu, stabilitu, flexibilitu a výrazné prostorové linie."
+          ],
+          "more": [
+            "Současná výuka moderního tance často jednotlivé techniky propojuje s <strong>floor workem, improvizací, prací s těžištěm, pády, spirálami, změnami dynamiky a vědomou prací s dechem</strong>. Cílem není pouze zvládnutí techniky, ale také rozvoj individuality, pohybové inteligence a schopnosti vyjádřit se pohybem."
+          ]
+        },
+        {
+          "heading": "JAZZOVÝ TANEC",
+          "paragraphs": [
+            "Jazzový tanec je dynamická a výrazová taneční technika, která propojuje rytmus, koordinaci, energii a osobitý pohybový projev."
+          ],
+          "more": [
+            "Pracuje s izolacemi jednotlivých částí těla, dynamikou, změnami tempa, skoky, točkami i výrazem. Rozvíjí muzikálnost, pohybovou přesnost, flexibilitu a schopnost tanečníka reagovat na různé hudební styly."
+          ]
+        },
+        {
+          "heading": "KLASICKÝ TANEC",
+          "paragraphs": [
+            "Klasický tanec je základní taneční disciplínou, která rozvíjí správné držení těla, koordinaci, stabilitu, sílu, flexibilitu a přesnost pohybu."
+          ],
+          "more": [
+            "Výuka vychází z principů baletní techniky a postupně vede tanečníka od základních pozic a cvičení u tyče až k práci v prostoru, skokům, točkám a tanečním variacím. Klasická technika vytváří pevný základ pro další taneční styly."
+          ]
+        },
+        {
+          "heading": "CONTEMPORARY",
+          "paragraphs": [
+            "Contemporary je současný taneční styl, který propojuje prvky moderního tance, klasické techniky, floor worku, improvizace a přirozeného pohybu. Pracuje s dechem, těžištěm, gravitací, plynulostí, dynamikou a změnami kvality pohybu."
+          ],
+          "more": [
+            "Důležitou součástí je také individualita tanečníka, práce s emocí a schopnost vyjádřit myšlenku nebo příběh prostřednictvím pohybu."
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "label": "Mládež 16+, všechny úrovně vítány",
+          "lesson": "mladez"
+        },
+        {
+          "label": "Dospělí 18+, všechny úrovně vítány",
+          "lesson": "dospeli"
+        }
+      ],
+      "registration": {
+        "lesson": "mladez"
+      }
+    },
+    "energy-harmony": {
+      "title": "MIX TANEČNÍCH STYLŮ",
+      "age": "Energy 35+ / Harmony 50+",
+      "image": {
+        "key": "kurzy/energy-harmony",
+        "alt": "Tanečnice v pohybu ve světlém sále s velkými okny do zahrady"
+      },
+      "card": {
+        "title": "MIX TANEČNÍCH STYLŮ",
+        "subtitle": "Energy 35+ / Harmony 50+",
+        "text": "Taneční kurz pro ženy, které si chtějí užít pohyb, hudbu a různé taneční styly"
+      },
+      "sections": [
+        {
+          "heading": "MIX Dance - ENERGY (věk 35+ ) – energie, styly, choreografie (90 minut)",
+          "paragraphs": [
+            "Dynamická taneční lekce pro ženy, které mají chuť se hýbat, zatančit si a načerpat energii.",
+            "Lekce je svižnější, pestřejší a více zaměřená na rytmus, koordinaci, taneční kombinace a radost z pohybu. Propojuje prvky různých tanečních stylů a pracuje s hudbou, která vás vtáhne do pohybu.",
+            "<strong>Energy 35+ je vhodná pro ženy, které hledají aktivnější tempo a chtějí si při tanci opravdu „dobít baterky“.</strong>"
+          ],
+          "image": {
+            "key": "kurzy/energy",
+            "alt": "Tanečnice v černém ve společném záklonu s rozpaženýma rukama"
+          }
+        },
+        {
+          "heading": "MIX Dance – HARMONY (věk 50+ ) – tanec, kondice, radost (90 minut)",
+          "paragraphs": [
+            "Taneční lekce pro ženy, které chtějí zůstat v pohybu, tančit s radostí a zároveň respektovat své tělo.",
+            "Tempo je o něco klidnější a lekce dává více prostoru na správné provedení pohybu, koordinaci, držení těla, vnímání hudby a příjemný taneční prožitek. Stále se tančí a pracuje s různými styly, ale s větším důrazem na plynulost a pohodu.",
+            "<strong>Harmony 50+ je vhodná pro ženy, které chtějí tančit v příjemném tempu, cítit se dobře a odcházet z lekce s pocitem lehkosti a harmonie.</strong>"
+          ],
+          "image": {
+            "key": "kurzy/harmony",
+            "alt": "Tanečnice protahují nohy na baletní tyči před zrcadlem"
+          }
+        },
+        {
+          "more": [
+            "Lekce propojují prvky klasického, moderního a jazzového tance, Port de bras, Lady Latin Dance a celkovou taneční průpravu.",
+            "Výuka rozvíjí koordinaci, pohybový rozsah, držení těla, fyzickou kondici i paměť. Přirozený a plynulý pohyb v doprovodu hudby zároveň aktivuje hluboký svalový systém, pomáhá uvolnit napětí a podporuje celkovou psychickou pohodu.",
+            "Lekce probíhají v malé skupině a jsou vhodné i pro ty, kteří se k tanci vracejí po delší době nebo s ním začínají bez předchozích zkušeností."
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "label": "Dospělí od 35 let - všechny úrovně vítány",
+          "lesson": "energy"
+        },
+        {
+          "label": "Dospělí od 50 let - všechny úrovně vítány",
+          "lesson": "harmony"
+        }
+      ],
+      "registration": {
+        "lesson": "energy"
+      }
+    },
+    "vitadance": {
+      "title": "VITADANCE - RADOST Z TANCE V KAŽDÉM VĚKU",
+      "age": "Věk 65+",
+      "accent": "Pohyb – rovnováha – paměť – radost – vitalita",
+      "image": {
+        "key": "kurzy/vitadance",
+        "alt": "Tanečnice se šedými vlasy sedí na podlaze sálu s rozpaženýma rukama"
+      },
+      "card": {
+        "title": "TANEC PRO SENIORY",
+        "subtitle": "VitaDance 65+",
+        "text": "Lekce se zaměřují na mobilitu, koordinaci, rovnováhu a celkovou vitalitu"
+      },
+      "sections": [
+        {
+          "paragraphs": [
+            "Tanec může být krásnou cestou, jak si i ve vyšším věku udržet pohyblivost, vitalitu, dobrou náladu, a radost z vlastního těla.",
+            "Kurz je zaměřený na zdravé a aktivní stárnutí a je určen především lidem ve vyšším věku, kteří chtějí zůstat co nejdéle v pohybu, podpořit svoji kondici a zároveň si užít hudbu, tanec a příjemné setkávání s ostatními."
+          ],
+          "more": [
+            "Lekce jsou přizpůsobené možnostem každého účastníka, což každému umožňuje tančit vlastním tempem. Pomáhají rozvíjet mobilitu, rovnováhu, koordinaci a paměť.",
+            "Tanec tak může být nejen příjemnou volnočasovou aktivitou, ale také součástí prevence a podpory fyzického i psychického zdraví."
+          ],
+          "image": {
+            "key": "kurzy/vitadance-ruce",
+            "alt": "Detail rukou tanečnice při lekci v tanečním sále"
+          }
+        }
+      ],
+      "groups": [
+        {
+          "label": "Senioři od 65 let - všechny úrovně vítány",
+          "lesson": "vitadance"
+        }
+      ],
+      "registration": {
+        "lesson": "vitadance",
+        "contact": "<a href=\"mailto:info@monsignore.cz\">info@monsignore.cz</a> nebo telefón: <a href=\"tel:+420775765556\">775765556</a>"
+      }
+    },
+    "individualni-vyuka": {
+      "title": "INDIVIDUÁLNÍ VÝUKA PRO MLÁDEŽ A DOSPĚLÉ",
+      "age": "Věk 16+",
+      "image": {
+        "key": "individualni-vyuka/lekce",
+        "alt": "Pedagožka opravuje tanečnici u baletní tyče"
+      },
+      "sections": [
+        {
+          "paragraphs": [
+            "Individuální lekce se přizpůsobují věku, zkušenostem i osobním cílům každého tanečníka. Zaměřit se můžete na techniku, koordinaci, výraz, choreografii nebo konkrétní taneční styl.",
+            "Výuka probíhá vlastním tempem a nabízí prostor pro rychlejší rozvoj a větší jistotu v pohybu."
+          ],
+          "image": {
+            "key": "individualni-vyuka/sal",
+            "alt": "Pedagožka a tanečnice při protahování na podložkách v sále"
+          }
+        },
+        {
+          "heading": "Cena individuální lekce",
+          "more": [
+            "Cena individuální lekce se odvíjí od konkrétních potřeb a požadavků tanečníka, délky lekcí a jejich četnosti.",
+            "Každá spolupráce je proto nastavena individuálně tak, aby co nejlépe odpovídala vašim cílům a možnostem.",
+            "Pro více informací a stanovení konkrétní ceny nás prosím kontaktujte. Společně s tanečním pedagogem domluvíte obsah, rozsah i frekvenci lekcí a vytvoříte program na míru."
+          ]
+        }
+      ]
+    }
+  },
+  "schedulePage": {
+    "title": "ROZVRH, CENÍK",
+    "intro": "Přihlásit se můžete e-mailem: <a href=\"mailto:info@monsignore.cz\">info@monsignore.cz</a> nebo po telefonu: <a href=\"tel:+420775765556\">775765556</a>. Po přihlášení vám zašleme platební údaje.",
+    "payment": "Platba: pololetně, dle počtu lekcí v daném pololetí x cena za lekci",
+    "columns": [
+      "Den",
+      "Čas",
+      "Kurz / skupina",
+      "Délka lekce",
+      "Cena/lekce"
+    ],
+    "individual": {
+      "heading": "Cena Individuální lekce",
+      "paragraphs": [
+        "Cena individuální lekce se odvíjí od konkrétních potřeb a požadavků tanečníka, délky lekcí a jejich četnosti.",
+        "Každá spolupráce je proto nastavena individuálně tak, aby co nejlépe odpovídala vašim cílům a možnostem.",
+        "Pro více informací a stanovení konkrétní ceny nás prosím kontaktujte. Společně s tanečním pedagogem domluvíte obsah, rozsah i frekvenci lekcí a vytvoříte program na míru."
+      ]
+    }
+  }
+}

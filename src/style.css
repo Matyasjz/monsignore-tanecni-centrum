@@ -234,12 +234,70 @@
   .story { @apply relative pb-24 md:pb-36; padding-top: clamp(12rem, 26vw, 22rem); }
   .story__backdrop { @apply absolute inset-x-0 top-0 bottom-[13rem] overflow-hidden bg-dark md:bottom-[19rem]; }
   .story__backdrop .photo { @apply absolute inset-x-0; top: -12%; height: 124%; transition: none; }
-  /* Vzor oblouků (odkazuje na oblouky v logu), bílá na barvě světa */
-  .story__panel { @apply relative mx-5 bg-secondary px-6 py-16 text-center md:mx-10 md:px-16 md:py-24 lg:mx-auto lg:max-w-[64rem]; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='84' fill='none' stroke='white' stroke-opacity='.55'%3E%3Ccircle r='42'/%3E%3Ccircle cx='84' r='42'/%3E%3Ccircle cy='84' r='42'/%3E%3Ccircle cx='84' cy='84' r='42'/%3E%3Ccircle cx='42' cy='42' r='42'/%3E%3C/svg%3E"); background-size: 84px 84px; }
-  .story__accent { @apply accent block text-[clamp(2.4rem,5vw,3.8rem)] text-primary-dark; }
-  .story__title { @apply -mt-3 text-[clamp(1.55rem,3.2vw,2.45rem)]; }
-  .story__text { @apply text-base text-ink md:text-[17px]; }
+  .story__panel { @apply relative mx-5 md:mx-10 lg:mx-auto lg:max-w-[64rem]; }
+
+  /* Pudrový panel se vzorem oblouků (odkazuje na oblouky v logu), bílá na barvě světa */
+  .pattern-panel { @apply bg-secondary px-6 py-16 text-center md:px-16 md:py-24; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='84' fill='none' stroke='white' stroke-opacity='.55'%3E%3Ccircle r='42'/%3E%3Ccircle cx='84' r='42'/%3E%3Ccircle cy='84' r='42'/%3E%3Ccircle cx='84' cy='84' r='42'/%3E%3Ccircle cx='42' cy='42' r='42'/%3E%3C/svg%3E"); background-size: 84px 84px; }
+  .pattern-panel__accent { @apply accent block text-[clamp(2.4rem,5vw,3.8rem)] text-primary-dark; }
+  .pattern-panel__title { @apply -mt-3 text-[clamp(1.55rem,3.2vw,2.45rem)]; }
+  .pattern-panel__text { @apply mx-auto max-w-xl text-base text-ink md:text-[17px]; }
+  .pattern-panel__text a { @apply underline decoration-1 underline-offset-4; }
   .rule { @apply mx-auto my-8 block h-px w-20 bg-ink/50; }
+
+  /* Tančete s námi: karty kurzů, prostřední posunutá dolů */
+  .course-cards { @apply site-container grid gap-16 md:grid-cols-3 md:gap-8 lg:gap-12; }
+  .course-card:nth-child(2) { @apply md:mt-20; }
+  .course-card__media { @apply relative block aspect-[4/5] overflow-hidden bg-secondary-soft; }
+  .course-card__media .photo { transform: scale(1.06); }
+  .course-card:hover .course-card__media .photo, .course-card:focus-within .course-card__media .photo { transform: scale(1.06) translate3d(3%,0,0); }
+  .course-card__title { @apply mt-8 text-[clamp(1.2rem,1.9vw,1.5rem)] leading-tight; }
+  .course-card__subtitle { @apply mt-3 text-[11px] font-medium uppercase tracking-label text-primary; }
+  .course-card__text { @apply mt-4 text-[15px] leading-[1.85]; }
+  .course-card__link { @apply mt-6; }
+
+  /* Detail kurzu */
+  .course-hero { @apply bg-surface py-16 md:py-24; }
+  .course-hero__grid { @apply grid items-center gap-12 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] md:gap-16 lg:gap-24; }
+  .course-hero__back { @apply text-[11px] font-medium uppercase tracking-label text-muted transition-colors duration-200 hover:text-primary; }
+  .course-hero__back::before { content: '← '; }
+  .course-hero__age { @apply mt-10 text-[11px] font-medium uppercase tracking-label text-primary; }
+  .course-hero__title { @apply mt-3 text-[clamp(1.8rem,4vw,3rem)] leading-[1.12]; }
+  .course-hero__accent { @apply accent mt-4 block text-[clamp(1.9rem,3.6vw,2.8rem)] text-primary; }
+  .course-hero__media { @apply mx-auto w-full max-w-[30rem]; }
+  .course-section__heading { @apply mb-7 text-[clamp(1.15rem,2vw,1.45rem)] leading-snug; }
+  /* Samostatná rozbalovací část společná pro víc kurzů (Energy a Harmony) */
+  .course-section--more { @apply border-t border-line pt-4 md:max-w-[50%]; }
+  .topics { @apply grid gap-x-16 gap-y-14 md:grid-cols-2 md:gap-y-20; }
+  .topic { @apply border-t border-line pt-10; }
+
+  /* Rozbalovací „Zjistit více“ */
+  .more { @apply mt-7; }
+  .more__toggle { @apply inline-flex min-h-[44px] cursor-pointer list-none items-center text-[12px] font-medium uppercase tracking-[.18em] text-ink transition-colors duration-200 hover:text-primary; }
+  .more__toggle::-webkit-details-marker { display: none; }
+  .more[open] > .more__toggle { @apply text-primary; }
+  .more[open] > summary .nav-indicator::after { opacity: 0; transform: translate(-50%,-50%) rotate(90deg) scaleX(0); }
+  .more__body { @apply mt-4; }
+  .more[open] > .more__body { animation: more-open .5s cubic-bezier(.2,.7,.2,1) both; }
+
+  /* Praktické informace a registrace */
+  .practical { @apply grid gap-6 md:grid-cols-[repeat(auto-fit,minmax(17rem,1fr))]; }
+  .info-card { @apply flex flex-col bg-page px-7 py-9 md:px-9 md:py-11; }
+  .info-card--accent { @apply bg-secondary; }
+  .info-card__title { @apply text-[15px] leading-snug md:text-[17px]; }
+  .info-list { @apply mt-7 grid gap-4 text-[15px] leading-[1.7]; }
+  .info-list dt { @apply text-[11px] font-medium uppercase tracking-label text-primary-dark; }
+  .info-list dd { @apply m-0 text-ink; }
+  .info-list a { @apply underline decoration-1 underline-offset-4 hover:text-primary; }
+  .info-card__note { @apply mt-auto pt-7 text-[14px]; }
+  .info-card .btn { @apply self-start; }
+
+  /* Rozvrh: tabulka, na mobilu karty (žádný horizontální scroll) */
+  .schedule { @apply w-full border-collapse text-left text-[15px]; }
+  .schedule thead th { @apply border-b border-ink/70 pb-4 text-[11px] font-medium uppercase tracking-label text-muted; }
+  .schedule tbody td, .schedule tbody th { @apply border-b border-line py-5 pr-6 align-top font-normal text-ink; }
+  .schedule tbody th a { @apply transition-colors duration-200 hover:text-primary; }
+  .schedule tbody td:first-child { @apply text-[11px] font-medium uppercase tracking-label text-primary; }
+  .schedule__note { @apply mt-8 text-[15px] font-medium text-ink; }
 
   /* Footer: nízký, dva řádky přes šířku webu */
   .site-footer { @apply bg-dark text-page/65; --c-logo: var(--c-secondary); }
@@ -258,6 +316,7 @@
   .page-intro__inner { @apply site-container--read text-center; }
   .page-intro__title { @apply relative text-[clamp(1.9rem,4.4vw,3.2rem)] leading-[1.15]; }
   .page-intro__lead { @apply mx-auto mt-7 max-w-xl text-base leading-[1.9] md:text-[17px]; }
+  .page-intro__lead a { @apply text-ink underline decoration-1 underline-offset-4 hover:text-primary; }
   .wide-figure { @apply site-container--wide; }
   .wide-figure__inner { @apply relative aspect-[16/7] overflow-hidden bg-secondary-soft; }
 
@@ -292,8 +351,19 @@
   .reveal-delay-3 { transition-delay: .36s; }
 }
 
+@keyframes more-open { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes hero-progress { from { transform: translate(-50%,-50%) scaleX(0); } to { transform: translate(-50%,-50%) scaleX(1); } }
 @keyframes hero-rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 767px) {
+  .schedule thead { @apply sr-only; }
+  .schedule, .schedule tbody, .schedule tr, .schedule td, .schedule tbody th { @apply block; }
+  .schedule tr { @apply mb-4 grid grid-cols-2 gap-x-4 gap-y-3 bg-surface px-6 py-6; }
+  .schedule tbody td, .schedule tbody th { @apply border-0 p-0; }
+  .schedule tbody th { @apply col-span-2 order-first text-[17px]; }
+  .schedule tbody td::before { @apply block text-[10px] font-medium uppercase tracking-label text-muted; content: attr(data-label); }
+  .schedule tbody td:first-child::before { @apply text-muted; }
+}
 
 @media (min-width: 1024px) {
   .site-nav .nav-dropdown { position: relative; }

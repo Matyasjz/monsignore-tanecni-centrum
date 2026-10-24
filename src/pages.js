@@ -2,8 +2,13 @@ import home from './data/home.json';
 import { hero } from './blocks/hero.js';
 import { squares } from './blocks/squares.js';
 import { story } from './blocks/story.js';
+import kurzy from './data/kurzy.json';
 import {
-  continueTo, framed, pageIntro, paragraphs, sectionTitle, split, timeline, wideFigure,
+  courseCards, courseHero, courseSections, courseSignup, courseTopics, practicalInfo,
+} from './blocks/courses.js';
+import { scheduleTable } from './blocks/schedule.js';
+import {
+  continueTo, framed, pageIntro, paragraphs, patternPanel, sectionTitle, split, timeline, wideFigure,
 } from './blocks/layout.js';
 import adult009 from '../assets/adult-009.jpg';
 import adult011 from '../assets/adult-011.jpg';
@@ -11,13 +16,65 @@ import adult012 from '../assets/adult-012.jpg';
 import adult014 from '../assets/adult-014.jpg';
 import adult018 from '../assets/adult-018.jpg';
 import individual001 from '../assets/individualni-vyuka-001.jpg';
-import individual002 from '../assets/individualni-vyuka-002.jpg';
-import individual003 from '../assets/individualni-vyuka-003.jpg';
-import style003 from '../assets/new-therapy-dance-style-003.jpg';
-import style004 from '../assets/new-therapy-dance-style-004.jpg';
-import style005 from '../assets/new-therapy-dance-style-005.jpg';
-import style006 from '../assets/new-therapy-dance-style-006.jpg';
-import style007 from '../assets/new-therapy-dance-style-007.jpg';
+
+const pageTitle = (title) => `${title.charAt(0)}${title.slice(1).toLowerCase()} · Taneční centrum Monsignore`;
+const plain = (html) => html.replace(/<[^>]+>/g, '');
+
+// Tančete s námi (brief 3.2): přehled, detaily kurzů podle jednotné šablony a rozvrh
+function coursePages() {
+  const { overview, courses, schedulePage } = kurzy;
+  const withSlug = (slug) => ({ slug, ...courses[slug] });
+  const pages = {
+    kurzy: {
+      title: pageTitle(overview.title),
+      world: 'centrum',
+      html: `${pageIntro({ title: overview.title })}
+      ${courseCards(overview.cards.map(withSlug), overview.cardCta)}
+      ${split({
+        image: overview.individual.image,
+        title: overview.individual.title,
+        body: overview.individual.body,
+        after: `<a class="link-line mt-10" href="${overview.individual.cta.href}">${overview.individual.cta.label}</a>`,
+        reverse: true,
+        tone: 'pt-0 md:pt-0',
+      })}
+      <section class="section pt-0 md:pt-0">
+        <div class="site-container">${patternPanel(overview.schedule)}</div>
+      </section>`,
+    },
+    'kurzy/rozvrh-a-cenik': {
+      title: pageTitle(schedulePage.title),
+      description: plain(schedulePage.intro),
+      world: 'centrum',
+      html: `${pageIntro({ title: schedulePage.title, lead: schedulePage.intro })}
+      <section class="section">
+        <div class="site-container reveal">
+          ${scheduleTable(schedulePage.columns)}
+          <p class="schedule__note">${schedulePage.payment}</p>
+        </div>
+      </section>
+      <section class="section section--surface">
+        <div class="site-container--read reveal">
+          <h2 class="course-section__heading">${schedulePage.individual.heading}</h2>
+          <div class="prose-copy">${paragraphs(schedulePage.individual.paragraphs)}</div>
+        </div>
+      </section>`,
+    },
+  };
+  Object.keys(courses).forEach((slug) => {
+    const course = withSlug(slug);
+    pages[`kurzy/${slug}`] = {
+      title: pageTitle(course.card?.title ?? course.title),
+      description: plain(course.card?.text ?? course.sections[0].paragraphs[0]),
+      world: 'centrum',
+      html: `${courseHero(course)}
+      ${courseSections(course.sections)}
+      ${course.topics ? courseTopics(course.topics) : ''}
+      ${course.groups ? practicalInfo(course) : courseSignup(course.title)}`,
+    };
+  });
+  return pages;
+}
 
 // Každá stránka: title, description, world (centrum | terapie | letni-skola), mood a html složené z bloků.
 // Klíč je slug a zároveň budoucí hezká URL (tabulka v AGENTS.md).
@@ -30,6 +87,7 @@ const pages = {
     ${squares(home.squares)}
     ${story(home.story)}`,
   },
+  ...coursePages(),
   // Legacy podstránky z předchozí verze: přepíšou se podle briefu v krocích 4–8 (PLAN.md)
   'nas-pristup': {
     title: 'Náš přístup · Taneční centrum Monsignore',
@@ -86,86 +144,6 @@ const pages = {
       tone: 'pt-0 md:pt-0',
     })}
     ${continueTo({ script: 'Dále', label: 'Prohlédněte si kurzy', href: '#/kurzy' })}`,
-  },
-  kurzy: {
-    title: 'Kurzy · Taneční centrum Monsignore',
-    html: `${pageIntro({
-      script: 'Kurzy',
-      title: 'Kurzy pro mládež a dospělé',
-      lead: 'Moderní a jazzový tanec, klasický tanec, contemporary a mix tanečních stylů.',
-    })}
-    ${split({
-      image: style003, alt: 'Tanečnice při cvičení rukou v tanečním sále',
-      script: 'Svoboda',
-      title: 'Moderní tanec',
-      body: [
-        'Moderní tanec vznikl jako reakce na přísná pravidla klasického baletu. Hledá přirozenější, svobodnější pohyb a propojení těla, dechu, emocí a prostoru.',
-        'Pracujeme na zemi, s improvizací, těžištěm, pády, spirálami i vědomým dechem. Cílem je rozvoj individuality, pohybové inteligence a schopnosti vyjádřit se pohybem.',
-      ],
-    })}
-    ${split({
-      image: style004, alt: 'Tanečnice se pohybují v sále při lekci',
-      script: 'Rytmus',
-      title: 'Jazzový tanec',
-      body: [
-        'Dynamická a výrazová technika, která propojuje rytmus, koordinaci, energii a osobitý projev.',
-        'Pracuje s izolacemi, změnami tempa, skoky a točkami. Rozvíjí muzikálnost, pohybovou přesnost, flexibilitu a schopnost reagovat na různé hudební styly.',
-      ],
-      reverse: true,
-      tone: 'section--surface',
-    })}
-    ${split({
-      image: style005, alt: 'Skupina dospělých při tanečním cvičení',
-      script: 'Základ',
-      title: 'Klasický tanec',
-      body: [
-        'Základní taneční disciplína, která rozvíjí držení těla, koordinaci, stabilitu, sílu, flexibilitu a přesnost pohybu.',
-        'Výuka vychází z principů baletní techniky a vede od základních pozic a cvičení u tyče k práci v prostoru, skokům, točkám a tanečním variacím.',
-      ],
-    })}
-    ${split({
-      image: style006, alt: 'Skupina tanečnic ve společném pohybovém cvičení',
-      script: 'Současnost',
-      title: 'Contemporary',
-      body: [
-        'Současný tanec propojuje moderní tanec, klasickou techniku, práci na zemi, improvizaci a přirozený pohyb. Pracuje s dechem, gravitací, plynulostí a změnami kvality pohybu.',
-        'Důležitá je individualita tanečníka a schopnost vyjádřit myšlenku, emoci nebo příběh prostřednictvím pohybu.',
-      ],
-      reverse: true,
-      tone: 'section--surface',
-    })}
-    ${split({
-      image: style007, alt: 'Tanečnice při práci na zemi',
-      script: 'Radost',
-      title: 'Mix tanečních stylů',
-      body: [
-        'Lekce pro dospělé od 35 let propojují prvky klasického, moderního a jazzového tance, Port de bras, Lady Latin Dance a celkovou taneční průpravu.',
-        'Rozvíjíme koordinaci, pohybový rozsah, držení těla, kondici i paměť. Malé skupiny jsou vhodné i pro ty, kdo se k tanci vracejí po delší době nebo začínají úplně od začátku.',
-      ],
-      after: '<p class="label mt-8 text-primary">Energy 35+ · Harmony 50+</p>',
-    })}
-    ${continueTo({ script: 'Osobně', label: 'Individuální výuka', href: '#/kurzy/individualni-vyuka' })}`,
-  },
-  'kurzy/individualni-vyuka': {
-    title: 'Individuální výuka · Taneční centrum Monsignore',
-    html: `${pageIntro({
-      script: 'Individuálně',
-      title: 'Individuální výuka',
-      lead: 'Pro děti, mládež i dospělé. Lekce přizpůsobíme věku, zkušenostem i vašim cílům.',
-    })}
-    ${split({
-      image: individual003, alt: 'Pedagožka při individuálním tanečním cvičení',
-      script: 'Tempo',
-      title: 'Výuka vlastním tempem',
-      body: [
-        'Individuální lekce nabízejí prostor pro rychlejší rozvoj a větší jistotu v pohybu.',
-        'Věnujeme se modernímu, jazzovému a klasickému tanci, contemporary i mixu stylů. Každý rozvíjí jinou kvalitu, společně tvoří všestranného tanečníka.',
-      ],
-      after: `<ul class="focus-list">${['Technika', 'Koordinace', 'Výraz', 'Choreografie', 'Konkrétní styl', 'Osobní rozvoj']
-        .map((item) => `<li>${item}</li>`).join('')}</ul>`,
-    })}
-    ${wideFigure(individual002, 'Tanečnice pracuje individuálně na pohybovém cvičení')}
-    ${continueTo({ script: 'Začněte', label: 'Domluvit lekci', href: '#kontakt' })}`,
   },
   'letni-skola': {
     world: 'letni-skola',
@@ -331,3 +309,5 @@ const pages = {
 export function getPage(path) {
   return pages[path] ?? null;
 }
+
+export const slugs = () => Object.keys(pages);

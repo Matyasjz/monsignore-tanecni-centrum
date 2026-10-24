@@ -47,7 +47,7 @@ Pořadí bloků přesně podle briefu 3.1. Bloky, které tam nejsou (galerie kur
 
 **Hotovo, když:** Home má přesně A–B–C, texty sedí doslova, hero splňuje chování z briefu a build je připravený k nahrání. **Stop: ukázat Filipovi.** (C1, C2, C3, C7, C8, C10, C11)
 
-## Krok 4: Tančete s námi
+## Krok 4: Tančete s námi ✅ hotovo 24. 10. 2026
 
 - **Přehled:** 3 karty (Mládež a dospělí / Mix tanečních stylů / VitaDance) s fotkou, nadpisem, krátkým textem a odkazem [ Více informací ] →. Pod nimi bloky INDIVIDUÁLNÍ VÝUKA a ROZVRH / CENÍK.
 - **Šablona detailu kurzu** (`courseDetail`): hero foto + název + věk → popis (části „Zjistit více“ jako `<details>` akordeon) → box Praktické informace → Registrace → CTA „Přihlásit se“ (`mailto:info@monsignore.cz`).

@@ -60,3 +60,20 @@ export const continueTo = ({ script, label, href }) => `
       <a class="link-line relative" href="${href}">${label}</a>
     </div>
   </section>`;
+
+// Rozbalovací část textu (v textech klientky označená „Zjistit více“)
+export const more = (list, label = 'Zjistit více') => `
+  <details class="more">
+    <summary class="more__toggle">${label}<span class="nav-indicator" aria-hidden="true"></span></summary>
+    <div class="more__body prose-copy">${paragraphs(list)}</div>
+  </details>`;
+
+// Pudrový panel se vzorem oblouků: akcent v Respondentu, nadpis, linka, text a jedna akce
+export const patternPanel = ({ accent, title, text, cta, className = '' }) => `
+  <div class="pattern-panel ${className} reveal">
+    ${accent ? `<p class="pattern-panel__accent">${accent}</p>` : ''}
+    <h2 class="pattern-panel__title">${title}</h2>
+    <span class="rule" aria-hidden="true"></span>
+    <p class="pattern-panel__text">${text}</p>
+    ${cta ? `<a class="btn btn--dark mt-10" href="${cta.href}">${cta.label}</a>` : ''}
+  </div>`;

@@ -33,13 +33,13 @@ Když se brief a kód rozcházejí, platí brief. Když se brief a texty rozchá
 | `index.html` | Kostra: hlavička s menu, `<main>` a patička. |
 | `src/main.js` | Router, menu, dropdowny, `.reveal`, hero rotace, akordeony, lightbox. |
 | `src/pages.js` | Definice stránek: slug, `title`, `description`, `world`, `mood` a seznam bloků s daty. |
-| `src/blocks/` | Šablonové funkce bloků. Každá dostane data a vrátí HTML. Dnes: `media.js` (`picture`, `media`), `hero.js`, `squares.js`, `story.js`, `layout.js` (`pageIntro`, `split`, `sectionTitle`, `framed`, `timeline`, `wideFigure`, `continueTo`). Přibudou `cards`, `courseDetail`, `schedule`, `faq`, `events`, `gallery`, `contact`. |
-| `src/data/` | Editovatelná data: `home.json` a `photos.json` (generuje ho `scripts/photos.sh`, ručně neupravovat). Přibudou `rozvrh.json`, `akce.json`, `faq.json`, `ohlasy.json`, `galerie.json`… |
+| `src/blocks/` | Šablonové funkce bloků. Každá dostane data a vrátí HTML. Dnes: `media.js` (`picture`, `media`), `hero.js`, `squares.js`, `story.js`, `courses.js` (`courseCards`, `courseHero`, `courseSections`, `courseTopics`, `practicalInfo`, `courseSignup`), `schedule.js` (`lesson`, `scheduleTable`), `layout.js` (`pageIntro`, `split`, `sectionTitle`, `framed`, `more`, `patternPanel`, `timeline`, `wideFigure`, `continueTo`). Přibudou `faq`, `events`, `gallery`, `contact`. |
+| `src/data/` | Editovatelná data: `site.json` (adresa, e-mail, telefon), `home.json`, `kurzy.json` (přehled, detaily kurzů, stránka rozvrhu), `rozvrh.json` (**jediný zdroj** časů, cen a začátků výuky) a `photos.json` (generuje ho `scripts/photos.sh`, ručně neupravovat). Přibudou `akce.json`, `faq.json`, `ohlasy.json`, `galerie.json`. |
 | `src/style.css` | Tokeny (`:root`, světy, nálady), `@font-face` a komponenty přes `@apply`. |
 | `tailwind.config.js` | Barvy napojené na CSS proměnné, rodiny písem, šířky. |
 | `public/img/<blok>/` | Zpracované fotky (WebP + JPG, více šířek). || `public/brand/` | Logo (maska) a statické varianty (favicon, OG, e-mail). |
 | `public/fonts/` | Self-hostované woff2. |
-| `scripts/` | `photos.sh` (fotky → `public/img` + `photos.json`, mapa zdrojů je uvnitř skriptu) a `brand.sh` (logo → `public/brand`, barvy čte z tokenů ve `style.css`). Oba jdou spustit opakovaně. |
+| `scripts/` | `check.mjs` (`npm run check`: vykreslí všechny stránky přes Vite SSR a ověří odkazy, fotky a zakázané texty z briefu, staré podstránky jen varují), `photos.sh` (fotky → `public/img` + `photos.json`, mapa zdrojů je uvnitř skriptu) a `brand.sh` (logo → `public/brand`, barvy čte z tokenů ve `style.css`). Oba jdou spustit opakovaně. |
 
 - **Routing:** v šabloně zůstává hash routing. Cesta za `#` je ale **přesně budoucí hezká URL**: `#/kurzy/energy-harmony` bude na ostrém webu `/kurzy/energy-harmony`. Slugy jsou bez diakritiky a mění se jen spolu s tabulkou níže. Prosté kotvy (`#kontakt`) jen scrollují.
 - **SEO** (`sitemap.xml`, 301 ze starých URL, OG) se řeší až při implementaci v editoru. V šabloně má každá stránka v `pages.js` vyplněné `title` a `description`, aby se daly převzít.
@@ -131,9 +131,13 @@ Stejný layout, jiné tokeny. Theme se přepíná **atributem na úrovni sekce n
 ```sh
 npm install
 npm run dev       # vývoj
+npm run check     # kontrola obsahu (stránky, odkazy, fotky, pravidla briefu)
 npm run build     # produkční build do dist/
 npm run preview
 ```
+
+- Před každým buildem pro nahrání spusť `npm run check`. Chyby musí být nula, varování jsou známé věci z `TODO.md`.
+- **Vizuální kontrola** bez prohlížeče: headless Firefox (`firefox --headless --screenshot out.png --window-size=1440,3000 URL`). Do testovacího profilu dej `user_pref("ui.prefersReducedMotion", 1);` (fade-in se jinak vyfotí v půlce) a `user_pref("dom.image-lazy-loading.enabled", false);`. Větší fotky se při prvním vyfocení nemusí stihnout načíst, druhé vyfocení s teplou cache už je ukáže.
 
 - `dist/` je v `.gitignore` a před buildem se může celý smazat.
 - **Test deploy na https://wp.heurekazo.cz nahrává uživatel ručně** (obsah `dist/`). Agent po každém větším kroku spustí `npm run build`, ověří, že projde, zapíše do `CHANGELOG.md` datum a 2–3 řádky, co se změnilo, a oznámí, že build je připravený k nahrání. Sám nic nenahrává.

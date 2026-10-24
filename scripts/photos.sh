@@ -24,6 +24,16 @@ hero/s-chuti-a-lehkosti|HLAVNÍ 3 ROTUJÍCÍ FOTKY/sejmout_1.jpg|2400|crop=iw*0.
 nas-pristup/studio|NÁŠ PŘÍSTUP/IMG_0645.HEIC|1200|
 vedeni/magdalena-mauerova|VEDENÍ/DSCF7187.JPG|1200|
 nas-pribeh/archiv|NÁŠ PŘÍBĚH/page-00.jpg|1400|
+kurzy/mladez-a-dospeli|KURZY PRO MLÁDEŽ A DOSPĚLÉ/IMG_0615.HEIC|1600|
+kurzy/energy-harmony|KURZY ENERGY A HARMONY/IMG_1309.HEIC|1600|
+kurzy/energy-harmony-skupina|KURZY ENERGY A HARMONY/7177c707-f80b-4c1e-b5c8-4976b00a0bc3.jpg|1600|
+kurzy/energy|KURZY ENERGY A HARMONY/IMG_0598.HEIC|1200|
+kurzy/harmony|KURZY ENERGY A HARMONY/IMG_0587.HEIC|1200|
+kurzy/vitadance|KURZY VITADANCE/IMG_1177.HEIC|1600|
+kurzy/vitadance-ruce|KURZY VITADANCE/new-therapy-dance-style-003.jpg|1200|
+individualni-vyuka/lekce|INDIVIDUÁLNÍ VÝUKA/DSC_0636.JPG|1600|
+individualni-vyuka/sal|INDIVIDUÁLNÍ VÝUKA/DSC_0564.jpg|1600|
+individualni-vyuka/zrcadlo|INDIVIDUÁLNÍ VÝUKA/IMG_0584.HEIC|1200|
 EOF
 )"
 

@@ -38,10 +38,18 @@
 
 ## Legacy podstránky (z předchozí verze, čekají na svůj krok v PLAN.md)
 - [ ] `#/nas-pristup`, `#/vedeni`, `#/nas-pribeh` (krok 8): parafráze místo doslovných textů, vymyšlená ozdobná slova, „výkonnostní třída A“, Tanec PLUS
-- [ ] `#/kurzy`, `#/kurzy/individualni-vyuka` (krok 4): starý obsah a fotky z `assets/`
 - [ ] `#/akce`, `#/letni-skola` (krok 6): ukázková akce 24. května a vymyšlený text Letní školy
 - [ ] Neaktivní odkazy v menu (`data-inert-nav`): detaily kurzů, rozvrh, FAQ, galerie, Terapie. Aktivovat ve krocích 4, 5 a 7.
 
 ## Home (krok 3)
 - [ ] Hero: na mobilu (390 px) ořez `object-fit: cover` ukazuje jen střed fotek. Po výběru finálních fotek případně doladit `object-position` pro jednotlivé slidy.
 - [ ] Blok Náš příběh: rok 1988 (podle briefu). Viz otevřený bod „Rok založení na Home“ výše.
+
+## Tančete s námi (krok 4)
+- [ ] Řádky „Kdy?“ se generují z `rozvrh.json` v jednotném tvaru („Každou středu 16:30–18:00“). V textech jsou nejednotně („od 16:30 – 18:00“, „od 17 – 18:30“, „od 14:00 do 15:00“). Potvrdit s klientkou.
+- [ ] Energy a Harmony mají v textech stejnou rozbalovací část. Na webu je jednou, společně pod oběma kurzy, aby se text neopakoval.
+- [ ] Nadpisy v textech mají mezeru navíc: „(věk 35+ )“, „(věk 50+ )“. Ponecháno doslova, opravit?
+- [ ] VitaDance, registrace: „telefón: 775765556“ (slovensky). Ponecháno doslova, opravit na „telefon“?
+- [ ] Rozvrh: název kurzu „Kombinace tanečních technik“ (brief) vs. „Komplexní taneční průprava“ (texty). Mění se na jednom místě v `rozvrh.json`.
+- [ ] Blok Rozvrh, ceník na přehledu nemá fotku (složka `ROZVRH A CENÍK` je prázdná), zatím je to vzorovaný panel.
+- [ ] Nepoužité fotky pro Galerii: `KURZY ENERGY A HARMONY/IMG_1224.HEIC`, `kurzy/energy-harmony-skupina` (selfie, zpracovaná, zatím nepoužitá) a `KURZY PRO MLÁDEŽ A DOSPĚLÉ/1Duq…jpg` (čeká na ověření původu).

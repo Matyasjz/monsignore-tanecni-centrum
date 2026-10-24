@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2026-10-24: Krok 4, Tančete s námi
+- Přehled `#/kurzy`: tři karty kurzů s texty z briefu 3.2 (prostřední posunutá), blok Individuální výuka a vzorovaný panel Rozvrh, ceník.
+- Jednotná šablona detailu kurzu (úvod s fotkou, popis s rozbalovacím „Zjistit více“, Praktické informace, Registrace, „Přihlásit se“ → `mailto:`) pro `#/kurzy/mladez-a-dospeli`, `energy-harmony`, `vitadance` a `individualni-vyuka`. Texty doslova z `texty-monsignore.md`.
+- `#/kurzy/rozvrh-a-cenik`: tabulka z `src/data/rozvrh.json` (na mobilu karty). Časy, ceny a začátky výuky v detailech kurzů se čtou ze stejného souboru. Nový příkaz `npm run check` kontroluje stránky, odkazy, fotky a pravidla z briefu.
+
 ## 2026-10-24: Home víc ve stylu Arabesque
 - Čtverce Náš přístup / Vedení jsou vůči sobě posunuté. Přes fotku přesahuje karta s textem z textů klientky (u Vedení motto Franka Towena) a za oběma je diagonální pudrová plocha.
 - Náš příběh: archivní fotka přes celou šířku s jemným parallaxem a přes její hranu pudrový panel se vzorem oblouků („Více než tři desetiletí s tancem“, nadpis, linka, tlačítko).

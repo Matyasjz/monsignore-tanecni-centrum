@@ -4,5 +4,15 @@
   "hero/s-chuti-a-lehkosti": { "width": 2400, "height": 1681, "widths": [480,800,1200,1600,2400] },
   "nas-pristup/studio": { "width": 1200, "height": 1600, "widths": [480,800,1200] },
   "vedeni/magdalena-mauerova": { "width": 1200, "height": 2128, "widths": [480,800,1200] },
-  "nas-pribeh/archiv": { "width": 1400, "height": 1050, "widths": [480,800,1200,1400] }
+  "nas-pribeh/archiv": { "width": 1400, "height": 1050, "widths": [480,800,1200,1400] },
+  "kurzy/mladez-a-dospeli": { "width": 1600, "height": 2133, "widths": [480,800,1200,1600] },
+  "kurzy/energy-harmony": { "width": 1600, "height": 2133, "widths": [480,800,1200,1600] },
+  "kurzy/energy-harmony-skupina": { "width": 1600, "height": 1200, "widths": [480,800,1200,1600] },
+  "kurzy/energy": { "width": 1200, "height": 1331, "widths": [480,800,1200] },
+  "kurzy/harmony": { "width": 1200, "height": 900, "widths": [480,800,1200] },
+  "kurzy/vitadance": { "width": 1600, "height": 2133, "widths": [480,800,1200,1600] },
+  "kurzy/vitadance-ruce": { "width": 1024, "height": 678, "widths": [480,800,1024] },
+  "individualni-vyuka/lekce": { "width": 1600, "height": 2415, "widths": [480,800,1200,1600] },
+  "individualni-vyuka/sal": { "width": 1600, "height": 1060, "widths": [480,800,1200,1600] },
+  "individualni-vyuka/zrcadlo": { "width": 1200, "height": 1600, "widths": [480,800,1200] }
 }

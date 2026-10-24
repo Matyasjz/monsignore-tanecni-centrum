@@ -1,0 +1,63 @@
+{
+  "days": {
+    "Středa": "Každou středu",
+    "Čtvrtek": "Každý čtvrtek"
+  },
+  "lessons": [
+    {
+      "id": "vitadance",
+      "day": "Středa",
+      "from": "14:00",
+      "to": "15:00",
+      "course": "VitaDance 65+",
+      "href": "#/kurzy/vitadance",
+      "minutes": 60,
+      "price": 150,
+      "start": "středa 7. října 2026"
+    },
+    {
+      "id": "mladez",
+      "day": "Středa",
+      "from": "16:30",
+      "to": "18:00",
+      "course": "Kombinace tanečních technik – mládež 16+",
+      "href": "#/kurzy/mladez-a-dospeli",
+      "minutes": 90,
+      "price": 180,
+      "start": "středa 7. října 2026"
+    },
+    {
+      "id": "dospeli",
+      "day": "Středa",
+      "from": "18:30",
+      "to": "20:00",
+      "course": "Kombinace tanečních technik – dospělí 18+",
+      "href": "#/kurzy/mladez-a-dospeli",
+      "minutes": 90,
+      "price": 180,
+      "start": "středa 7. října 2026"
+    },
+    {
+      "id": "energy",
+      "day": "Čtvrtek",
+      "from": "17:00",
+      "to": "18:30",
+      "course": "Mix Dance – Energy 35+",
+      "href": "#/kurzy/energy-harmony",
+      "minutes": 90,
+      "price": 180,
+      "start": "čtvrtek 10. září 2026"
+    },
+    {
+      "id": "harmony",
+      "day": "Čtvrtek",
+      "from": "19:00",
+      "to": "20:30",
+      "course": "Mix Dance – Harmony 50+",
+      "href": "#/kurzy/energy-harmony",
+      "minutes": 90,
+      "price": 180,
+      "start": "čtvrtek 10. září 2026"
+    }
+  ]
+}
