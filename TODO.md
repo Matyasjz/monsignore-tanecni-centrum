@@ -36,9 +36,6 @@
 - [ ] Ročník 2026 (16.–22. 8. 2026) už proběhl. Termíny a ceny pro 2027?
 - [ ] Starý web má Facebook pixel. Na novém nebude (brief, sekce 5).
 
-## Legacy podstránky (z předchozí verze, čekají na svůj krok v PLAN.md)
-- [ ] `#/nas-pristup`, `#/vedeni`, `#/nas-pribeh` (krok 8): parafráze místo doslovných textů, vymyšlená ozdobná slova, „výkonnostní třída A“, Tanec PLUS
-
 ## Home (krok 3)
 - [ ] Hero: na mobilu (390 px) ořez `object-fit: cover` ukazuje jen střed fotek. Po výběru finálních fotek případně doladit `object-position` pro jednotlivé slidy.
 - [ ] Blok Náš příběh: rok 1988 (podle briefu). Viz otevřený bod „Rok založení na Home“ výše.
@@ -65,3 +62,9 @@
 - [ ] Letní škola: termín, ceník a přihláška pro rok 2027. Fotky (složka `LETNÍ TANEČNÍ ŠKOLA` je prázdná).
 - [ ] Letní škola: lektorský tým je z roku 2026, ověřit pro 2027. Texty o místě a seznam technik jsou převzaté ze staré stránky, potvrdit s klientkou.
 - [ ] Stará stránka Letní školy používá přihlášku `monsignore.heurekazo.cz/form/event/54`. Chceme ji napojit místo `mailto:`?
+
+## O nás (krok 8)
+- [ ] Vedení a Náš příběh: celá delší část (včetně podnadpisů) je za jedním „Zjistit více“ podle briefu („dlouhý životopis za ⤵“). V textech značka „Zjistit více“ platí jen „po další nadpis“, potvrdit s klientkou.
+- [ ] Vedení: druhý úvodní odstavec má neobvyklý slovosled („Magdaléna Mauerová více než třicet let se věnuje…“). Ponecháno doslova.
+- [ ] Náš příběh: závěrečná věta („Tanec se může měnit spolu s námi…“) je vytažená jako citát pod rozbalovací částí, ne uvnitř ní.
+- [ ] Vedení: chybí druhá fotka (při výuce), složka VEDENÍ má jen portrét.

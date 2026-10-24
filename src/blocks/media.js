@@ -14,7 +14,3 @@ export const picture = ({ key, alt }, { sizes = '100vw', eager = false } = {}) =
     </picture>`;
 };
 
-// Fotka v datech je { key, alt }. Řetězec je starý import z assets/ (legacy podstránky).
-export const media = (image, alt, options) => (typeof image === 'string'
-  ? `<img class="photo" src="${image}" alt="${alt}" loading="lazy">`
-  : picture(image, options));

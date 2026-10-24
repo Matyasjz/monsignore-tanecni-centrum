@@ -6,7 +6,7 @@ export const summerIntro = ({ intro, courses }) => `
     <div class="site-container summer-intro">
       <div class="prose-copy summer-intro__text reveal">${paragraphs(intro)}</div>
       <div class="reveal reveal-delay-1">
-        <h2 class="course-section__heading">${courses.title}</h2>
+        <h2 class="section-heading">${courses.title}</h2>
         <p>${courses.lead}</p>
         <ul class="chips">${courses.items.map((item) => `<li>${item}</li>`).join('')}</ul>
         <p class="mt-6 text-[14px]">${courses.note}</p>

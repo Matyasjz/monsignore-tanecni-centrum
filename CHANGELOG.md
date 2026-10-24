@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2026-10-24: Krok 8, Náš přístup, Vedení, Náš příběh
+- Tři podstránky přepsané doslova z textů klientky s opravami z briefu (Naším cílem, sebevědomí, Magdaléna). Věta „Ne každý tanečník musí stát jednou na profesionálním jevišti…“ je jen jednou, jako závěrečný citát. Vymyšlené texty, Tanec PLUS a ukázková akce jsou pryč.
+- Vedení a Náš příběh mají úvod viditelný a delší část za „Zjistit více“. Náš přístup řadí témata do mřížek (Jak učíme, Proč učíme tanec) a končí citátem na vzorovaném panelu.
+- Smazána složka `assets/` a šablony předchozí verze (timeline, ozdobná skriptová slova, stará akce). Všechny stránky jdou z dat v `src/data/`.
+
 ## 2026-10-24: Krok 7, Terapie
 - `#/terapie` ve vlastním zeleno-béžovém světě: úvod, O terapii, Pro koho, Jak probíhá, Lektorka, Kontakt. Texty zatím nejsou, místo nich jsou viditelné `[DOPLNIT]`. U lektorky jsou doslovné věty z textů (diplom 2017).
 - Vstup Terapie v menu je aktivní. Stránka má vlastní data (`src/data/terapie.json`), takže půjde oddělit na `terapie.monsignore.cz`.

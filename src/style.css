@@ -136,8 +136,8 @@
   .photo { @apply h-full w-full object-cover; transition: transform .8s var(--ease-glide); }
   .picture { @apply contents; }
   /* Obrázek je předem lehce přiblížený a oříznutý, při hoveru sjede o pár procent do strany */
-  .framed__inner .photo, .square__media .photo, .wide-figure__inner .photo { transform: scale(1.1) translate3d(0,0,0); }
-  .framed:hover .photo, .square:hover .photo, .square:focus-within .photo, .wide-figure:hover .photo { transform: scale(1.1) translate3d(3.5%,0,0); }
+  .framed__inner .photo, .square__media .photo { transform: scale(1.1) translate3d(0,0,0); }
+  .framed:hover .photo, .square:hover .photo, .square:focus-within .photo { transform: scale(1.1) translate3d(3.5%,0,0); }
   .framed { @apply relative pr-5 pt-5 md:pr-6 md:pt-6; }
   .framed::before { @apply absolute bottom-5 left-5 right-0 top-0 bg-secondary md:bottom-6 md:left-6; content: ''; transition: transform .8s var(--ease-glide); }
   .framed:hover::before { transform: translate3d(6px,-6px,0); }
@@ -256,17 +256,23 @@
   .course-card__link { @apply mt-6; }
 
   /* Detail kurzu */
-  .course-hero { @apply bg-surface py-16 md:py-24; }
-  .course-hero__grid { @apply grid items-center gap-12 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] md:gap-16 lg:gap-24; }
-  .course-hero__back { @apply text-[11px] font-medium uppercase tracking-label text-muted transition-colors duration-200 hover:text-primary; }
-  .course-hero__back::before { content: '← '; }
-  .course-hero__age { @apply mt-10 text-[11px] font-medium uppercase tracking-label text-primary; }
-  .course-hero__title { @apply mt-3 text-[clamp(1.8rem,4vw,3rem)] leading-[1.12]; }
-  .course-hero__accent { @apply accent mt-4 block text-[clamp(1.9rem,3.6vw,2.8rem)] text-primary; }
-  .course-hero__media { @apply mx-auto w-full max-w-[30rem]; }
-  .course-section__heading { @apply mb-7 text-[clamp(1.15rem,2vw,1.45rem)] leading-snug; }
+  .page-hero { @apply bg-surface py-16 md:py-24; }
+  .page-hero__grid { @apply grid items-center gap-12 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] md:gap-16 lg:gap-24; }
+  .page-hero__back { @apply text-[11px] font-medium uppercase tracking-label text-muted transition-colors duration-200 hover:text-primary; }
+  .page-hero__back::before { content: '← '; }
+  .page-hero__label { @apply mt-10 text-[11px] font-medium uppercase tracking-label text-primary; }
+  .page-hero__title { @apply mt-3 text-[clamp(1.8rem,4vw,3rem)] leading-[1.12]; }
+  .page-hero__accent { @apply accent mt-4 block text-[clamp(1.9rem,3.6vw,2.8rem)] text-primary; }
+  .page-hero__cite { @apply text-[11px] font-medium uppercase tracking-label text-muted; }
+  .page-hero__media { @apply mx-auto w-full max-w-[30rem]; }
+  .section-heading { @apply mb-7 text-[clamp(1.15rem,2vw,1.45rem)] leading-snug; }
+  /* Závěrečný citát stránky */
+  .closing-quote { @apply m-0 mx-auto max-w-4xl; }
+  .closing-quote p { @apply mx-auto max-w-2xl font-heading text-[clamp(1.2rem,2.4vw,1.7rem)] font-medium leading-[1.5] tracking-[.02em] text-ink; }
+  .closing-quote p + p { @apply mt-3; }
+
   /* Samostatná rozbalovací část společná pro víc kurzů (Energy a Harmony) */
-  .course-section--more { @apply border-t border-line pt-4 md:max-w-[50%]; }
+  .more-section { @apply border-t border-line pt-4 md:max-w-[50%]; }
   .topics { @apply grid gap-x-16 gap-y-14 md:grid-cols-2 md:gap-y-20; }
   .topic { @apply border-t border-line pt-10; }
 
@@ -277,6 +283,8 @@
   .more[open] > .more__toggle { @apply text-primary; }
   .more[open] > summary .nav-indicator::after { opacity: 0; transform: translate(-50%,-50%) rotate(90deg) scaleX(0); }
   .more__body { @apply mt-4; }
+  .more--sections > .more__body { @apply mt-8 grid gap-12; }
+  .more__section .section-heading { @apply mb-5; }
   .more[open] > .more__body { animation: more-open .5s cubic-bezier(.2,.7,.2,1) both; }
 
   /* Praktické informace a registrace */
@@ -396,30 +404,6 @@
   .page-intro__title { @apply relative text-[clamp(1.9rem,4.4vw,3.2rem)] leading-[1.15]; }
   .page-intro__lead { @apply mx-auto mt-7 max-w-xl text-base leading-[1.9] md:text-[17px]; }
   .page-intro__lead a { @apply text-ink underline decoration-1 underline-offset-4 hover:text-primary; }
-  .wide-figure { @apply site-container--wide; }
-  .wide-figure__inner { @apply relative aspect-[16/7] overflow-hidden bg-secondary-soft; }
-
-  /* Legacy podstránky z předchozí verze: odstranit, až se přepíšou podle briefu (PLAN, kroky 4–8) */
-  .section-title__script, .page-intro__script { @apply accent pointer-events-none block select-none text-[clamp(2.4rem,4.6vw,3.4rem)] text-primary; }
-  .principles { @apply grid gap-x-16 gap-y-14 md:grid-cols-2 md:gap-y-20; }
-  .principle__number { @apply accent block text-[2rem] text-accent; }
-  .principle__title { @apply mt-2 text-[17px] leading-snug md:text-lg; }
-  .principle p { @apply mt-4 leading-[1.9]; }
-  .timeline { @apply site-container grid gap-16 md:gap-24; }
-  .timeline__item { @apply grid gap-4 md:grid-cols-[13rem_minmax(0,1fr)] md:gap-16 lg:grid-cols-[16rem_minmax(0,1fr)]; }
-  .timeline__marker { @apply accent text-[clamp(1.8rem,3.4vw,2.6rem)] text-primary md:text-right; }
-  .timeline__body { @apply max-w-2xl md:border-l md:border-line md:pl-16; }
-  .timeline__body h2 { @apply mb-6 text-lg leading-snug md:text-xl; }
-  .focus-list { @apply mt-8 grid gap-3 border-t border-line pt-8 sm:grid-cols-2; }
-  .focus-list li { @apply flex items-center gap-3 text-[13px] font-medium uppercase tracking-[.14em] text-ink; }
-  .focus-list li::before { @apply h-px w-5 flex-none bg-primary; content: ''; }
-  .event { @apply grid items-center gap-14 md:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] md:gap-20; }
-  .event__date { @apply flex items-baseline gap-4; }
-  .event__day { @apply accent text-[clamp(3.5rem,7vw,5rem)] text-ink; }
-  .event__month { @apply text-[11px] font-medium uppercase tracking-label text-primary; }
-  .event__title { @apply mt-4 text-[clamp(1.4rem,2.6vw,2rem)]; }
-  .event__meta { @apply mt-5 border-t border-line pt-5 text-[14px] leading-[1.9]; }
-  .event__actions { @apply mt-9 flex flex-wrap items-center gap-x-10 gap-y-6; }
 }
 
 @layer utilities {

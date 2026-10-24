@@ -83,7 +83,7 @@ Pořadí bloků přesně podle briefu 3.1. Bloky, které tam nejsou (galerie kur
 
 **Hotovo, když:** stránka běží ve vlastním světě a každý chybějící text má `[DOPLNIT]` i záznam v `TODO.md`. (C5, C10)
 
-## Krok 8: Náš přístup / Vedení / Náš příběh
+## Krok 8: Náš přístup / Vedení / Náš příběh ✅ hotovo 24. 10. 2026
 
 - `/nas-pristup`: celý text sekce NÁŠ PŘÍSTUP doslova. Věta „Ne každý tanečník musí stát…“ **jen jednou**, jako závěrečný citát (Respondent).
 - `/vedeni`: Magdaléna Mauerová, role, motto Franka Towena, úvod, pak dlouhý životopis za „Zjistit více“.

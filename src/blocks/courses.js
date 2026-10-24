@@ -1,6 +1,6 @@
 import site from '../data/site.json';
 import { picture } from './media.js';
-import { framed, more, paragraphs } from './layout.js';
+import { copy, framed, pageHero } from './layout.js';
 import { lesson, lessonPayment, lessonPrice, lessonWhen } from './schedule.js';
 
 const signupHref = (subject) => `mailto:${site.email}?subject=${encodeURIComponent(`Přihláška: ${subject}`)}`;
@@ -23,46 +23,23 @@ export const courseCards = (courses, cta) => `
   </section>`;
 
 // Úvod detailu kurzu: věková skupina, název, případně motto, fotka v rámu
-export const courseHero = ({ title, age, accent, image }) => `
-  <section class="course-hero">
-    <div class="site-container course-hero__grid">
-      <div class="course-hero__copy reveal">
-        <a class="course-hero__back" href="#/kurzy">Tančete s námi</a>
-        <p class="course-hero__age">${age}</p>
-        <h1 class="course-hero__title">${title}</h1>
-        ${accent ? `<p class="course-hero__accent">${accent}</p>` : ''}
-      </div>
-      ${framed(image, image.alt, 'portrait', 'course-hero__media reveal reveal-delay-1')}
-    </div>
-  </section>`;
-
-const sectionCopy = ({ heading, paragraphs: list = [], more: hidden = [] }) => `
-  ${heading ? `<h2 class="course-section__heading">${heading}</h2>` : ''}
-  ${list.length ? `<div class="prose-copy">${paragraphs(list)}</div>` : ''}
-  ${hidden.length ? more(hidden) : ''}`;
+export const courseHero = ({ age, ...course }) => pageHero({
+  ...course, label: age, back: { label: 'Tančete s námi', href: '#/kurzy' },
+});
 
 // Popis kurzu: sekce s fotkou jako split (střídavě), bez fotky jako úzký sloupec textu
 export const courseSections = (sections) => sections.map((section, index) => (section.image ? `
   <section class="section ${index ? 'pt-0 md:pt-0' : ''}">
     <div class="site-container split ${index % 2 ? 'split--reverse' : ''}">
-      ${framed(section.image, section.image.alt, 'landscape', 'split__media reveal')}
-      <div class="split__copy reveal reveal-delay-1">${sectionCopy(section)}</div>
+      ${framed(section.image, 'landscape', 'split__media reveal')}
+      <div class="split__copy reveal reveal-delay-1">${copy(section)}</div>
     </div>
   </section>` : `
   <section class="section ${index ? 'pt-0 md:pt-0' : ''}">
     ${section.heading || section.paragraphs
-    ? `<div class="site-container--read reveal">${sectionCopy(section)}</div>`
-    : `<div class="site-container reveal"><div class="course-section--more">${sectionCopy(section)}</div></div>`}
+    ? `<div class="site-container--read reveal">${copy(section)}</div>`
+    : `<div class="site-container reveal"><div class="more-section">${copy(section)}</div></div>`}
   </section>`)).join('');
-
-// Jednotlivé techniky v mřížce (Kurzy pro mládež a dospělé)
-export const courseTopics = (topics) => `
-  <section class="section pt-0 md:pt-0">
-    <div class="site-container topics">
-      ${topics.map((topic, index) => `
-        <article class="topic reveal ${index % 2 ? 'reveal-delay-1' : ''}">${sectionCopy(topic)}</article>`).join('')}
-    </div>
-  </section>`;
 
 // Praktické informace (Kdy / Kde / Začátek výuky) pro každou skupinu a karta Registrace s CTA
 export const practicalInfo = ({ groups, registration, card, title }) => {

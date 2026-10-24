@@ -1,0 +1,200 @@
+{
+  "pristup": {
+    "title": "NÁŠ PŘÍSTUP",
+    "image": { "key": "nas-pristup/studio", "alt": "Usměvavé tanečnice v černém u zrcadla a baletní tyče v tanečním sále" },
+    "intro": {
+      "heading": "Naše výuka a naše cíle",
+      "paragraphs": [
+        "V tanečním centru Monsignore vnímáme tanec jako mnohem víc než jen soubor kroků a technik. Tanec je cesta k vlastnímu tělu, hudbě, emocím, disciplíně, tvořivosti i spolupráci s ostatními.",
+        "Naším cílem není vést tanečníky jen k technické zdatnosti. Chceme rozvíjet osobnosti, které rozumějí svému tělu, dokážou se prostřednictvím pohybu vyjádřit a mají z tance radost."
+      ]
+    },
+    "groups": [
+      {
+        "title": "JAK UČÍME",
+        "topics": [
+          {
+            "heading": "TECHNIKA JAKO PEVNÝ ZÁKLAD",
+            "paragraphs": [
+              "Správně vybudovaná technika dává tanečníkovi svobodu, jistotu a chrání jeho tělo.",
+              "Proto věnujeme velkou pozornost správnému držení těla, koordinaci, práci chodidel, stabilitě, síle, flexibilitě i zdravému provedení pohybu.",
+              "Nejde nám ale o mechanické opakování kroků. Chceme, aby tanečníci rozuměli tomu, co jejich tělo dělá, odkud pohyb vychází a proč se určitým způsobem provádí."
+            ]
+          },
+          {
+            "heading": "POROZUMĚNÍ VLASTNÍMU TĚLU",
+            "paragraphs": [
+              "Důležitou součástí našeho přístupu je respekt k tělu.",
+              "Vedeme tanečníky k tomu, aby své tělo poznávali, vnímali jeho možnosti a dokázali s ním pracovat bezpečně.",
+              "Správná technika, kompenzační cvičení, práce se stabilitou, mobilitou a regenerací pomáhají nejen lepšímu výkonu, ale především dlouhodobému zdravému pohybu."
+            ]
+          },
+          {
+            "heading": "VŠESTRANNOST",
+            "paragraphs": [
+              "Věříme, že dnešní tanečník potřebuje být všestranný.",
+              "Proto <strong>propojujeme</strong> klasický tanec, jazz, contemporary, moderní taneční techniky, práci na zemi, improvizaci, muzikálové prvky i další pohybové zkušenosti.",
+              "Jednotlivé techniky nevnímáme odděleně. Každá rozvíjí jinou kvalitu a společně pomáhají vytvářet komplexního tanečníka."
+            ]
+          },
+          {
+            "heading": "OSOBNOST A INDIVIDUALITA",
+            "paragraphs": [
+              "Každý člověk má jiné tělo, jiné možnosti, temperament i způsob učení.",
+              "Proto nechceme všechny formovat podle jedné šablony. Pedagog má tanečníka vést, podporovat jeho silné stránky a současně mu pomáhat překonávat vlastní limity.",
+              "Respektujeme individualitu, ale zároveň učíme pracovitosti, pravidelnosti a odpovědnosti za vlastní rozvoj."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "PROČ UČÍME TANEC",
+        "topics": [
+          {
+            "heading": "TANEC JAKO UMĚNÍ",
+            "paragraphs": [
+              "Tanec pro nás nekončí správně provedeným pohybem.",
+              "Učíme tanečníky vnímat hudbu, rytmus, dynamiku, prostor i partnera. Vedeme je k tomu, aby dokázali pohybu dát význam, náladu a vlastní osobní projev.",
+              "Technika je prostředkem. Umělecký projev je tím, co dává tanci život."
+            ]
+          },
+          {
+            "heading": "TANEC JAKO CESTA K OSOBNOSTI",
+            "paragraphs": [
+              "Tanec rozvíjí mnohem víc než pohybové schopnosti.",
+              "Učí trpělivosti, vytrvalosti, soustředění, disciplíně a schopnosti přijímat korekci.",
+              "Učí také respektu k ostatním, spolupráci a odpovědnosti vůči skupině.",
+              "Jsou to zkušenosti a hodnoty, které člověku zůstávají i tehdy, když se jednou rozhodne profesionální taneční cestou nepokračovat."
+            ]
+          }
+        ]
+      }
+    ],
+    "lead": {
+      "title": "KAM TANEČNÍKA VEDEME",
+      "heading": "TVOŘIVOST A VLASTNÍ POHYBOVÝ JAZYK",
+      "paragraphs": [
+        "Součástí výuky je také improvizace a kreativní práce.",
+        "Tanečník se učí nejen přijímat pohyb od pedagoga, ale také hledat vlastní řešení, reagovat na hudbu, prostor, téma nebo emoci a postupně objevovat svůj vlastní pohybový rukopis."
+      ],
+      "image": { "key": "galerie/zahrada", "alt": "Skupina tanečnic na podložkách v zahradě centra" }
+    },
+    "goals": {
+      "title": "CHCEME, ABY NAŠI TANEČNÍCI",
+      "paragraphs": [
+        "Měli kvalitní technický základ, rozuměli svému tělu a dokázali s ním pracovat zdravě a vědomě.",
+        "Aby byli všestranní, pohybově otevření a uměli pracovat s hudbou, výrazem, prostorem i emocí.",
+        "Aby měli zdravé sebevědomí, respektovali své tělo i ostatní a především si uchovali radost z pohybu a tance."
+      ]
+    },
+    "quote": [
+      "Ne každý tanečník musí stát jednou na profesionálním jevišti.",
+      "Ale každý může díky tanci poznat něco důležitého o sobě.",
+      "A právě v tom vidíme jeden z největších smyslů tanečního vzdělávání."
+    ]
+  },
+  "vedeni": {
+    "title": "MAGDALÉNA MAUEROVÁ",
+    "label": "umělecká vedoucí • choreografka • taneční pedagožka • tanečně-pohybová terapeutka",
+    "accent": "„Miluj tanec v sobě, a ne sebe v tanci.“",
+    "cite": "Frank Towen",
+    "image": { "key": "vedeni/magdalena-mauerova", "alt": "Magdaléna Mauerová sedí na jevišti před malovanou divadelní kulisou" },
+    "intro": [
+      "Více než 30 let propojuje tanec, pedagogiku a práci s tělem. Zakladatelka TC Monsignore věří, že tanec může člověka rozvíjet v každém věku.",
+      "Magdaléna Mauerová více než třicet let se věnuje taneční pedagogice, choreografii a práci s lidmi prostřednictvím pohybu. Je zakladatelkou a uměleckou vedoucí Tanečního centra Monsignore, které založila v roce 1992."
+    ],
+    "more": [
+      {
+        "paragraphs": [
+          "Její profesní cesta začala společenským tancem. Postupně se začala věnovat klasickému, jazzovému a modernímu tanci. Baletní průpravu získávala u pedagogů Bulgakovové a Voroncovové z Petrohradu, Jazz dance studovala u Rastislava Letenaje, Limón techniku ve Vídni u mezinárodně uznávaného tanečníka a pedagoga Joea Alegada a Modern dance u Bruce Taylora.",
+          "Od 90. let působila jako profesionální tanečnice, choreografka a pedagožka. Vyučovala také na konzervatoři v Hradci Králové a dlouhodobě spolupracovala s profesionálními divadly.",
+          "V Klicperově divadle v Hradci Králové působila jako tanečnice, herečka i choreografka. Několik let spolupracovala rovněž s Východočeským divadlem v Pardubicích, kde se věnovala choreografii a pohybové přípravě herců a tanečníků.",
+          "V roce 1997 se podílela jako choreografka na rozsáhlém multimediálním projektu <strong>Pocta svatému Vojtěchovi</strong>, připraveném při příležitosti návštěvy papeže Jana Pavla II. v České republice.",
+          "Se svými tanečníky vystupovala nejen na českých scénách, ale také ve Francii, Itálii a Chorvatsku. Působila jako porotkyně celostátních tanečních soutěží, věnovala se přednáškové činnosti a o tanci hovořila také v Českém rozhlase a psala do regionálního tisku."
+        ]
+      },
+      {
+        "heading": "Pedagogika jako celoživotní cesta",
+        "paragraphs": [
+          "Největší část své profesní energie věnovala Magdaléna Mauerová vzdělávání tanečníků.",
+          "Během desítek let práce v TC Monsignore vychovala několik generací dětí a mladých lidí, z nichž řada pokračovala v profesionálním tanci, herectví nebo se sama začala věnovat taneční pedagogice.",
+          "Je autorkou desítek choreografií a řady celovečerních tanečních představení vytvořených pro TC Monsignore, divadelní scény i televizní projekty.",
+          "Její pedagogická práce byla vždy založena na propojení kvalitní taneční techniky s muzikálností, výrazem a osobností tanečníka. Významné místo v její metodice zaujímá jazzový tanec, moderní taneční techniky a scénická tvorba."
+        ]
+      },
+      {
+        "heading": "Inspirace ze zahraničí",
+        "paragraphs": [
+          "V letech 2012–2013 působila v australském Perthu, kde vyučovala v tanečních školách Vogue Performers a Dynamic Perth’s Performing Arts Specialists moderní tanec, jazz dance a contemporary a zároveň čerpala inspiraci z tamního tanečního prostředí. Do Perthu se v následujících letech několikrát vracela, a mohla tak dlouhodoběji sledovat přístup k tanečnímu vzdělávání a práci s tanečníky. Zahraniční zkušenosti ještě více posílily její zájem o přirozený pohyb, individualitu tanečníka a o hledání cest, jak může tanec člověka provázet v různých obdobích života."
+        ]
+      },
+      {
+        "heading": "Tanec jako cesta k tělu i psychické rovnováze",
+        "paragraphs": [
+          "Postupně se její profesní zájem začal rozšiřovat od taneční pedagogiky také směrem k terapeutickému využití pohybu.",
+          "V roce 2014 absolvovala Mezinárodní konferenci uměleckých terapií <strong>ARS TERAPEUTICA</strong>, kde se věnovala arteterapii, muzikoterapii, dramaterapii a tanečně-pohybové terapii.",
+          "V roce 2017 získala diplom v oboru <strong>tanečně-pohybové terapie</strong>, garantovaný Mezinárodní asociací uměleckých terapií MAUT a Českou hudební společností – Společností pro hudební terapii.",
+          "Od té doby propojuje své dlouholeté zkušenosti taneční pedagožky s principy tanečně-pohybové terapie.",
+          "Ve své práci s tanečníky klade důraz na individuální možnosti každého člověka, zdravý pohyb, mobilitu, vnímání vlastního těla, psychickou pohodu a radost z pohybu."
+        ]
+      },
+      {
+        "heading": "Tanec bez věkových hranic",
+        "paragraphs": [
+          "V posledních letech se její práce stále více zaměřuje také na dospělé a seniory.",
+          "Je přesvědčena, že tanec nemusí být spojen pouze s výkonem, soutěžemi nebo profesionální kariérou. Může být celoživotním prostředkem k udržení vitality, pohyblivosti, tvořivosti a radosti.",
+          "Právě tato myšlenka dnes výrazně ovlivňuje směřování Tanečního centra Monsignore.",
+          "Po více než třiceti letech práce zůstává pro Magdalénu Mauerovou tanec stále živým prostorem pro hledání, vzdělávání a setkávání."
+        ]
+      }
+    ],
+    "quote": ["Tanec pro ni není pouze technika. Je způsobem, jak vnímat vlastní tělo, hudbu, prostor, druhé lidi – a nakonec i sebe sama."]
+  },
+  "pribeh": {
+    "title": "NÁŠ PŘÍBĚH",
+    "accent": "Více než tři desetiletí s tancem",
+    "image": { "key": "nas-pribeh/archiv", "alt": "Archivní snímek tanečnic v pohybu se šátky v tanečním sále" },
+    "intro": [
+      "Příběh Tanečního centra Monsignore se začal psát již v roce 1988. Tehdy vznikla malá skupina osmi tanečníků, která připravovala krátká vystoupení pro kulturní a společenské akce. Z původně malého souboru se postupně stalo místo, kde se tanec začal vyučovat systematicky a kde během dalších desetiletí prošly tanečním vzděláváním stovky dětí, mladých lidí i dospělých.",
+      "V roce 1992 získala činnost jasnější podobu založením soukromého Tanečního centra Monsignore. Od počátku se zaměřovalo především na moderní, jazzový a scénický tanec a na kvalitní pohybovou a uměleckou průpravu dětí a mládeže.",
+      "Postupně vznikaly přípravné i pokročilé třídy a výuka se rozšiřovala o klasický tanec, contemporary, lyrický jazz, muzikálový tanec, improvizaci a scénickou praxi. Součástí vzdělávání se staly také víkendové semináře, workshopy s českými i zahraničními pedagogy a pravidelná Letní taneční škola."
+    ],
+    "more": [
+      {
+        "heading": "Z taneční školy na divadelní jeviště",
+        "paragraphs": [
+          "Monsignore nikdy nebylo pouze místem pravidelných tanečních lekcí. Důležitou součástí práce byla od počátku také jevištní zkušenost a vlastní taneční tvorba.",
+          "Tanečníci se představovali pardubickému publiku ve Východočeském divadle i na scénách dalších českých měst. Centrum spolupracovalo s profesionálními divadly a podílelo se na řadě kulturních a uměleckých projektů.",
+          "Mezi významné projekty patřila například spolupráce s Klicperovým divadlem v Hradci Králové, reprezentace Pardubic ve francouzském Bergeracu nebo účast na multimediálním projektu Pocta svatému Vojtěchovi připraveném při příležitosti návštěvy papeže Jana Pavla II.",
+          "Tanečníci Monsignore se úspěšně účastnili také tanečních soutěží. Centrum získalo mimo jiné titul Mistra České republiky v kategorii show dance s nominací na evropský šampionát.",
+          "Řada absolventů později pokračovala v profesionálním tanci, herectví nebo taneční pedagogice."
+        ]
+      },
+      {
+        "heading": "Tanec v každém věku",
+        "paragraphs": [
+          "Během posledních přibližně deseti let prošlo zaměření Tanečního centra Monsignore další výraznou proměnou.",
+          "Vedle tradičního vzdělávání dětí a mladých tanečníků se stále více otevřelo také dospělým a starší generaci. Tanec zde již není vnímán pouze jako cesta k taneční technice nebo vystupování, ale také jako prostředek k udržení fyzické kondice, radosti z pohybu, psychické pohody a setkávání s dalšími lidmi.",
+          "Vznikly kurzy pro dospělé určené začátečníkům i pokročilým a programy propojující tanec se zdravým pohybem, regenerací a aktivním odpočinkem."
+        ]
+      },
+      {
+        "heading": "Od taneční techniky k péči o člověka",
+        "paragraphs": [
+          "Dalším důležitým mezníkem se stal rozvoj tanečně-pohybové terapie.",
+          "Po získání odborného vzdělání v oblasti tanečně-pohybové terapie v roce 2017 začala umělecká vedoucí centra Magdaléna Mauerová stále více propojovat své dlouholeté zkušenosti tanečního pedagoga a choreografa s terapeutickým působením pohybu.",
+          "Do práce centra se tak ještě výrazněji dostal individuální přístup, vědomá práce s tělem, psychická pohoda, zdravý pohyb a respekt k možnostem každého člověka."
+        ]
+      },
+      {
+        "heading": "Monsignore dnes",
+        "paragraphs": [
+          "Dnešní Monsignore navazuje na více než třicetiletou tradici tanečního vzdělávání, ale současně se stále vyvíjí.",
+          "Je místem pro mladé tanečníky, kteří chtějí své schopnosti rozvíjet na vysoké úrovni, ale také pro dospělé a seniory, kteří chtějí zůstat aktivní, pečovat o své tělo, objevovat nové možnosti pohybu a mít radost z hudby a tance.",
+          "Z původního osmičlenného tanečního souboru tak vzniklo centrum, jehož smyslem není pouze <strong>učit tančit</strong>, ale prostřednictvím pohybu rozvíjet člověka v každém období jeho života."
+        ]
+      }
+    ],
+    "quote": ["Tanec se může měnit spolu s námi. Radost z pohybu ale nemusí mít žádný věkový limit."]
+  }
+}

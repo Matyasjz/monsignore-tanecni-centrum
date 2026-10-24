@@ -7,7 +7,7 @@ import { createServer } from 'vite';
 const root = resolve(import.meta.dirname, '..');
 
 // Stránky z předchozí verze, které se teprve přepíšou (PLAN.md): chyby v nich jsou jen varování
-const legacy = new Set(['nas-pristup', 'vedeni', 'nas-pribeh']);
+const legacy = new Set();
 
 // Brief, sekce 7: neplatné věci a překlepy, které mají být opravené
 const forbidden = [
