@@ -8,17 +8,20 @@ import {
 } from './blocks/courses.js';
 import { scheduleTable } from './blocks/schedule.js';
 import proVas from './data/pro-vas.json';
+import akce from './data/akce.json';
+import letniSkola from './data/letni-skola.json';
+import { eventsCalendar } from './blocks/events.js';
+import {
+  summerHero, summerIntro, summerSignup, summerTeam,
+} from './blocks/summer-school.js';
 import {
   contact, faq, gallery, testimonials,
 } from './blocks/pro-vas.js';
 import {
   continueTo, framed, pageIntro, paragraphs, patternPanel, sectionTitle, split, timeline, wideFigure,
 } from './blocks/layout.js';
-import adult009 from '../assets/adult-009.jpg';
-import adult011 from '../assets/adult-011.jpg';
 import adult012 from '../assets/adult-012.jpg';
 import adult014 from '../assets/adult-014.jpg';
-import adult018 from '../assets/adult-018.jpg';
 import individual001 from '../assets/individualni-vyuka-001.jpg';
 
 const pageTitle = (title) => `${title.charAt(0)}${title.slice(1).toLowerCase()} · Taneční centrum Monsignore`;
@@ -92,6 +95,34 @@ const pages = {
     ${story(home.story)}`,
   },
   ...coursePages(),
+  // Akce a Letní taneční škola (brief 3.3)
+  akce: {
+    title: pageTitle(akce.title),
+    description: plain(akce.workshops.body[0]),
+    world: 'centrum',
+    html: `${pageIntro({ title: akce.title })}
+    <section class="section" data-world="letni-skola">
+      <div class="site-container">${patternPanel(akce.summerSchool)}</div>
+    </section>
+    ${split({
+      image: akce.workshops.image,
+      shape: 'portrait',
+      title: akce.workshops.title,
+      body: akce.workshops.body,
+      after: '<a class="link-line mt-10" href="#kalendar">Kalendář akcí</a>',
+      tone: 'pt-0 md:pt-0',
+    })}
+    ${eventsCalendar(akce.calendar)}`,
+  },
+  'letni-skola': {
+    title: pageTitle(letniSkola.title),
+    description: `${letniSkola.accent}. ${letniSkola.place}.`,
+    world: 'letni-skola',
+    html: `${summerHero(letniSkola)}
+    ${summerIntro(letniSkola)}
+    ${summerTeam(letniSkola.team)}
+    ${summerSignup(letniSkola.signup)}`,
+  },
   // Pro vás a Kontakt (brief 3.4 a 3.5)
   'pro-vas/caste-dotazy': {
     title: pageTitle(proVas.faq.title),
@@ -169,61 +200,6 @@ const pages = {
       tone: 'pt-0 md:pt-0',
     })}
     ${continueTo({ script: 'Dále', label: 'Prohlédněte si kurzy', href: '#/kurzy' })}`,
-  },
-  'letni-skola': {
-    world: 'letni-skola',
-    title: 'Letní taneční škola · Taneční centrum Monsignore',
-    html: `${pageIntro({
-      script: 'Léto',
-      title: 'Letní taneční škola',
-      lead: 'Víkendové semináře, workshopy s českými i zahraničními pedagogy a pravidelná Letní taneční škola.',
-    })}
-    ${split({
-      image: adult011, alt: 'Dospělí tanečníci při lekci',
-      script: 'Intenzivně',
-      title: 'Léto plné pohybu',
-      body: [
-        'Letní taneční škola navazuje na dlouholetou tradici seminářů a workshopů, které jsou součástí vzdělávání v Monsignore.',
-        'Termíny a program dalšího ročníku připravujeme. Napište nám a dáme vám vědět, jakmile je zveřejníme.',
-      ],
-      after: '<a class="link-line mt-10" href="mailto:info@monsignore.cz?subject=Letn%C3%AD%20tane%C4%8Dn%C3%AD%20%C5%A1kola">Chci znát termíny</a>',
-    })}`,
-  },
-  akce: {
-    title: 'Akce a workshopy · Taneční centrum Monsignore',
-    html: `${pageIntro({
-      script: 'Program',
-      title: 'Akce a workshopy',
-      lead: 'Intenzivnější tréninky, workshopy a tematické taneční večery.',
-    })}
-    ${split({
-      image: adult018, alt: 'Tanečnice při vystoupení na divadelním jevišti', shape: 'portrait',
-      script: 'Workshopy',
-      title: 'Workshopy a tematické večery',
-      body: [
-        'Intenzivnější tréninky umožňují rychlejší rozvoj tanečníka. Postupně se zaměřujeme na pohybovou přesnost jednotlivých částí těla, souznění pohybu s hudbou, taneční improvizaci a citlivé vnímání prostoru.',
-        'Součástí programu jsou také tematické taneční večery.',
-      ],
-    })}
-    <section class="section section--surface">
-      <div class="site-container">
-        ${sectionTitle({ script: 'Brzy', title: 'Nejbližší představení', center: true })}
-        <article class="event">
-          ${framed(adult009, 'Taneční soubor na jevišti při představení', 'landscape', 'reveal')}
-          <div class="reveal reveal-delay-1">
-            <div class="event__date" aria-label="Provizorní datum: 24. května 2027">
-              <span class="event__day" aria-hidden="true">24</span>
-              <span class="event__month" aria-hidden="true">Květen · ukázkový termín</span>
-            </div>
-            <h3 class="event__title">Závěrečné taneční představení</h3>
-            <p class="event__meta">Taneční centrum Monsignore · Pardubice<br>18:00 · místo konání bude upřesněno</p>
-            <div class="event__actions">
-              <a href="mailto:info@monsignore.cz?subject=Dotaz%20na%20vstupenky" class="btn btn--dark">Rezervovat vstupenky</a>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>`,
   },
   'nas-pribeh': {
     title: 'Náš příběh · Taneční centrum Monsignore',

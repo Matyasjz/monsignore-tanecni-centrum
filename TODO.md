@@ -38,7 +38,6 @@
 
 ## Legacy podstránky (z předchozí verze, čekají na svůj krok v PLAN.md)
 - [ ] `#/nas-pristup`, `#/vedeni`, `#/nas-pribeh` (krok 8): parafráze místo doslovných textů, vymyšlená ozdobná slova, „výkonnostní třída A“, Tanec PLUS
-- [ ] `#/akce`, `#/letni-skola` (krok 6): ukázková akce 24. května a vymyšlený text Letní školy
 - [ ] Neaktivní odkaz v menu (`data-inert-nav`): Terapie. Aktivovat v kroku 7.
 
 ## Home (krok 3)
@@ -61,3 +60,9 @@
 - [ ] FAQ ot. 18: slovo „Ceník“ je odkaz na `#/kurzy/rozvrh-a-cenik` (text beze změny).
 - [ ] Kontakt: mapa je Google Maps embed bez API klíče, načte se až po kliknutí. Pokud klientka chce Mapy.cz i jako embed, je potřeba jejich API klíč.
 - [ ] Ohlasy: doplnit citace (jméno, role, souhlas se zveřejněním) do `src/data/pro-vas.json` a nastavit `"hidden": false`.
+
+## Akce a Letní škola (krok 6)
+- [ ] Workshop 14.–15. 11. 2026: chybí plakát (`akce-2026-11-15-workshop.png`) a čas. V kalendáři je zatím celodenní událost.
+- [ ] Letní škola: termín, ceník a přihláška pro rok 2027. Fotky (složka `LETNÍ TANEČNÍ ŠKOLA` je prázdná).
+- [ ] Letní škola: lektorský tým je z roku 2026, ověřit pro 2027. Texty o místě a seznam technik jsou převzaté ze staré stránky, potvrdit s klientkou.
+- [ ] Stará stránka Letní školy používá přihlášku `monsignore.heurekazo.cz/form/event/54`. Chceme ji napojit místo `mailto:`?

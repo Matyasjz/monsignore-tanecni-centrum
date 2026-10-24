@@ -1,0 +1,34 @@
+{
+  "title": "AKCE",
+  "summerSchool": {
+    "accent": "Prázdninové setkání s tancem",
+    "title": "LETNÍ TANEČNÍ ŠKOLA",
+    "text": "Rekreační zařízení TRAMTÁRYJE, Horní Jelení",
+    "cta": { "label": "Vstoupit", "href": "#/letni-skola" }
+  },
+  "workshops": {
+    "title": "AKCE & WORKSHOPY",
+    "body": ["Intenzivnější tréninky umožňují rychlejší rozvoj tanečníka. Postupně se přechází na větší pohybovou přesnost jednotlivých oblastí těla, na souznění pohybu s hudbou, osvojování si taneční a pohybové improvizace a citlivého vnímání prostoru."],
+    "image": { "key": "akce/svicky", "alt": "Lucerna se svíčkou a zvukové misky na podlaze sálu u okna do zahrady" }
+  },
+  "calendar": {
+    "title": "Kalendář akcí",
+    "empty": "Aktuálně nejsou vypsané žádné akce.",
+    "events": [
+      {
+        "id": "2026-11-workshop-telo-v-pohybu",
+        "title": "Víkendový workshop pro ženy – „TĚLO V POHYBU, SRDCE V TANCI“",
+        "start": "2026-11-14",
+        "end": "2026-11-15",
+        "dateLabel": "14.–15. 11. 2026",
+        "time": "<span class=\"todo\">[DOPLNIT: čas začátku a konce]</span>",
+        "place": "RZ Tramtáryje, Horní Jelení",
+        "price": "3 800 Kč",
+        "lecturer": "Magdaléna Mauerová",
+        "lecturerLabel": "Lektorka",
+        "poster": null,
+        "posterTodo": "[DOPLNIT: plakát akce-2026-11-15-workshop.png]"
+      }
+    ]
+  }
+}

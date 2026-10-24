@@ -1,0 +1,25 @@
+{
+  "title": "LETNÍ TANEČNÍ ŠKOLA",
+  "accent": "Prázdninové setkání s tancem",
+  "place": "Rekreační zařízení TRAMTÁRYJE, Horní Jelení",
+  "date": "<span class=\"todo\">[DOPLNIT: termín 2027]</span>",
+  "intro": [
+    "Tento areál se nachází uprostřed krásné a klidné přírody. Nabízí nám jedinečný prostor pro tanec, stravování a relaxaci a to vše na jednom místě!",
+    "Profesionální vedení lektorů, jejich laskavý přístup pomáhá překonat limity tanečníků a objevit nové možnosti, jak se vyjádřit prostřednictvím tance."
+  ],
+  "courses": {
+    "title": "KURZY",
+    "lead": "Máte možnost vybrat si ze široké škály tanečních technik, jako jsou:",
+    "items": ["L. Horton", "J. Limón", "Variace", "Jazz", "Klasika", "Špičky", "Současný tanec s prvky Floor work", "Capoeira", "Muzikál", "Fyzio-cvičení"],
+    "note": "Klasický tanec bude vyučován zvlášť pro začátečníky a pokročilé."
+  },
+  "team": {
+    "title": "Lektorský tým 2026",
+    "names": ["Tomáš Duras", "Tereza Krupičková", "Hana Tomášková", "Markéta Dohnalová", "Magda Komínková", "Lukáš Novák", "Lucie Šimůnková", "Jakub Šimůnek"]
+  },
+  "signup": {
+    "title": "Přihláška a ceník",
+    "text": "<span class=\"todo\">[DOPLNIT: ceník a přihláška pro rok 2027]</span>",
+    "cta": { "label": "Napsat nám", "href": "mailto:info@monsignore.cz?subject=Letn%C3%AD%20tane%C4%8Dn%C3%AD%20%C5%A1kola" }
+  }
+}

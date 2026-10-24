@@ -67,7 +67,7 @@ Pořadí bloků přesně podle briefu 3.1. Bloky, které tam nejsou (galerie kur
 
 **Hotovo, když:** akordeon i lightbox jdou ovládat klávesnicí, ohlasy nejsou vidět, mapa nenačítá třetí strany bez kliknutí a kontakty jsou klikací. (C1, C2, C3, C7, C8, C9, C10)
 
-## Krok 6: Akce + kalendář + Letní škola
+## Krok 6: Akce + kalendář + Letní škola ✅ hotovo 24. 10. 2026
 
 - **Akce** `/akce`: blok LETNÍ ŠKOLA TANCE (vstup do světa) + AKCE & WORKSHOPY (úvodní text a kalendář).
 - **Kalendář:** kolekce `src/data/akce.json` (název, od–do, místo, cena, lektor, plakát). Minulé akce se skrývají podle dnešního data. Tlačítko „Přidat do kalendáře“ generuje `.ics` v prohlížeči a odkaz na Google Calendar. První akce: workshop „TĚLO V POHYBU, SRDCE V TANCI“, 14.–15. 11. 2026, RZ Tramtáryje, Horní Jelení, 3 800 Kč, Magdaléna Mauerová. Čas a plakát `[DOPLNIT]`.

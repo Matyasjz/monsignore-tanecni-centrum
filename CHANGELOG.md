@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2026-10-24: Krok 6, Akce a Letní škola
+- `#/akce`: vstup do Letní školy (panel v barvách jejího světa), Akce & workshopy s textem klientky a kalendář akcí z `src/data/akce.json`. Minulé akce se skrývají samy, každá akce má „Přihlásit se“, „Přidat do kalendáře“ (.ics) a odkaz do Google Kalendáře. První akce: workshop 14.–15. 11. 2026.
+- `#/letni-skola` ve vlastním barevném světě: místo, nadčasové věty a seznam technik ze staré stránky (jen jako zdroj faktů), lektorský tým 2026. Termín, ceník a přihláška 2027 jsou `[DOPLNIT]`.
+
 ## 2026-10-24: Krok 5, Pro vás a Kontakt
 - `#/pro-vas/caste-dotazy`: 20 otázek doslova z textů jako akordeon, vlevo fotka sálu, která na desktopu drží při scrollu. Komponenta Ohlasy je hotová, ale skrytá, dokud nepřijdou citace.
 - `#/pro-vas/galerie`: mozaika 22 nepoužitých fotek s lightboxem (nativní `<dialog>`, šipky, Esc, počítadlo).

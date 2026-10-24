@@ -34,6 +34,9 @@ kurzy/vitadance-ruce|KURZY VITADANCE/new-therapy-dance-style-003.jpg|1200|
 individualni-vyuka/lekce|INDIVIDUÁLNÍ VÝUKA/DSC_0636.JPG|1600|
 individualni-vyuka/sal|INDIVIDUÁLNÍ VÝUKA/DSC_0564.jpg|1600|
 individualni-vyuka/zrcadlo|INDIVIDUÁLNÍ VÝUKA/IMG_0584.HEIC|1200|
+akce/svicky|AKCE A WORKSHOPY/IMG_2856.HEIC|1600|
+akce/relax|AKCE A WORKSHOPY/IMG_2877.HEIC|1600|
+akce/vecerni-sal|AKCE A WORKSHOPY/IMG_2897.HEIC|1600|
 telocvicna/svicky|FOTO TĚLOCVIČNY/IMG_2857.HEIC|1600|
 telocvicna/sal|FOTO TĚLOCVIČNY/IMG_8334.HEIC|1600|
 galerie/sal-podlozky|FOTO TĚLOCVIČNY/IMG_2867.HEIC|1600|

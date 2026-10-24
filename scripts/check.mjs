@@ -7,7 +7,7 @@ import { createServer } from 'vite';
 const root = resolve(import.meta.dirname, '..');
 
 // Stránky z předchozí verze, které se teprve přepíšou (PLAN.md): chyby v nich jsou jen varování
-const legacy = new Set(['nas-pristup', 'vedeni', 'nas-pribeh', 'akce', 'letni-skola']);
+const legacy = new Set(['nas-pristup', 'vedeni', 'nas-pribeh']);
 
 // Brief, sekce 7: neplatné věci a překlepy, které mají být opravené
 const forbidden = [
@@ -48,6 +48,17 @@ try {
   const html = [shell, ...slugs().map((slug) => getPage(slug).html)].join('\n');
   for (const [, target] of new Set([...html.matchAll(/href="#\/([^"]*)"/g)].map((m) => [m[0], m[1]]))) {
     if (!getPage(target.replace(/\/$/, ''))) errors.push(`odkaz #/${target} nevede na žádnou stránku`);
+  }
+
+  // Minulé akce se musí skrýt: den po skončení poslední akce nesmí zůstat žádná
+  const { upcoming } = await server.ssrLoadModule('/src/blocks/events.js');
+  const { calendar } = (await server.ssrLoadModule('/src/data/akce.json')).default;
+  const lastEnd = calendar.events.map(({ end }) => end).sort().at(-1);
+  if (lastEnd) {
+    const dayAfter = new Date(`${lastEnd}T12:00:00Z`);
+    dayAfter.setUTCDate(dayAfter.getUTCDate() + 1);
+    if (upcoming(calendar.events, dayAfter).length) errors.push('akce: minulé akce se neskrývají');
+    if (!upcoming(calendar.events, new Date(`${lastEnd}T12:00:00Z`)).length) errors.push('akce: akce zmizela už v den konání');
   }
 
   console.log(`Zkontrolováno ${slugs().length} stránek.`);
