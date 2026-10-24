@@ -1,26 +1,30 @@
-// Monsignore původní paleta: https://coolors.co/fffdfc-302d2e-a30d1b-e47c84-f8e8e9-70686a
+// Barvy jsou CSS proměnné z src/style.css. Mění se podle světa (data-world) a nálady (data-mood).
 // Vizuální směr: otevřený, minimalistický styl inspirovaný šablonou Arabesque
 /** @type {import('tailwindcss').Config} */
+const token = (name) => `rgb(var(--c-${name}) / <alpha-value>)`;
+
 export default {
-  content: ['./index.html', './src/**/*.{js,ts}'],
+  content: ['./index.html', './src/**/*.{js,ts,json}'],
   theme: {
     extend: {
       colors: {
-        paper: 'rgb(var(--color-paper) / <alpha-value>)',
-        ink: 'rgb(var(--color-ink) / <alpha-value>)',
-        muted: 'rgb(var(--color-muted) / <alpha-value>)',
-        brand: 'rgb(var(--color-brand) / <alpha-value>)',
-        'brand-dark': 'rgb(var(--color-brand-dark) / <alpha-value>)',
-        blush: 'rgb(var(--color-blush) / <alpha-value>)',
-        'blush-soft': 'rgb(var(--color-blush-soft) / <alpha-value>)',
-        whisper: 'rgb(var(--color-whisper) / <alpha-value>)',
-        mist: 'rgb(var(--color-mist) / <alpha-value>)',
-        line: 'rgb(var(--color-line) / <alpha-value>)',
-        footer: 'rgb(var(--color-footer) / <alpha-value>)',
+        page: token('bg'),
+        surface: token('surface'),
+        ink: token('text'),
+        muted: token('text-muted'),
+        primary: token('primary'),
+        'primary-dark': token('primary-dark'),
+        secondary: token('secondary'),
+        'secondary-soft': token('secondary-soft'),
+        accent: token('accent'),
+        line: token('line'),
+        dark: token('dark'),
+        logo: token('logo'),
       },
       fontFamily: {
-        sans: ['Montserrat', 'sans-serif'],
-        script: ['Allura', 'cursive'],
+        heading: ['Now', 'DM Sans', 'system-ui', 'sans-serif'],
+        sans: ['DM Sans', 'system-ui', 'sans-serif'],
+        accent: ['Respondent', 'DM Sans', 'system-ui', 'sans-serif'],
       },
       letterSpacing: {
         heading: '.08em',

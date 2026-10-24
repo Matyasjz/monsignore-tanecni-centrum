@@ -1,3 +1,10 @@
+import home from './data/home.json';
+import { hero } from './blocks/hero.js';
+import { squares } from './blocks/squares.js';
+import { story } from './blocks/story.js';
+import {
+  continueTo, framed, pageIntro, paragraphs, sectionTitle, split, timeline, wideFigure,
+} from './blocks/layout.js';
 import adult009 from '../assets/adult-009.jpg';
 import adult011 from '../assets/adult-011.jpg';
 import adult012 from '../assets/adult-012.jpg';
@@ -12,71 +19,19 @@ import style005 from '../assets/new-therapy-dance-style-005.jpg';
 import style006 from '../assets/new-therapy-dance-style-006.jpg';
 import style007 from '../assets/new-therapy-dance-style-007.jpg';
 
-const paragraphs = (list) => list.map((text) => `<p>${text}</p>`).join('');
-
-const photo = (src, alt) => `<img class="photo" src="${src}" alt="${alt}" loading="lazy">`;
-
-const framed = (src, alt, shape = 'landscape', className = '') => `
-  <figure class="framed framed--${shape} ${className}">
-    <div class="framed__inner">${photo(src, alt)}</div>
-  </figure>`;
-
-const sectionTitle = ({ script, title, center = false }) => `
-  <div class="section-title ${center ? 'section-title--center' : ''}">
-    ${script ? `<span class="section-title__script" aria-hidden="true">${script}</span>` : ''}
-    <h2 class="section-title__heading">${title}</h2>
-  </div>`;
-
-const pageIntro = ({ script, title, lead }) => `
-  <section class="page-intro">
-    <div class="page-intro__inner reveal">
-      <span class="page-intro__script" aria-hidden="true">${script}</span>
-      <h1 class="page-intro__title">${title}</h1>
-      ${lead ? `<p class="page-intro__lead">${lead}</p>` : ''}
-    </div>
-  </section>`;
-
-const split = ({ image, alt, shape = 'landscape', script, title, body, after = '', reverse = false, tone = '' }) => `
-  <section class="section ${tone}">
-    <div class="site-container split ${reverse ? 'split--reverse' : ''}">
-      ${framed(image, alt, shape, 'split__media reveal')}
-      <div class="split__copy reveal reveal-delay-1">
-        ${sectionTitle({ script, title })}
-        <div class="prose-copy">${paragraphs(body)}</div>
-        ${after}
-      </div>
-    </div>
-  </section>`;
-
-const timeline = (items) => `
-  <section class="section">
-    <div class="timeline">
-      ${items.map(({ marker, title, body }) => `
-        <article class="timeline__item reveal">
-          <span class="timeline__marker">${marker}</span>
-          <div class="timeline__body prose-copy">
-            <h2>${title}</h2>
-            ${paragraphs(body)}
-          </div>
-        </article>`).join('')}
-    </div>
-  </section>`;
-
-const wideFigure = (src, alt) => `
-  <figure class="wide-figure reveal">
-    <div class="wide-figure__inner">${photo(src, alt)}</div>
-  </figure>`;
-
-const continueTo = ({ script, label, href }) => `
-  <section class="section section--tight">
-    <div class="site-container text-center reveal">
-      <span class="section-title__script" aria-hidden="true">${script}</span>
-      <a class="link-line relative" href="${href}">${label}</a>
-    </div>
-  </section>`;
-
+// Každá stránka: title, description, world (centrum | terapie | letni-skola), mood a html složené z bloků.
+// Klíč je slug a zároveň budoucí hezká URL (tabulka v AGENTS.md).
 const pages = {
-  'o-nas': {
+  '': {
+    title: home.title,
+    description: home.description,
+    world: 'centrum',
+    html: `${hero(home.hero)}
+    ${squares(home.squares)}
+    ${story(home.story)}`,
+  },
+  // Legacy podstránky z předchozí verze: přepíšou se podle briefu v krocích 4–8 (PLAN.md)
+  'nas-pristup': {
     title: 'Náš přístup · Taneční centrum Monsignore',
     html: `${pageIntro({
       script: 'O nás',
@@ -92,7 +47,7 @@ const pages = {
         'Nechceme vychovávat pouze technicky zdatné tanečníky. Rozvíjíme osobnosti, které rozumějí svému tělu, dokážou se vyjádřit pohybem a mají z tance radost.',
       ],
     })}
-    <section class="section section--mist">
+    <section class="section section--surface">
       <div class="site-container">
         ${sectionTitle({ script: 'Principy', title: 'Na čem stavíme', center: true })}
         <div class="principles">
@@ -157,7 +112,7 @@ const pages = {
         'Pracuje s izolacemi, změnami tempa, skoky a točkami. Rozvíjí muzikálnost, pohybovou přesnost, flexibilitu a schopnost reagovat na různé hudební styly.',
       ],
       reverse: true,
-      tone: 'section--mist',
+      tone: 'section--surface',
     })}
     ${split({
       image: style005, alt: 'Skupina dospělých při tanečním cvičení',
@@ -177,7 +132,7 @@ const pages = {
         'Důležitá je individualita tanečníka a schopnost vyjádřit myšlenku, emoci nebo příběh prostřednictvím pohybu.',
       ],
       reverse: true,
-      tone: 'section--mist',
+      tone: 'section--surface',
     })}
     ${split({
       image: style007, alt: 'Tanečnice při práci na zemi',
@@ -187,11 +142,11 @@ const pages = {
         'Lekce pro dospělé od 35 let propojují prvky klasického, moderního a jazzového tance, Port de bras, Lady Latin Dance a celkovou taneční průpravu.',
         'Rozvíjíme koordinaci, pohybový rozsah, držení těla, kondici i paměť. Malé skupiny jsou vhodné i pro ty, kdo se k tanci vracejí po delší době nebo začínají úplně od začátku.',
       ],
-      after: '<p class="label mt-8 text-brand">Energy 35+ · Harmony 50+</p>',
+      after: '<p class="label mt-8 text-primary">Energy 35+ · Harmony 50+</p>',
     })}
-    ${continueTo({ script: 'Osobně', label: 'Individuální výuka', href: '#/individualni-vyuka' })}`,
+    ${continueTo({ script: 'Osobně', label: 'Individuální výuka', href: '#/kurzy/individualni-vyuka' })}`,
   },
-  'individualni-vyuka': {
+  'kurzy/individualni-vyuka': {
     title: 'Individuální výuka · Taneční centrum Monsignore',
     html: `${pageIntro({
       script: 'Individuálně',
@@ -213,6 +168,7 @@ const pages = {
     ${continueTo({ script: 'Začněte', label: 'Domluvit lekci', href: '#kontakt' })}`,
   },
   'letni-skola': {
+    world: 'letni-skola',
     title: 'Letní taneční škola · Taneční centrum Monsignore',
     html: `${pageIntro({
       script: 'Léto',
@@ -246,7 +202,7 @@ const pages = {
         'Součástí programu jsou také tematické taneční večery.',
       ],
     })}
-    <section class="section section--mist">
+    <section class="section section--surface">
       <div class="site-container">
         ${sectionTitle({ script: 'Brzy', title: 'Nejbližší představení', center: true })}
         <article class="event">

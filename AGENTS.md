@@ -1,113 +1,141 @@
 # AGENTS.md – Taneční centrum Monsignore
 
-Web uměleckého tanečního centra Monsignore (Pardubice, od roku 1992). Statický web ve **Vite + Tailwind CSS 3**, obsah je česky.
+Web Tanečního centra Monsignore (Lány u Dašic u Pardubic, od 1988 / 1992). Statický web ve **Vite + Tailwind CSS 3**, obsah česky. Zadává Filip Janko, klientka je Magda Mauerová.
 
-## Proč proběhl redesign
+## Zdroje pravdy (čti jako první)
 
-Klientovi se předchozí verze nelíbila. Podle jejich slov nebyla „flowy“ a byla „moc plná věcí“. Konkrétně:
+| Soubor | Co určuje |
+|---|---|
+| `BRIEF-monsignore.md` | **Struktura a vzhled.** Pořadí bloků a menu (sekce 3), tokeny (2), fotky (4), technické minimum (5), postup (6), rozhodnuté opravy (7), checklist (9). |
+| `texty-monsignore.md` | **Obsah.** Texty se přebírají **doslova**. Jedinou výjimkou jsou opravy v briefu, sekce 7. |
+| `PLAN.md` | Pořadí práce a definice „hotovo“ pro každý krok. |
+| `TODO.md` | Vše, co chybí nebo čeká na klientku. |
+| `CHANGELOG.md` | 2–3 řádky po každém větším kroku a nasazení. |
 
-- **Příliš mnoho dekorací najednou.** Svislé linky u textů, rámečky, ohraničené sekce, barevné pruhy, gradienty přes fotky, „vstupenková“ karta akce se zakázaným tlačítkem.
-- **Hustá sazba.** Malé mezery mezi sekcemi, karty těsně vedle sebe a přeplněná hero sekce.
-- **Dlouhé a nepřehledné položky menu**, například „Reference / Co o nás říkají, názory účastníků, citace, zkušenosti“.
-- **Míchání tří písem** (Playfair Display, DM Sans, Roboto Condensed) bez jasné hierarchie.
-- **Opakující se texty** (Individuální výuka měla stejné odstavce dvakrát) a dlouhé odstavce bez rytmu.
+Když se brief a kód rozcházejí, platí brief. Když se brief a texty rozcházejí v obsahu, platí texty. Výjimkou jsou hero texty, kde platí tabulka v briefu 3.1. Rozpor, který nejde rozhodnout, se zapíše do `TODO.md` a řeší se s Filipem.
 
-## Cíl
+## Pravidla
 
-Otevřený, vzdušný a minimalistický web, který plyne. Je téměř celý inspirovaný šablonou **Arabesque – Modern Ballet School Theme** (referenční soubor `Arabesque.webarchive` v kořeni repozitáře; ten se do buildu nedostává).
+1. **Texty doslova.** Nepřepisovat, nezkracovat, nespojovat odstavce, nevymýšlet nadpisy, „ozdobná slova“, citáty ani popisky. Opravují se jen překlepy z briefu (sekce 7): „Naším cílem“, „sebevědomí“, „Magdaléna Mauerová“ (všude stejně).
+2. **Nic nevymýšlet.** Čísla, data, ceny, jména a citace jen z podkladů. Chybějící obsah má viditelný placeholder `[DOPLNIT: …]` (třída `.todo`) a **zároveň** záznam v `TODO.md`.
+3. **Struktura 1:1 s briefem, sekce 3.** Žádné bloky navíc. Klientka byla nespokojená hlavně proto, že první verze strukturu nedodržela.
+4. **Neplatí a nikde se neuvádí:** kurzy pro děti, školka Tiny Tutus, Tanec PLUS. Fotky dětí se nepoužívají.
+5. **Všechno editovatelné.** Tento repozitář je **šablona**. Ostrý web se později postaví v našem vlastním editoru, který inline editaci už má. Tady proto žádný editor nestavíme. Každý text, obrázek a položka kolekce (rozvrh, akce, FAQ, ohlasy, galerie) je ale **data**, ne natvrdo psané HTML. Bloky jsou funkce `blok(data) → HTML` (viz Architektura), aby se daly 1:1 převést na komponenty editoru.
+6. **Neměnit stack ani architekturu.** Vite + Tailwind 3 + vanilla JS. Žádný framework, CMS ani nové runtime závislosti bez souhlasu Filipa.
+7. Česky, `lang="cs"`, správná diakritika ve fontech i textech. URL slugy bez diakritiky.
+8. **`NEW_ASSETS/` je read-only.** Nic v ní nepřepisovat, nepřejmenovávat ani nemazat.
+9. **Starý web monsignore.cz není inspirace.** Dál běží, nic se z něj nezálohuje. Slouží jen jako reference faktů pro Letní školu (termíny, ceny, lektoři) na `monsignore.cz/cs/letniskola/`. Nepřebírá se z něj design, struktura, členění stránek, formulace ani grafika. Nový web má působit jako nový, ne jako přestavba starého.
 
-Principy převzaté z Arabesque, které je potřeba dodržovat:
-
-1. **Hodně prázdného prostoru.** Sekce mají velké vertikální mezery (`.section`: `py-24 md:py-36`) a obsah je úzký (`max-w-grid` 1180 px).
-2. **Ozdobné slovo ve skriptovém písmu** (Allura) nad nadpisem v Montserratu velkými písmeny s prostrkáním. Ozdobné slovo je bledé (`whisper`), lehce zasahuje do nadpisu a začíná **velkým písmenem** („O nás“, „Kurzy“).
-3. **Fotky s růžovým offset blokem** (`.framed`) místo rámečků a stínů.
-4. **Tenké podtržené odkazy** (`.link-line`) místo těžkých tlačítek. Plná tlačítka jen tam, kde jde o hlavní akci.
-5. **Klidná paleta:** papírová bílá, téměř černý inkoust, pudrová růžová (`blush`) a brand rose jako akcent.
-6. **Jemný pohyb:** fade-in při scrollu (`.reveal`) a hover fotek, kdy předem přiblížený obrázek (scale 1.1) sjede o ~3,5 % do strany a růžový blok se posune o 6 px. Nic nesmí poskakovat.
-
-**Když přidáváš nový obsah, raději uber, než přidej.** Každý blok má mít jeden nadpis, krátký text a maximálně jednu akci.
-
-## Struktura
+## Architektura
 
 | Soubor | Obsah |
 |---|---|
-| `index.html` | Hlavička a navigace, celá úvodní stránka, patička s kontaktní výzvou |
-| `src/pages.js` | Podstránky (`#/o-nas`, `#/kurzy`, `#/individualni-vyuka`, `#/letni-skola`, `#/akce`, `#/nas-pribeh`, `#/vedeni`) a šablonové funkce bloků |
-| `src/main.js` | Hash routing, menu, dropdowny, `.reveal`, rotace citátů, stav hlavičky při scrollu |
-| `src/style.css` | Design tokeny (`:root`) a všechny komponenty přes `@apply` |
-| `tailwind.config.js` | Barvy napojené na CSS proměnné, písma, `tracking-heading/label`, `max-w-grid/wide/read` |
-| `assets/` | Fotky (Vite je hashuje do `dist/assets`) |
+| `index.html` | Kostra: hlavička s menu, `<main>` a patička. |
+| `src/main.js` | Router, menu, dropdowny, `.reveal`, hero rotace, akordeony, lightbox. |
+| `src/pages.js` | Definice stránek: slug, `title`, `description`, `world`, `mood` a seznam bloků s daty. |
+| `src/blocks/` | Šablonové funkce bloků. Každá dostane data a vrátí HTML. Dnes: `media.js` (`picture`, `media`), `hero.js`, `squares.js`, `story.js`, `layout.js` (`pageIntro`, `split`, `sectionTitle`, `framed`, `timeline`, `wideFigure`, `continueTo`). Přibudou `cards`, `courseDetail`, `schedule`, `faq`, `events`, `gallery`, `contact`. |
+| `src/data/` | Editovatelná data: `home.json` a `photos.json` (generuje ho `scripts/photos.sh`, ručně neupravovat). Přibudou `rozvrh.json`, `akce.json`, `faq.json`, `ohlasy.json`, `galerie.json`… |
+| `src/style.css` | Tokeny (`:root`, světy, nálady), `@font-face` a komponenty přes `@apply`. |
+| `tailwind.config.js` | Barvy napojené na CSS proměnné, rodiny písem, šířky. |
+| `public/img/<blok>/` | Zpracované fotky (WebP + JPG, více šířek). || `public/brand/` | Logo (maska) a statické varianty (favicon, OG, e-mail). |
+| `public/fonts/` | Self-hostované woff2. |
+| `scripts/` | `photos.sh` (fotky → `public/img` + `photos.json`, mapa zdrojů je uvnitř skriptu) a `brand.sh` (logo → `public/brand`, barvy čte z tokenů ve `style.css`). Oba jdou spustit opakovaně. |
 
-## Design systém
+- **Routing:** v šabloně zůstává hash routing. Cesta za `#` je ale **přesně budoucí hezká URL**: `#/kurzy/energy-harmony` bude na ostrém webu `/kurzy/energy-harmony`. Slugy jsou bez diakritiky a mění se jen spolu s tabulkou níže. Prosté kotvy (`#kontakt`) jen scrollují.
+- **SEO** (`sitemap.xml`, 301 ze starých URL, OG) se řeší až při implementaci v editoru. V šabloně má každá stránka v `pages.js` vyplněné `title` a `description`, aby se daly převzít.
 
-- **Písma:** `font-sans` = Montserrat (300/400/500) a `font-script` = Allura. Načítají se z Google Fonts v `index.html`. Pinyon Script klient zkusil a odmítl. Písmo musí podporovat české znaky ř, ě, ů. Mrs Saint Delafield a Herr Von Muellerhoff je nemají.
-- **Barvy:** jen tokeny `paper, ink, muted, brand, brand-dark, blush, blush-soft, whisper, mist, line, footer`. Nová barva se přidává do `:root` i do `tailwind.config.js`.
-- **Komponenty** (v `style.css`, každá má jedno jméno):
-  - layout: `.site-container(--wide|--read)`, `.section(--tight|--mist)`, `.split(--reverse)`
-  - nadpisy: `.section-title(__script|__heading|__lead)`, `.page-intro`
-  - fotky: `.photo`, `.framed(--portrait|--landscape)`, `.gallery`, `.wide-figure`
-  - bloky: `.hero`, `.stats-band`, `.quotes`, `.event`, `.founder`, `.cta`, `.principles`, `.timeline`, `.focus-list`
-  - akce: `.btn(--dark|--light|--solid)`, `.link-line`, `.label`
-- **Šablony v `pages.js`:** `pageIntro`, `split`, `sectionTitle`, `framed`, `timeline`, `wideFigure`, `continueTo`. Nové podstránky skládej z nich, ne z ručně psaného HTML.
+| Stránka | Slug (= budoucí URL) | Svět |
+|---|---|---|
+| Home | `/` | centrum |
+| Náš přístup | `/nas-pristup` | centrum |
+| Vedení | `/vedeni` | centrum |
+| Náš příběh | `/nas-pribeh` | centrum |
+| Tančete s námi (přehled) | `/kurzy` | centrum |
+| Kurzy pro mládež a dospělé | `/kurzy/mladez-a-dospeli` | centrum |
+| Mix tanečních stylů: Energy & Harmony | `/kurzy/energy-harmony` | centrum |
+| VitaDance | `/kurzy/vitadance` | centrum |
+| Individuální výuka | `/kurzy/individualni-vyuka` | centrum |
+| Rozvrh a ceník | `/kurzy/rozvrh-a-cenik` | centrum |
+| Akce | `/akce` | centrum |
+| Letní taneční škola | `/letni-skola` | letni-skola |
+| Pro vás (FAQ, ohlasy, galerie) | `/pro-vas` | centrum |
+| Kontakt | `/kontakt` | centrum |
+| Tanečně-pohybová terapie | `/terapie` | terapie |
 
-## Konvence a záludnosti
+Budoucí 301 přesměrování: `/cs/letniskola/*` → `/letni-skola`, `/cs/kontakt.php` → `/kontakt`, `/cs/vedeni.php` → `/vedeni`, `/cs/historie.php` → `/nas-pribeh`, `/cs/typy-kurzu.php` → `/kurzy`, ostatní `/cs/*` → `/`.
+- **Inicializace po vykreslení:** obsah `<main>` se při každé navigaci vkládá znovu. JS chování (`observeReveals`, hero, akordeony, lightbox) se proto napojuje po každém renderu, ne jednou při načtení.
+- **Desktopové dropdowny** se zavírají až po `animationend` (`nav-roll-close`). Bez té animace by se nikdy nezavřely.
+- Bloky nesmí obsahovat logiku závislou na routingu ani inline styly. Vzhled patří do tříd ve `style.css`.
 
-- **Styl kódu:** Tailwind tokeny a komponenty přes `@apply`. Inline utility v HTML jen na drobné úpravy (`mt-10`, `pt-0`).
-- **`@apply` bez konfliktů:** neaplikuj komponentu (např. `label`) a zároveň utilitu se stejnou vlastností (`text-brand`). Pořadí výsledných deklarací není zaručené, takže v takovém případě vlastnosti vypiš explicitně.
-- **Ozdobný skriptový text je `aria-hidden`.** Skutečný text nese `h1`/`h2`. Hero má „Tanec“ jako dekoraci a v `h1` je skryté `sr-only` „Tanec, “.
-- **Routing:** `#/slug` vykreslí podstránku z `pages.js`. Prosté kotvy (`#kurzy`, `#kontakt`) jen scrollují. Kotva mimo `<main>` (patička `#kontakt`) na podstránce stránku nemění.
-- **Úvodní stránka se znovu vkládá z `homeMarkup`.** Inicializace obsahu (`observeReveals`, `initQuotes`) proto musí běžet v `renderHome()`, ne jen jednou při načtení.
-- **Desktopové dropdowny se zavírají až po události `animationend`** (`nav-roll-close`). Bez té animace by se nikdy nezavřely.
-- **Texty:** česky, krátce, bez vymyšlených faktů. Čísla, citace a data musí pocházet od klienta. Ukázkový termín akce (24. květen) je označený jako ukázkový.
-- **Neaktivní odkazy** (stránky, které ještě neexistují) mají `data-inert-nav aria-disabled="true"`.
+## Barevný systém: 3 světy a nálady
 
-## Build a kontrola
+Stejný layout, jiné tokeny. Theme se přepíná **atributem na úrovni sekce nebo stránky**, ne kopií šablon.
+
+```css
+:root, [data-world="centrum"]   { --c-primary; --c-secondary; --c-accent; --c-bg; --c-surface; --c-text; --c-text-muted; --c-logo; }
+[data-world="terapie"]          { …zeleno-béžová… }
+[data-world="letni-skola"]      { …vlastní varianta… }
+[data-mood="…"]                 { přepíše jen podmnožinu (bg / surface / accent / logo) pro náladu podstránky }
+```
+
+- Tokeny podle briefu: `--c-primary, --c-secondary, --c-accent, --c-bg, --c-surface, --c-text, --c-text-muted` a navíc `--c-logo`. Hodnoty jsou ve formátu `R G B`, aby fungovala průhlednost v Tailwindu (`rgb(var(--c-primary) / <alpha-value>)`).
+- Router nastaví `data-world` na `<body>` (hlavička i patička tak dědí svět stránky) a `data-mood` na `<main>` podle definice stránky v `pages.js`. Jednotlivá sekce nebo odkaz si může svět přepnout vlastním `data-world` (např. vstupy Terapie / Letní škola v menu).
+- Nálady: `soft` (pudrové pozadí) a `night` (tmavé pozadí, světlý text). Nová nálada přepisuje jen tokeny, které opravdu mění.
+- **Terapie** musí jít později oddělit na `terapie.monsignore.cz`. Má vlastní stránky, data i svět a nesdílí obsah s centrem.
+- Kontrast textu min. WCAG AA (4,5 : 1). Platí i pro logo vůči pozadí každé nálady.
+- **Centrum** drží současnou paletu webu (papírová bílá, téměř černý inkoust, pudrová růžová a brand rose `rgb(156 94 104)`). **Terapie** (zeleno-béžová) a **Letní škola** jsou odvozené ve stejném duchu: stejná světlost a sytost, jiný odstín. Podklady od grafičky Anety (brief, sekce 2) zatím nejsou. Až přijdou, nahradí se jen hodnoty tokenů.
+- Nová barva se přidává jako token do všech světů a do `tailwind.config.js`. Žádné natvrdo psané barvy.
+
+## Typografie
+
+| Role | Font | Použití |
+|---|---|---|
+| Nadpisy a titulky | **Now** | `font-heading`, hlavní nadpisy verzálkami |
+| Text | **DM Sans** | `font-sans` |
+| Akcent | **Respondent**, bold, v barvě | `font-accent`, jen motta a citáty z textů |
+
+- Self-host v `public/fonts/` přes `@font-face`, `font-display: swap`, woff2: DM Sans (variabilní, latin + latin-ext), Now Regular a Medium, Respondent Bold. Všechny mají ověřenou českou diakritiku.
+- Respondent má v `@font-face` dočasně `unicode-range` bez číslic (v současném souboru jsou místo číslic vodoznaky). Čísla v akcentním fontu proto kreslí DM Sans. Viz `TODO.md`.
+- Nový řez se přidá převodem OTF → woff2 (fonttools) a dalším `@font-face`. Před použitím ověř diakritiku `ěščřžýáíéůú ĚŠČŘŽÝÁÍÉŮÚ`.
+- Respondent má malou x-výšku. Jako motto nebo nadpis ho sázej zhruba 1,5× větší než okolní nadpis (např. `clamp(2.4rem,5vw,3.8rem)`), jinak působí drobně.
+- Montserrat, Allura a „ozdobná skriptová slova“ z předchozí verze se nepoužívají. Akcentní text se objeví jen tam, kde motto nebo citát skutečně je v textech.
+
+## Logo
+
+- Originál: `NEW_ASSETS/LOGO.png`, bílý monogram „TC“ s tanečnicí na průhledném pozadí, 800 × 800.
+- Ve webu se logo barví **CSS maskou**: `mask-image: url(brand/logo-mask.png)` a `background-color: rgb(var(--c-logo))`. Samo se tak přebarví podle světa nebo nálady. Pokud se později podaří čistá vektorizace bez ztráty detailu, nahradí masku SVG s `fill="currentColor"`.
+- Statické varianty v `public/brand/` (favicon, apple-touch, OG 1200 × 630, e-mail) generuje skript z tokenů. Barvy se nepíšou natvrdo.
+
+## Fotky
+
+- Originály jsou v `NEW_ASSETS/<NÁZEV BLOKU>/`. Složka je v `.gitignore` (55 MB HEIC), do gitu jdou jen zpracované výstupy v `public/img/` a `src/data/photos.json`. Na jiném stroji je potřeba `NEW_ASSETS/` nakopírovat ručně. **Název složky = blok v briefu.** `GALERIE` = galerie, nepoužité fotky jdou tam taky.
+- Zpracování dělá skript `scripts/photos.sh` (sips + cwebp, opakovatelně). Výstup `public/img/<blok-slug>/<nazev>-<šířka>.{webp,jpg}`:
+  - hero max. 2400 px delší strana, karty a bloky 1200 px a menší šířky pro `srcset`
+  - respektovat EXIF orientaci (HEIC z iPhonu jsou často na výšku)
+  - ořez podle ostrosti tam, kde to brief nebo `TODO.md` uvádí
+- `<picture>` s WebP a JPG fallbackem, `srcset` + `sizes`, `loading="lazy"` všude kromě první hero fotky (`fetchpriority="high"`), `width` a `height` proti posunu layoutu.
+- **Tmavé divadelní fotky se nezesvětlují filtrem.** Vyvažují se světlým podkladem, rámem (`.framed`) nebo okolím. Hero smí mít tmavý overlay gradient kvůli čitelnosti textu.
+- Rozmazané nebo malé fotky (pod cílovou šířkou) nepatří do hero. Fotky dětí se nepoužívají.
+- `alt` česky a věcně, popisuje, co je na fotce.
+
+## Pohyb, výkon a mobil
+
+- Dynamičtější než Arabesque (inspirace onerhythm.uk), ale nic nesmí poskakovat. Fade-in při scrollu (`.reveal`), crossfade v hero (5–6 s, pauza při hoveru a focusu) a jemný hover fotek.
+- **`prefers-reduced-motion: reduce`** = žádný autoplay ani přechody a obsah je hned viditelný. Platí pro každou novou animaci.
+- Mobile-first. Testuj na 360, 768, 1280 a 1920 px. Žádný horizontální scroll. Tabulky (rozvrh) se na mobilu mění v karty.
+- Cíl Lighthouse (mobil): Performance ≥ 85, Accessibility ≥ 95.
+- Žádné cookies ani trackery (ani Facebook pixel ze starého webu). Mapa se načte až po kliknutí.
+
+## Build, nasazení, záznamy
 
 ```sh
 npm install
-npm run dev      # vývoj
-npm run build    # produkční build do dist/ (relativní cesty, --base=./)
+npm run dev       # vývoj
+npm run build     # produkční build do dist/
 npm run preview
 ```
 
-`dist/` je v `.gitignore`. Před novým buildem ho lze celý smazat. Změny ověřuj vizuálně na desktopu (1440 px) i mobilu (390 px). Fade-in a hover popisky galerie se projeví jen ve skutečném prohlížeči.
-
-## Co chybí: assety a obsah od klienta
-
-Současné fotky mají nejvýš 1024 px a jde o různorodé, sytě barevné jevištní záběry. To je největší rozdíl oproti referenční šabloně. Fotky by ideálně měly pocházet z jednoho focení: světlý sál, denní světlo, oblečení v paletě webu (černá, bílá, pudrová, tělová), klidné pozadí, každý záběr na šířku i na výšku.
-
-| Kde | Co | Formát |
-|---|---|---|
-| Hero | 1–3 široké záběry, tanečnice vpravo, vlevo prostor pro text | 16:9, min. 2560 px |
-| Hero (volitelně) | video 10–15 s ve smyčce, bez zvuku | mp4, 1920 px, do 4 MB |
-| O nás (úvod) | silná fotka na výšku | 4:5, min. 1200×1500 |
-| Galerie kurzů | 6 fotek, jedna na kurz, stejné světlo | 4× čtverec 1200 px, 2× 2:1 2000×1000 |
-| Pás s čísly | detailní textura (špičky, ruce, tyč, parkety) | 2400 px šířka |
-| Vedení | portrét Magdalény Mauerové a 1 fotka při výuce | 4:5 |
-| Stránka kurzů | 1 fotka na šířku pro každý styl | 4:3 |
-| Akce | fotka z představení ke každé akci | 4:3 |
-| Náš příběh | archivní fotky (1988, 1992, divadlo, soutěže), klidně skeny | libovolný |
-
-**Obsah:** 3–5 referencí (jméno, role, souhlas se zveřejněním), 6–8 častých dotazů (věk, zkušební hodina, oblečení, platby, omluvy, náhrady), rozvrh a ceník kurzů, adresa sálu, telefon, otevírací doba, odkazy na sociální sítě, skutečné termíny představení a Letní taneční školy, případně další lektoři (fotka, jméno, styl).
-
-**Značka:** logo ve vektoru (SVG), pokud existuje (jinak zůstává nápis „Monsignore“ v Allura), favicon a obrázek pro sdílení 1200×630.
-
-## Budoucí migrace do vlastního WYSIWYG editoru
-
-Podstránky dnes nejsou samostatné HTML soubory. Jsou to pohledy vykreslované přes hash routing (`#/kurzy`) z `src/pages.js`. Je to **dočasné řešení**. Web se později převede do našeho vlastního WYSIWYG editoru, kde každý blok bude samostatná komponenta. Na samostatné stránky ve Vite ho proto nepřeváděj.
-
-Aby migrace šla hladce:
-
-- Každý blok drž jako **samostatnou komponentu s daty na vstupu**. Šablonové funkce v `pages.js` (`pageIntro`, `split`, `sectionTitle`, `timeline`, `wideFigure`, `continueTo`, `framed`) už odpovídají budoucím komponentám a jejich parametry (`script`, `title`, `lead`, `body`, `image`, `alt`, `reverse`, `tone`…) budou jejich editovatelná pole.
-- Bloky úvodní stránky v `index.html` (`hero`, `gallery`, `stats-band`, `quotes`, `event`, `founder`, `cta`) mají stejnou strukturu a stejné třídy. Při migraci se z nich stanou komponenty stejným způsobem.
-- Vzhled patří do tříd v `style.css`, ne do inline stylů. Komponenta v editoru pak jen skládá třídy a data.
-- Do bloků nepiš logiku závislou na routingu. JS chování (`.reveal`, rotace citátů, menu) se při migraci napojí na komponenty zvlášť.
-
-## Plánovaná rozšíření
-
-1. **Týdenní rozvrh** (den × čas × kurz, filtr podle stylu). Typický blok Arabesque, na webu nejvíc chybí.
-2. **Přihláška nebo kontaktní formulář.** Potřebuje odesílací službu (např. Formspree, Netlify Forms). Dnes je tu jen `mailto:`.
-3. **Mapa** s adresou sálu.
-4. **Stránka Galerie** a Instagram mřížka v patičce.
-5. **Stránky Reference a Časté dotazy.** V menu jsou připravené jako neaktivní odkazy.
-6. **Optimalizace fotek:** WebP/AVIF a `srcset` z originálů.
+- `dist/` je v `.gitignore` a před buildem se může celý smazat.
+- **Test deploy na https://wp.heurekazo.cz nahrává uživatel ručně** (obsah `dist/`). Agent po každém větším kroku spustí `npm run build`, ověří, že projde, zapíše do `CHANGELOG.md` datum a 2–3 řádky, co se změnilo, a oznámí, že build je připravený k nahrání. Sám nic nenahrává.
+- Po každém kroku z `PLAN.md` odškrtni hotové a nové otevřené věci zapiš do `TODO.md`.
+- Referenční šablona `Arabesque.webarchive` je v kořeni repozitáře a do buildu se nedostává.

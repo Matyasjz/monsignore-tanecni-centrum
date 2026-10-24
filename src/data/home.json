@@ -1,0 +1,51 @@
+{
+  "title": "Taneční centrum Monsignore",
+  "description": "Umělecké taneční centrum zaměřené na klasický, moderní a jazzový tanec. Lány u Dašic 34, nedaleko Pardubic.",
+  "hero": {
+    "heading": "Taneční centrum Monsignore",
+    "slides": [
+      {
+        "motto": "Tančete srdcem …",
+        "title": "TANEC, KTERÝ VÁS BAVÍ",
+        "text": "Umělecké taneční centrum zaměřené na klasický, moderní a jazzový tanec.",
+        "image": { "key": "hero/tancete-srdcem", "alt": "Tanečnice v černých saténových kostýmech s rozevlátými vlasy při dynamické choreografii na jevišti" }
+      },
+      {
+        "motto": "Objevte sami sebe …",
+        "title": "POHYB, KTERÝ VÁS ROZVÍJÍ",
+        "text": "Místo, kde se technika setkává s osobností tanečníka.",
+        "image": { "key": "hero/objevte-sami-sebe", "alt": "Tanečnice v bílých šatech a závojích na tmavém jevišti před modrou oblohou" }
+      },
+      {
+        "motto": "S chutí a lehkostí …",
+        "title": "ENERGIE PRO KAŽDÝ VĚK",
+        "text": "Ženy různých generací, jedna společná radost",
+        "image": { "key": "hero/s-chuti-a-lehkosti", "alt": "Tři tanečnice v letních šatech při scénickém tanci na divadelním jevišti" }
+      }
+    ]
+  },
+  "squares": [
+    {
+      "title": "NÁŠ PŘÍSTUP",
+      "subtitle": "Naše výuka a naše cíle",
+      "text": "V tanečním centru Monsignore vnímáme tanec jako mnohem víc než jen soubor kroků a technik. Tanec je cesta k vlastnímu tělu, hudbě, emocím, disciplíně, tvořivosti i spolupráci s ostatními.",
+      "cta": { "label": "Zjistit více", "href": "#/nas-pristup" },
+      "image": { "key": "nas-pristup/studio", "alt": "Usměvavé tanečnice v černém u zrcadla a baletní tyče v tanečním sále" }
+    },
+    {
+      "title": "VEDENÍ",
+      "subtitle": "Magdaléna Mauerová",
+      "quote": { "text": "„Miluj tanec v sobě, a ne sebe v tanci.“", "author": "Frank Towen" },
+      "text": "Více než 30 let propojuje tanec, pedagogiku a práci s tělem. Zakladatelka TC Monsignore věří, že tanec může člověka rozvíjet v každém věku.",
+      "cta": { "label": "Zjistit více", "href": "#/vedeni" },
+      "image": { "key": "vedeni/magdalena-mauerova", "alt": "Magdaléna Mauerová sedí na jevišti před malovanou divadelní kulisou" }
+    }
+  ],
+  "story": {
+    "accent": "Více než tři desetiletí s tancem",
+    "title": "NÁŠ PŘÍBĚH",
+    "text": "Od našeho založení v roce 1988",
+    "cta": { "label": "Více o nás", "href": "#/nas-pribeh" },
+    "image": { "key": "nas-pribeh/archiv", "alt": "Archivní snímek tanečnic v pohybu se šátky v tanečním sále" }
+  }
+}

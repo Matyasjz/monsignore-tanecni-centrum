@@ -1,0 +1,8 @@
+{
+  "hero/tancete-srdcem": { "width": 1904, "height": 1546, "widths": [480,800,1200,1600,1904] },
+  "hero/objevte-sami-sebe": { "width": 2048, "height": 1342, "widths": [480,800,1200,1600,2048] },
+  "hero/s-chuti-a-lehkosti": { "width": 2400, "height": 1681, "widths": [480,800,1200,1600,2400] },
+  "nas-pristup/studio": { "width": 1200, "height": 1600, "widths": [480,800,1200] },
+  "vedeni/magdalena-mauerova": { "width": 1200, "height": 2128, "widths": [480,800,1200] },
+  "nas-pribeh/archiv": { "width": 1400, "height": 1050, "widths": [480,800,1200,1400] }
+}

@@ -1,0 +1,47 @@
+# TODO – otevřené věci
+
+## Rozhodnuto 24. 10. 2026
+- [x] Routing: v šabloně hash, slugy = budoucí hezké URL (tabulka v `AGENTS.md`). SEO a 301 až v editoru.
+- [x] Inline editace: řeší vlastní editor, šablona jen drží data a bloky oddělené.
+- [x] Deploy: `dist/` nahrává uživatel ručně.
+- [x] Barvy: centrum = současná paleta, ostatní světy odvozené.
+- [x] Logo: monogram `NEW_ASSETS/LOGO.png`.
+- [x] Záloha PŠT se nedělá, starý web běží dál.
+- [x] Fonty Now a Respondent (z podkladů Filipa).
+- [ ] Respondent: současný soubor má místo číslic 0–9 a znaku § vodoznak. Číslice teď vykresluje DM Sans (`unicode-range` ve `style.css`). Po dodání licencované verze vyměnit `public/fonts/respondent-bold.woff2` a `unicode-range` smazat.
+
+## Čeká na klientku / grafičku (brief, sekce 8)
+- [ ] Barvy od Anety (`/design/barvy`, 4 obrázky). Centrum zatím používá současnou paletu webu, terapie a letní škola jsou odvozené. Po dodání stačí přepsat tokeny ve `style.css` a spustit `scripts/brand.sh`.
+- [ ] Texty pro Tanečně-pohybovou terapii a fotky (žádná složka)
+- [ ] Finální název hlavního kurzu: „Kombinace tanečních technik“ (brief) vs. „Komplexní taneční průprava“ (rozvrh v textech)
+- [ ] Děti/junioři ve FAQ (ot. 2, 3, 19). Ot. 3 navíc uvádí „60+ nebo 70+“, ale kurz je 65+.
+- [ ] Rok založení na Home: 1988 vs. 1992
+- [ ] Parkování / doprava na Kontakt
+- [ ] FAQ ot. 10 je useknutá („…individuální formy práce,“)
+- [ ] FAQ ot. 9 („záleží na kurzu“) je v rozporu s „Je možné se přihlásit i během roku.“ u všech kurzů
+- [ ] Ohlasy (citace + souhlas se zveřejněním)
+- [ ] Výběr fotek do Galerie. Dodané fotky v `GALERIE/` mají jen 320 × 240 px, pro lightbox jsou nepoužitelné. Potřebujeme originály. Dvě jsou s dětmi (`childern-006`, `childern-012`).
+- [ ] Plakát `akce-2026-11-15-workshop.png` a čas workshopu 14.–15. 11. 2026
+- [ ] Odkaz na web Arabesque
+
+## Fotky
+- [ ] `ROZVRH A CENÍK`: složka je prázdná
+- [ ] `LETNÍ TANEČNÍ ŠKOLA`: obsahuje jen prázdnou podsložku „Bez názvu“
+- [ ] `HLAVNÍ 3 ROTUJÍCÍ FOTKY`: `C54B7CFD…PNG` je duplikát `mrtvá nevěsta.jpg`. Ze 4 unikátních fotek jsou 3 použitelné v hero, `page-09.jpg` má jen 1400 px. Žádná nemá 2400 px kromě `sejmout_1.jpg` (ta má bílý rám skenu).
+- [ ] `KURZY PRO MLÁDEŽ A DOSPĚLÉ/1DuqGObOmn8DRvc9LeJAxSTuA3qh5Z64R-1.jpg` vypadá jako fotobanka nebo cizí studio. Ověřit původ a práva. `childern-020.jpg` jsou děti a nepoužije se.
+- [ ] `AKCE A WORKSHOPY/10.jpg` má jen 600 × 200 px. Ostatní fotky akcí (relaxační místnost, svíčky) spíš pasují k terapii.
+- [ ] `KURZY VITADANCE/new-therapy-dance-style-003.jpg` a `NÁŠ PŘÍSTUP/new-therapy-dance-style-008.jpg` mají jen 1024 px
+
+## Letní škola
+- [ ] Ročník 2026 (16.–22. 8. 2026) už proběhl. Termíny a ceny pro 2027?
+- [ ] Starý web má Facebook pixel. Na novém nebude (brief, sekce 5).
+
+## Legacy podstránky (z předchozí verze, čekají na svůj krok v PLAN.md)
+- [ ] `#/nas-pristup`, `#/vedeni`, `#/nas-pribeh` (krok 8): parafráze místo doslovných textů, vymyšlená ozdobná slova, „výkonnostní třída A“, Tanec PLUS
+- [ ] `#/kurzy`, `#/kurzy/individualni-vyuka` (krok 4): starý obsah a fotky z `assets/`
+- [ ] `#/akce`, `#/letni-skola` (krok 6): ukázková akce 24. května a vymyšlený text Letní školy
+- [ ] Neaktivní odkazy v menu (`data-inert-nav`): detaily kurzů, rozvrh, FAQ, galerie, Terapie. Aktivovat ve krocích 4, 5 a 7.
+
+## Home (krok 3)
+- [ ] Hero: na mobilu (390 px) ořez `object-fit: cover` ukazuje jen střed fotek. Po výběru finálních fotek případně doladit `object-position` pro jednotlivé slidy.
+- [ ] Blok Náš příběh: rok 1988 (podle briefu). Viz otevřený bod „Rok založení na Home“ výše.
