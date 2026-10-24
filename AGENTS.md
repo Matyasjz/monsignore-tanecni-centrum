@@ -31,10 +31,10 @@ Když se brief a kód rozcházejí, platí brief. Když se brief a texty rozchá
 | Soubor | Obsah |
 |---|---|
 | `index.html` | Kostra: hlavička s menu, `<main>` a patička. |
-| `src/main.js` | Router, menu, dropdowny, `.reveal`, hero rotace, akordeony, lightbox. |
+| `src/main.js` | Router, menu, dropdowny, `.reveal`, hero rotace, parallax, lightbox galerie, mapa na kliknutí. Akordeony jsou nativní `<details>`, JS nepotřebují. |
 | `src/pages.js` | Definice stránek: slug, `title`, `description`, `world`, `mood` a seznam bloků s daty. |
-| `src/blocks/` | Šablonové funkce bloků. Každá dostane data a vrátí HTML. Dnes: `media.js` (`picture`, `media`), `hero.js`, `squares.js`, `story.js`, `courses.js` (`courseCards`, `courseHero`, `courseSections`, `courseTopics`, `practicalInfo`, `courseSignup`), `schedule.js` (`lesson`, `scheduleTable`), `layout.js` (`pageIntro`, `split`, `sectionTitle`, `framed`, `more`, `patternPanel`, `timeline`, `wideFigure`, `continueTo`). Přibudou `faq`, `events`, `gallery`, `contact`. |
-| `src/data/` | Editovatelná data: `site.json` (adresa, e-mail, telefon), `home.json`, `kurzy.json` (přehled, detaily kurzů, stránka rozvrhu), `rozvrh.json` (**jediný zdroj** časů, cen a začátků výuky) a `photos.json` (generuje ho `scripts/photos.sh`, ručně neupravovat). Přibudou `akce.json`, `faq.json`, `ohlasy.json`, `galerie.json`. |
+| `src/blocks/` | Šablonové funkce bloků. Každá dostane data a vrátí HTML. Dnes: `media.js` (`picture`, `media`), `hero.js`, `squares.js`, `story.js`, `courses.js` (`courseCards`, `courseHero`, `courseSections`, `courseTopics`, `practicalInfo`, `courseSignup`), `schedule.js` (`lesson`, `scheduleTable`), `pro-vas.js` (`faq`, `testimonials`, `gallery`, `contact`), `layout.js` (`pageIntro`, `split`, `sectionTitle`, `framed`, `more`, `patternPanel`, `timeline`, `wideFigure`, `continueTo`). Přibude `events`. |
+| `src/data/` | Editovatelná data: `site.json` (adresa, e-mail, telefon), `home.json`, `kurzy.json` (přehled, detaily kurzů, stránka rozvrhu), `rozvrh.json` (**jediný zdroj** časů, cen a začátků výuky), `pro-vas.json` (FAQ, ohlasy, galerie, kontakt) a `photos.json` (generuje ho `scripts/photos.sh`, ručně neupravovat). Přibude `akce.json`. |
 | `src/style.css` | Tokeny (`:root`, světy, nálady), `@font-face` a komponenty přes `@apply`. |
 | `tailwind.config.js` | Barvy napojené na CSS proměnné, rodiny písem, šířky. |
 | `public/img/<blok>/` | Zpracované fotky (WebP + JPG, více šířek). || `public/brand/` | Logo (maska) a statické varianty (favicon, OG, e-mail). |
@@ -58,7 +58,8 @@ Když se brief a kód rozcházejí, platí brief. Když se brief a texty rozchá
 | Rozvrh a ceník | `/kurzy/rozvrh-a-cenik` | centrum |
 | Akce | `/akce` | centrum |
 | Letní taneční škola | `/letni-skola` | letni-skola |
-| Pro vás (FAQ, ohlasy, galerie) | `/pro-vas` | centrum |
+| Časté dotazy (+ ohlasy, zatím skryté) | `/pro-vas/caste-dotazy` | centrum |
+| Galerie | `/pro-vas/galerie` | centrum |
 | Kontakt | `/kontakt` | centrum |
 | Tanečně-pohybová terapie | `/terapie` | terapie |
 
@@ -137,7 +138,7 @@ npm run preview
 ```
 
 - Před každým buildem pro nahrání spusť `npm run check`. Chyby musí být nula, varování jsou známé věci z `TODO.md`.
-- **Vizuální kontrola** bez prohlížeče: headless Firefox (`firefox --headless --screenshot out.png --window-size=1440,3000 URL`). Do testovacího profilu dej `user_pref("ui.prefersReducedMotion", 1);` (fade-in se jinak vyfotí v půlce) a `user_pref("dom.image-lazy-loading.enabled", false);`. Větší fotky se při prvním vyfocení nemusí stihnout načíst, druhé vyfocení s teplou cache už je ukáže.
+- **Vizuální kontrola** bez prohlížeče: headless Firefox (`firefox --headless --screenshot out.png --window-size=1440,3000 URL`). Do testovacího profilu dej `user_pref("ui.prefersReducedMotion", 1);` (fade-in se jinak vyfotí v půlce) a `user_pref("dom.image-lazy-loading.enabled", false);`. Větší fotky se při prvním vyfocení nemusí stihnout načíst, druhé vyfocení s teplou cache už je ukáže. Interakce (lightbox, mapa) se dají otestovat dočasnou stránkou v `dist/`, která web načte v iframe a v `onload` klikne. Po testu ji smaž.
 
 - `dist/` je v `.gitignore` a před buildem se může celý smazat.
 - **Test deploy na https://wp.heurekazo.cz nahrává uživatel ručně** (obsah `dist/`). Agent po každém větším kroku spustí `npm run build`, ověří, že projde, zapíše do `CHANGELOG.md` datum a 2–3 řádky, co se změnilo, a oznámí, že build je připravený k nahrání. Sám nic nenahrává.

@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2026-10-24: Krok 5, Pro vás a Kontakt
+- `#/pro-vas/caste-dotazy`: 20 otázek doslova z textů jako akordeon, vlevo fotka sálu, která na desktopu drží při scrollu. Komponenta Ohlasy je hotová, ale skrytá, dokud nepřijdou citace.
+- `#/pro-vas/galerie`: mozaika 22 nepoužitých fotek s lightboxem (nativní `<dialog>`, šipky, Esc, počítadlo).
+- `#/kontakt`: Kontaktujte nás (telefon, e-mail, text z briefu 3.5), Kde nás najdete s odkazem na Mapy.cz a mapou Google, která se načte až po kliknutí (bez cookies třetích stran). Menu Pro vás a Kontakt je aktivní.
+
 ## 2026-10-24: Krok 4, Tančete s námi
 - Přehled `#/kurzy`: tři karty kurzů s texty z briefu 3.2 (prostřední posunutá), blok Individuální výuka a vzorovaný panel Rozvrh, ceník.
 - Jednotná šablona detailu kurzu (úvod s fotkou, popis s rozbalovacím „Zjistit více“, Praktické informace, Registrace, „Přihlásit se“ → `mailto:`) pro `#/kurzy/mladez-a-dospeli`, `energy-harmony`, `vitadance` a `individualni-vyuka`. Texty doslova z `texty-monsignore.md`.

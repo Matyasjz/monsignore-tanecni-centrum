@@ -34,6 +34,29 @@ kurzy/vitadance-ruce|KURZY VITADANCE/new-therapy-dance-style-003.jpg|1200|
 individualni-vyuka/lekce|INDIVIDUÁLNÍ VÝUKA/DSC_0636.JPG|1600|
 individualni-vyuka/sal|INDIVIDUÁLNÍ VÝUKA/DSC_0564.jpg|1600|
 individualni-vyuka/zrcadlo|INDIVIDUÁLNÍ VÝUKA/IMG_0584.HEIC|1200|
+telocvicna/svicky|FOTO TĚLOCVIČNY/IMG_2857.HEIC|1600|
+telocvicna/sal|FOTO TĚLOCVIČNY/IMG_8334.HEIC|1600|
+galerie/sal-podlozky|FOTO TĚLOCVIČNY/IMG_2867.HEIC|1600|
+galerie/sal-okno|FOTO TĚLOCVIČNY/IMG_8337.HEIC|1600|
+galerie/zahrada|NÁŠ PŘÍSTUP/náš přístup.jpg|1600|
+galerie/protahovani|NÁŠ PŘÍSTUP/new-therapy-dance-style-008.jpg|1600|
+galerie/zrcadlo-dance|KURZY ENERGY A HARMONY/IMG_1224.HEIC|1600|
+galerie/predstaveni-cerna|HLAVNÍ 3 ROTUJÍCÍ FOTKY/page-09.jpg|1600|
+galerie/adult-001|GALERIE/adult-001.jpeg|1600|
+galerie/adult-002|GALERIE/adult-002.jpeg|1600|
+galerie/adult-004|GALERIE/adult-004.jpeg|1600|
+galerie/adult-005|GALERIE/adult-005.jpeg|1600|
+galerie/adult-006|GALERIE/adult-006.jpeg|1600|
+galerie/adult-007|GALERIE/adult-007.jpeg|1600|
+galerie/adult-009|GALERIE/adult-009.jpeg|1600|
+galerie/adult-010|GALERIE/adult-010.jpeg|1600|
+galerie/adult-011|GALERIE/adult-011.jpeg|1600|
+galerie/adult-012|GALERIE/adult-012.jpeg|1600|
+galerie/adult-014|GALERIE/adult-014.jpeg|1600|
+galerie/adult-015|GALERIE/adult-015.jpeg|1600|
+galerie/adult-017|GALERIE/adult-017.jpeg|1600|
+galerie/adult-018|GALERIE/adult-018.jpeg|1600|
+galerie/adult-020|GALERIE/adult-020.jpeg|1600|
 EOF
 )"
 

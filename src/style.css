@@ -299,6 +299,62 @@
   .schedule tbody td:first-child { @apply text-[11px] font-medium uppercase tracking-label text-primary; }
   .schedule__note { @apply mt-8 text-[15px] font-medium text-ink; }
 
+  /* Časté dotazy: fotka vlevo drží při scrollu, vpravo akordeon */
+  .faq { @apply grid gap-14 md:grid-cols-[minmax(0,.85fr)_minmax(0,1.15fr)] md:gap-16 lg:gap-24; }
+  .faq__media { @apply md:sticky md:self-start; top: calc(var(--header-height) + 2rem); }
+  .faq__title { @apply mb-10 text-[clamp(1.8rem,4vw,3rem)] leading-[1.12]; }
+  .faq-item { @apply border-b border-line; }
+  .faq-item:first-of-type { @apply border-t; }
+  .faq-item__question { @apply flex min-h-[44px] cursor-pointer list-none items-start justify-between gap-6 py-6 text-[16px] font-medium leading-snug text-ink transition-colors duration-200 hover:text-primary md:text-[17px]; }
+  .faq-item__question::-webkit-details-marker { display: none; }
+  .faq-item__question .nav-indicator { @apply mt-2; }
+  .faq-item[open] > .faq-item__question { @apply text-primary; }
+  .faq-item[open] > summary .nav-indicator::after { opacity: 0; transform: translate(-50%,-50%) rotate(90deg) scaleX(0); }
+  .faq-item__answer { @apply pb-7 pr-10; }
+  .faq-item[open] > .faq-item__answer { animation: more-open .5s cubic-bezier(.2,.7,.2,1) both; }
+  .faq-item__answer a { @apply text-ink underline decoration-1 underline-offset-4 hover:text-primary; }
+  .faq-item__list { @apply mt-1 grid gap-2; }
+  .faq-item__list li { @apply flex items-center gap-3; }
+  .faq-item__list li::before { @apply h-px w-4 flex-none bg-primary; content: ''; }
+
+  /* Ohlasy (zatím skryté) */
+  .testimonial { @apply mx-auto mt-8 max-w-2xl; }
+  .testimonial__text { @apply text-[clamp(1.05rem,2vw,1.3rem)] leading-[1.7] text-ink; }
+  .testimonial__author { @apply mt-4 block text-[11px] font-medium not-italic uppercase tracking-label text-primary-dark; }
+
+  /* Galerie: mozaika ve sloupcích (fotky si drží vlastní poměr stran) */
+  .gallery { @apply gap-3 sm:columns-2 lg:columns-3; }
+  .gallery__item { @apply relative mb-3 block cursor-zoom-in overflow-hidden bg-secondary-soft; break-inside: avoid; }
+  .gallery__item .photo { @apply h-auto; transition: transform .8s var(--ease-glide), opacity .4s ease; }
+  .gallery__item:hover .photo, .gallery__item:focus-visible .photo { transform: scale(1.04); opacity: .9; }
+
+  /* Lightbox (nativní <dialog>) */
+  .lightbox { @apply m-0 h-full max-h-none w-full max-w-none border-0 bg-dark/95 p-0 text-page; }
+  .lightbox[open] { @apply flex items-center justify-center; animation: lightbox-in .35s ease both; }
+  .lightbox::backdrop { background: transparent; }
+  .lightbox__figure { @apply m-0 flex max-h-full flex-col items-center px-5 py-20 md:px-24; }
+  .lightbox__image { @apply block h-auto max-h-[78vh] w-auto max-w-full object-contain; }
+  .lightbox__caption { @apply mt-5 max-w-xl text-center text-[13px] text-page/70; }
+  .lightbox__button { @apply absolute flex h-12 w-12 items-center justify-center text-page/70 transition-colors duration-200 hover:text-page; }
+  .lightbox__button svg { @apply h-6 w-6; }
+  .lightbox__close { @apply right-3 top-3 md:right-6 md:top-6; }
+  .lightbox__prev { @apply left-1 top-1/2 -translate-y-1/2 md:left-6; }
+  .lightbox__next { @apply right-1 top-1/2 -translate-y-1/2 md:right-6; }
+  .lightbox__counter { @apply absolute left-5 top-6 text-[11px] font-medium uppercase tracking-label text-page/50 md:left-8 md:top-8; }
+
+  /* Kontakt */
+  .contact-links { @apply mt-10 flex flex-col gap-3; }
+  .contact-links a { @apply font-heading text-[clamp(1.3rem,2.6vw,1.9rem)] font-medium leading-tight tracking-[.04em] text-ink transition-colors duration-200 hover:text-primary; }
+  .contact-note { @apply mt-8 text-[14px]; }
+  .contact-find { @apply grid items-center gap-14 md:grid-cols-[minmax(0,.8fr)_minmax(0,1.2fr)] md:gap-16 lg:gap-24; }
+  .contact-address { @apply mt-6 text-[17px] not-italic leading-[1.8] text-ink; }
+  .map { @apply relative aspect-[4/3] overflow-hidden bg-secondary; }
+  .map iframe { @apply absolute inset-0 h-full w-full border-0; }
+  .map__load { @apply absolute inset-0 flex flex-col items-center justify-center gap-3 text-ink transition-colors duration-300 hover:bg-secondary-soft; background-image: linear-gradient(rgb(var(--c-bg) / 40%) 1px, transparent 1px), linear-gradient(90deg, rgb(var(--c-bg) / 40%) 1px, transparent 1px); background-size: 42px 42px; }
+  .map__pin { @apply h-10 w-10 rounded-full rounded-br-none border-2 border-primary-dark; transform: rotate(45deg); }
+  .map__label { @apply mt-2 text-[12px] font-medium uppercase tracking-label; }
+  .map__hint { @apply text-[13px] text-muted; }
+
   /* Footer: nízký, dva řádky přes šířku webu */
   .site-footer { @apply bg-dark text-page/65; --c-logo: var(--c-secondary); }
   .site-footer__main { @apply site-container--wide flex flex-col gap-8 py-12 md:flex-row md:items-center md:justify-between md:gap-12 md:py-14; }
@@ -351,6 +407,7 @@
   .reveal-delay-3 { transition-delay: .36s; }
 }
 
+@keyframes lightbox-in { from { opacity: 0; } to { opacity: 1; } }
 @keyframes more-open { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes hero-progress { from { transform: translate(-50%,-50%) scaleX(0); } to { transform: translate(-50%,-50%) scaleX(1); } }
 @keyframes hero-rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }

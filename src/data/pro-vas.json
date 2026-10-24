@@ -1,0 +1,144 @@
+{
+  "faq": {
+    "title": "ČASTÉ DOTAZY",
+    "image": { "key": "telocvicna/svicky", "alt": "Taneční sál se zrcadly, podložkami a lucernami se svíčkami u velkých oken do zahrady" },
+    "items": [
+      {
+        "question": "Musím mít předchozí taneční zkušenosti?",
+        "answer": ["Nemusíte. Řada našich kurzů je vhodná i pro úplné začátečníky. Důležitá je především chuť hýbat se, učit se něco nového a užít si tanec."]
+      },
+      {
+        "question": "Nejsem už na tanec moc starý/á?",
+        "answer": ["Na tanec není pozdě. V Monsignore nabízíme pohybové a taneční programy pro různé věkové skupiny – od juniorů až po dospělé a starší účastníky. Lekce vždy přizpůsobujeme možnostem konkrétní skupiny."]
+      },
+      {
+        "question": "Nabízíte kurzy i pro lidi 35+, 50+, 60+ nebo 70+?",
+        "answer": ["Ano. Chceme, aby byl tanec dostupný v každém věku. Programy pro starší účastníky jsou zaměřené na radost z pohybu, udržení kondice, koordinace, rovnováhy, pohyblivosti a vitality. Nejde o výkon ani o složité choreografie."]
+      },
+      {
+        "question": "Co když nemám dobrou fyzickou kondici?",
+        "answer": ["To vůbec nevadí. Každý pracuje podle svých možností. Učíme postupně a vedeme účastníky k tomu, aby vnímali své tělo a nepřekračovali jeho hranice."]
+      },
+      {
+        "question": "Je možné přijít jen na zkoušku?",
+        "answer": ["U vybraných kurzů ano. Podmínky se mohou lišit podle konkrétního programu a kapacity skupiny. Aktuální možnosti najdete vždy u daného kurzu."]
+      },
+      {
+        "question": "Co si mám vzít na první lekci?",
+        "answer": ["Pohodlné oblečení, ve kterém se můžete volně hýbat. U některých lekcí se pracuje naboso nebo v ponožkách. Přesné informace najdete u konkrétního kurzu."]
+      },
+      {
+        "question": "Musím umět choreografie?",
+        "answer": ["Nemusíte. Některé kurzy jsou zaměřené na taneční techniku a choreografie, jiné více na přirozený pohyb, improvizaci, vnímání těla a radost z tance."]
+      },
+      {
+        "question": "Co když si nepamatuji kroky tak rychle jako ostatní?",
+        "answer": ["To je naprosto v pořádku. Každý se učí jiným tempem. Nejde o dokonalost, ale o postupný rozvoj pohybu, koordinace a jistoty."]
+      },
+      {
+        "question": "Mohu začít i během roku?",
+        "answer": ["Záleží na konkrétním kurzu. U některých skupin je možné připojit se i v průběhu roku, jiné navazují na předchozí lekce. Nejlepší je podívat se na aktuální nabídku nebo nás kontaktovat."]
+      },
+      {
+        "question": "Nabízíte individuální lekce?",
+        "answer": ["Ano. Vedle skupinových kurzů nabízíme také individuální formy práce, <span class=\"todo\">[DOPLNIT: dokončit odpověď, text v podkladech končí čárkou]</span>"]
+      },
+      {
+        "question": "Pořádáte také jednorázové workshopy?",
+        "answer": ["Ano. Kromě pravidelných kurzů pořádáme během roku tematické taneční a pohybové workshopy, víkendová setkání a další jednorázové akce."]
+      },
+      {
+        "question": "Jsou workshopy vhodné i pro veřejnost?",
+        "answer": ["Ano. U každého workshopu vždy uvádíme, pro koho je určený a zda je potřeba předchozí taneční zkušenost."]
+      },
+      {
+        "question": "Jak se mohu přihlásit?",
+        "answer": ["Nejjednodušší je rezervace prostřednictvím e-mailu: <a href=\"mailto:info@monsignore.cz\">info@monsignore.cz</a>"]
+      },
+      {
+        "question": "Co když nevím, který kurz je pro mě nejvhodnější?",
+        "answer": ["Ozvěte se nám. Rádi s vámi projdeme vaše zkušenosti, věk, kondici a představu o tom, co od pohybu očekáváte, a pomůžeme vám vybrat vhodný program."]
+      },
+      {
+        "question": "Je v Monsignore důležitější výkon, nebo radost z pohybu?",
+        "answer": ["Obojí může mít své místo podle typu kurzu. Naším cílem ale není srovnávat lidi mezi sebou. Chceme vytvářet prostředí, kde se může každý rozvíjet svým tempem, cítit se bezpečně a mít z pohybu radost."]
+      },
+      {
+        "question": "Na koho se mohu obrátit s dotazy ohledně tance?",
+        "answer": ["Veškeré dotazy zasílejte e-mailem na adresu <a href=\"mailto:info@monsignore.cz\">info@monsignore.cz</a>"]
+      },
+      {
+        "question": "Pokud zameškám hodinu, mám možnost absolvovat náhradní hodinu?",
+        "answer": ["Náhradní hodiny nejsou povoleny z důvodu omezené kapacity jednotlivých kurzů."]
+      },
+      {
+        "question": "Jaké je kurzovné?",
+        "answer": ["Kurzovné za pololetí najdete v sekci <a href=\"#/kurzy/rozvrh-a-cenik\">Ceník</a>. Kurzovné musí být uhrazeno v plné výši před zahájením lekce."]
+      },
+      {
+        "question": "Jaké druhy kurzů nabízí TC Monsignore?",
+        "list": [
+          "Moderní a jazzový tanec",
+          "Klasický tanec",
+          "Contemporary",
+          "MIX Dance - ENERGY (věk 35+ ) – energie, styly, choreografie",
+          "MIX Dance – HARMONY (věk 50+) – tanec, kondice, radost",
+          "VitaDance (65+) - tanec, rovnováha, paměť, vitalita"
+        ]
+      },
+      {
+        "question": "Kde se taneční centrum Monsignore nachází?",
+        "answer": ["Taneční centrum Monsignore se nachází v Lánech u Dašic 34, nedaleko Pardubice. K dispozici máme prostorný taneční sál s velkými zrcadly a kvalitní taneční podlahou – baletizolem, zázemí pro převlékání a také relaxační prostory, kde je možné po pohybové aktivitě odpočívat a zklidnit se."]
+      }
+    ]
+  },
+  "testimonials": {
+    "hidden": true,
+    "title": "Co o nás lidé říkají",
+    "items": []
+  },
+  "gallery": {
+    "title": "GALERIE",
+    "items": [
+      { "key": "galerie/zahrada", "alt": "Skupina tanečnic na podložkách v zahradě centra" },
+      { "key": "galerie/zrcadlo-dance", "alt": "Tanečnice stojí u zrcadla s nápisem Dance v sále" },
+      { "key": "galerie/sal-podlozky", "alt": "Taneční sál s podložkami a výhledem do zahrady" },
+      { "key": "kurzy/energy-harmony-skupina", "alt": "Pět usměvavých tanečnic v černém na společné fotografii" },
+      { "key": "galerie/predstaveni-cerna", "alt": "Tanečníci v černých pláštích na tmavém jevišti" },
+      { "key": "galerie/protahovani", "alt": "Tanečnice se protahují na podlaze u baletní tyče" },
+      { "key": "galerie/sal-okno", "alt": "Okno sálu s ptáky na skle a výhledem do podzimní zahrady" },
+      { "key": "galerie/adult-001", "alt": "Tanečnice v barevných sukních při vystoupení" },
+      { "key": "galerie/adult-002", "alt": "Scéna s figurínami a tanečnicí v kostýmu" },
+      { "key": "galerie/adult-004", "alt": "Tanečnice s červeným šátkem uprostřed skupiny v barevných kostýmech" },
+      { "key": "galerie/adult-005", "alt": "Řada tanečnic s nohama vzhůru v červeném světle na jevišti" },
+      { "key": "galerie/adult-006", "alt": "Tanečníci v barevných kostýmech ve výskoku před kulisou s nápisem Palace" },
+      { "key": "galerie/adult-007", "alt": "Tanečnice v barevných kostýmech s šátky" },
+      { "key": "galerie/adult-009", "alt": "Tanečnice na židlích před kulisou ulice" },
+      { "key": "galerie/adult-010", "alt": "Tanečníci v maskáčových kalhotách na jevišti" },
+      { "key": "galerie/adult-011", "alt": "Tanečnice v černých kostýmech s rozevlátými vlasy" },
+      { "key": "galerie/adult-012", "alt": "Skupina tanečnic v černých pláštích před kulisou" },
+      { "key": "galerie/adult-014", "alt": "Tanečnice v dramatické scéně s notovým stojanem" },
+      { "key": "galerie/adult-015", "alt": "Skupina tanečníků v zemitých kostýmech ve zvedačce" },
+      { "key": "galerie/adult-017", "alt": "Tanečníci v černých lesklých kostýmech" },
+      { "key": "galerie/adult-018", "alt": "Tanečník drží tanečnici ve zvedačce v barevném světle" },
+      { "key": "galerie/adult-020", "alt": "Dvě tanečnice v zelených trikotech při vystoupení" }
+    ]
+  },
+  "contact": {
+    "title": "KONTAKT",
+    "find": {
+      "title": "KDE NÁS NAJDETE",
+      "address": ["Taneční centrum Monsignore", "Lány u Dašic 34"],
+      "mapLabel": "UKÁZAT NA MAPĚ",
+      "mapLink": "https://mapy.cz/zakladni?q=L%C3%A1ny%20u%20Da%C5%A1ic%2034",
+      "mapEmbed": "https://www.google.com/maps?q=L%C3%A1ny%20u%20Da%C5%A1ic%2034&output=embed",
+      "transport": "<span class=\"todo\">[DOPLNIT: parkování / doprava]</span>"
+    },
+    "reach": {
+      "title": "Kontaktujte nás",
+      "text": "Neváhejte nás kontaktovat telefonicky nebo e-mailem.",
+      "note": "*Vzhledem k velkému množství dotazů se může doba odpovědi zpozdit. Doporučujeme vám zavolat nám."
+    },
+    "image": { "key": "telocvicna/sal", "alt": "Prázdný taneční sál s baletními tyčemi, zrcadly a okny do zahrady" }
+  }
+}

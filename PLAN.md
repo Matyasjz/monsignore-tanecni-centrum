@@ -58,7 +58,7 @@ Pořadí bloků přesně podle briefu 3.1. Bloky, které tam nejsou (galerie kur
 
 **Hotovo, když:** rozvrh, detaily a karty ukazují stejné časy, ceny a data začátku z jednoho zdroje, tabulka na 360 px nescrolluje a každé CTA vede na `mailto:`. (C1, C2, C3, C6, C7, C8, C9)
 
-## Krok 5: Pro vás + Kontakt
+## Krok 5: Pro vás + Kontakt ✅ hotovo 24. 10. 2026
 
 - **Časté dotazy:** vlevo fotka (`FOTO TĚLOCVIČNY`), vpravo akordeon 20 otázek z `src/data/faq.json`. Zmínky o dětech (ot. 2, 3, 19) zatím ponechat doslova a označit v `TODO.md` k rozhodnutí. Useknutá ot. 10 dostane `[DOPLNIT]`.
 - **Ohlasy:** komponenta hotová, data prázdná a blok **skrytý** (`hidden: true`), dokud nejsou citace.

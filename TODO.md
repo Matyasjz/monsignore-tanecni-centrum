@@ -39,7 +39,7 @@
 ## Legacy podstránky (z předchozí verze, čekají na svůj krok v PLAN.md)
 - [ ] `#/nas-pristup`, `#/vedeni`, `#/nas-pribeh` (krok 8): parafráze místo doslovných textů, vymyšlená ozdobná slova, „výkonnostní třída A“, Tanec PLUS
 - [ ] `#/akce`, `#/letni-skola` (krok 6): ukázková akce 24. května a vymyšlený text Letní školy
-- [ ] Neaktivní odkazy v menu (`data-inert-nav`): detaily kurzů, rozvrh, FAQ, galerie, Terapie. Aktivovat ve krocích 4, 5 a 7.
+- [ ] Neaktivní odkaz v menu (`data-inert-nav`): Terapie. Aktivovat v kroku 7.
 
 ## Home (krok 3)
 - [ ] Hero: na mobilu (390 px) ořez `object-fit: cover` ukazuje jen střed fotek. Po výběru finálních fotek případně doladit `object-position` pro jednotlivé slidy.
@@ -53,3 +53,11 @@
 - [ ] Rozvrh: název kurzu „Kombinace tanečních technik“ (brief) vs. „Komplexní taneční průprava“ (texty). Mění se na jednom místě v `rozvrh.json`.
 - [ ] Blok Rozvrh, ceník na přehledu nemá fotku (složka `ROZVRH A CENÍK` je prázdná), zatím je to vzorovaný panel.
 - [ ] Nepoužité fotky pro Galerii: `KURZY ENERGY A HARMONY/IMG_1224.HEIC`, `kurzy/energy-harmony-skupina` (selfie, zpracovaná, zatím nepoužitá) a `KURZY PRO MLÁDEŽ A DOSPĚLÉ/1Duq…jpg` (čeká na ověření původu).
+
+## Pro vás a Kontakt (krok 5)
+- [ ] Galerie: 15 fotek z `GALERIE/` má jen 240–320 px, v mřížce jsou neostré a lightbox je nezvětšuje. Potřebujeme originály a výběr od klientky.
+- [ ] FAQ ot. 2 zmiňuje „od juniorů“. Ponecháno doslova, rozhodnout s klientkou (kurzy pro děti nejsou).
+- [ ] FAQ ot. 10 má viditelný `[DOPLNIT]`, text v podkladech končí čárkou.
+- [ ] FAQ ot. 18: slovo „Ceník“ je odkaz na `#/kurzy/rozvrh-a-cenik` (text beze změny).
+- [ ] Kontakt: mapa je Google Maps embed bez API klíče, načte se až po kliknutí. Pokud klientka chce Mapy.cz i jako embed, je potřeba jejich API klíč.
+- [ ] Ohlasy: doplnit citace (jméno, role, souhlas se zveřejněním) do `src/data/pro-vas.json` a nastavit `"hidden": false`.

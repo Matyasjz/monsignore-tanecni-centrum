@@ -222,6 +222,85 @@ function requestParallax() {
   if (!reducedMotion && !parallaxFrame) parallaxFrame = window.requestAnimationFrame(updateParallax);
 }
 
+// Lightbox galerie: nativní <dialog> (Esc a zámek fokusu řeší prohlížeč), šipky přepínají fotky
+const icon = (path) => `<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">${path}</svg>`;
+let lightbox;
+
+function getLightbox() {
+  if (lightbox) return lightbox;
+  const dialog = document.createElement('dialog');
+  dialog.className = 'lightbox';
+  dialog.setAttribute('aria-label', 'Fotografie z galerie');
+  dialog.innerHTML = `
+    <span class="lightbox__counter" aria-live="polite"></span>
+    <figure class="lightbox__figure"><img class="lightbox__image" alt=""><figcaption class="lightbox__caption"></figcaption></figure>
+    <button type="button" class="lightbox__button lightbox__prev" aria-label="Předchozí fotografie">${icon('<path d="M15 4 7 12l8 8"/>')}</button>
+    <button type="button" class="lightbox__button lightbox__next" aria-label="Další fotografie">${icon('<path d="m9 4 8 8-8 8"/>')}</button>
+    <button type="button" class="lightbox__button lightbox__close" aria-label="Zavřít">${icon('<path d="M5 5l14 14M19 5 5 19"/>')}</button>`;
+  document.body.append(dialog);
+
+  const image = dialog.querySelector('.lightbox__image');
+  const caption = dialog.querySelector('.lightbox__caption');
+  const counter = dialog.querySelector('.lightbox__counter');
+  let items = [];
+  let current = 0;
+
+  const show = (index) => {
+    current = (index + items.length) % items.length;
+    const item = items[current];
+    const alt = item.querySelector('img').alt;
+    image.src = item.getAttribute('href');
+    image.alt = alt;
+    caption.textContent = alt;
+    counter.textContent = `${current + 1} / ${items.length}`;
+  };
+
+  dialog.querySelector('.lightbox__prev').addEventListener('click', () => show(current - 1));
+  dialog.querySelector('.lightbox__next').addEventListener('click', () => show(current + 1));
+  dialog.querySelector('.lightbox__close').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+  dialog.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft') show(current - 1);
+    if (event.key === 'ArrowRight') show(current + 1);
+  });
+  dialog.addEventListener('close', () => document.body.classList.remove('menu-open'));
+
+  lightbox = {
+    open(list, index) {
+      items = list;
+      show(index);
+      dialog.showModal();
+      document.body.classList.add('menu-open');
+    },
+  };
+  return lightbox;
+}
+
+function initLightbox() {
+  main.querySelectorAll('[data-lightbox]').forEach((group) => {
+    const items = [...group.querySelectorAll('a')];
+    items.forEach((item, index) => item.addEventListener('click', (event) => {
+      event.preventDefault();
+      getLightbox().open(items, index);
+    }));
+  });
+}
+
+// Mapa se načte až po kliknutí, aby se bez souhlasu nenačítaly cookies třetích stran
+function initMaps() {
+  main.querySelectorAll('[data-map]').forEach((map) => {
+    map.querySelector('.map__load').addEventListener('click', () => {
+      const frame = document.createElement('iframe');
+      frame.src = map.dataset.map;
+      frame.title = 'Mapa: Lány u Dašic 34';
+      frame.referrerPolicy = 'no-referrer-when-downgrade';
+      map.replaceChildren(frame);
+    }, { once: true });
+  });
+}
+
 function setTheme(world, mood) {
   document.body.dataset.world = world;
   if (mood) main.dataset.mood = mood;
@@ -253,6 +332,8 @@ function renderPage(slug, page) {
   markCurrentLinks(slug);
   observeReveals();
   initHero();
+  initLightbox();
+  initMaps();
   requestParallax();
 }
 

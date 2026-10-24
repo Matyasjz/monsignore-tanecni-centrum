@@ -7,6 +7,10 @@ import {
   courseCards, courseHero, courseSections, courseSignup, courseTopics, practicalInfo,
 } from './blocks/courses.js';
 import { scheduleTable } from './blocks/schedule.js';
+import proVas from './data/pro-vas.json';
+import {
+  contact, faq, gallery, testimonials,
+} from './blocks/pro-vas.js';
 import {
   continueTo, framed, pageIntro, paragraphs, patternPanel, sectionTitle, split, timeline, wideFigure,
 } from './blocks/layout.js';
@@ -88,6 +92,27 @@ const pages = {
     ${story(home.story)}`,
   },
   ...coursePages(),
+  // Pro vás a Kontakt (brief 3.4 a 3.5)
+  'pro-vas/caste-dotazy': {
+    title: pageTitle(proVas.faq.title),
+    description: plain(proVas.faq.items[0].answer[0]),
+    world: 'centrum',
+    html: `${faq(proVas.faq)}
+    ${testimonials(proVas.testimonials)}`,
+  },
+  'pro-vas/galerie': {
+    title: pageTitle(proVas.gallery.title),
+    world: 'centrum',
+    html: `${pageIntro({ title: proVas.gallery.title })}
+    ${gallery({ items: proVas.gallery.items, tone: 'pt-0 md:pt-0 bg-surface' })}`,
+  },
+  kontakt: {
+    title: pageTitle(proVas.contact.title),
+    description: `${proVas.contact.reach.text} ${proVas.contact.find.address.join(', ')}`,
+    world: 'centrum',
+    html: `${pageIntro({ title: proVas.contact.title })}
+    ${contact(proVas.contact)}`,
+  },
   // Legacy podstránky z předchozí verze: přepíšou se podle briefu v krocích 4–8 (PLAN.md)
   'nas-pristup': {
     title: 'Náš přístup · Taneční centrum Monsignore',
