@@ -77,3 +77,26 @@ export const patternPanel = ({ accent, title, text, cta, className = '' }) => `
     <p class="pattern-panel__text">${text}</p>
     ${cta ? `<a class="btn btn--dark mt-10" href="${cta.href}">${cta.label}</a>` : ''}
   </div>`;
+
+// Úvod stránky na barevném panelu (světy bez vlastních fotek: Letní škola, Terapie)
+export const panelHero = ({ accent, title, text, note }) => `
+  <section class="panel-hero">
+    <div class="site-container">
+      <div class="pattern-panel panel-hero__panel reveal">
+        ${accent ? `<p class="pattern-panel__accent">${accent}</p>` : ''}
+        <h1 class="pattern-panel__title panel-hero__title">${title}</h1>
+        <span class="rule" aria-hidden="true"></span>
+        ${text ? `<p class="pattern-panel__text">${text}</p>` : ''}
+        ${note ? `<p class="panel-hero__note">${note}</p>` : ''}
+      </div>
+    </div>
+  </section>`;
+
+// Sekce s nadpisem a odstavci v úzkém sloupci
+export const textSection = ({ title, paragraphs: list, tone = '' }) => `
+  <section class="section ${tone}">
+    <div class="site-container--read reveal">
+      <h2 class="course-section__heading">${title}</h2>
+      <div class="prose-copy">${paragraphs(list)}</div>
+    </div>
+  </section>`;

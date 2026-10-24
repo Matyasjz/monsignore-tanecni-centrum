@@ -12,7 +12,7 @@
 
 ## Čeká na klientku / grafičku (brief, sekce 8)
 - [ ] Barvy od Anety (`/design/barvy`, 4 obrázky). Centrum zatím používá současnou paletu webu, terapie a letní škola jsou odvozené. Po dodání stačí přepsat tokeny ve `style.css` a spustit `scripts/brand.sh`.
-- [ ] Texty pro Tanečně-pohybovou terapii a fotky (žádná složka)
+- [ ] Texty pro Tanečně-pohybovou terapii (`src/data/terapie.json`: úvod, O terapii, Pro koho, Jak probíhá, cena) a fotky (žádná složka)
 - [ ] Finální název hlavního kurzu: „Kombinace tanečních technik“ (brief) vs. „Komplexní taneční průprava“ (rozvrh v textech)
 - [ ] Děti/junioři ve FAQ (ot. 2, 3, 19). Ot. 3 navíc uvádí „60+ nebo 70+“, ale kurz je 65+.
 - [ ] Rok založení na Home: 1988 vs. 1992
@@ -38,7 +38,6 @@
 
 ## Legacy podstránky (z předchozí verze, čekají na svůj krok v PLAN.md)
 - [ ] `#/nas-pristup`, `#/vedeni`, `#/nas-pribeh` (krok 8): parafráze místo doslovných textů, vymyšlená ozdobná slova, „výkonnostní třída A“, Tanec PLUS
-- [ ] Neaktivní odkaz v menu (`data-inert-nav`): Terapie. Aktivovat v kroku 7.
 
 ## Home (krok 3)
 - [ ] Hero: na mobilu (390 px) ořez `object-fit: cover` ukazuje jen střed fotek. Po výběru finálních fotek případně doladit `object-position` pro jednotlivé slidy.

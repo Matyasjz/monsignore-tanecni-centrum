@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2026-10-24: Krok 7, Terapie
+- `#/terapie` ve vlastním zeleno-béžovém světě: úvod, O terapii, Pro koho, Jak probíhá, Lektorka, Kontakt. Texty zatím nejsou, místo nich jsou viditelné `[DOPLNIT]`. U lektorky jsou doslovné věty z textů (diplom 2017).
+- Vstup Terapie v menu je aktivní. Stránka má vlastní data (`src/data/terapie.json`), takže půjde oddělit na `terapie.monsignore.cz`.
+
 ## 2026-10-24: Krok 6, Akce a Letní škola
 - `#/akce`: vstup do Letní školy (panel v barvách jejího světa), Akce & workshopy s textem klientky a kalendář akcí z `src/data/akce.json`. Minulé akce se skrývají samy, každá akce má „Přihlásit se“, „Přidat do kalendáře“ (.ics) a odkaz do Google Kalendáře. První akce: workshop 14.–15. 11. 2026.
 - `#/letni-skola` ve vlastním barevném světě: místo, nadčasové věty a seznam technik ze staré stránky (jen jako zdroj faktů), lektorský tým 2026. Termín, ceník a přihláška 2027 jsou `[DOPLNIT]`.

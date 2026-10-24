@@ -1,0 +1,35 @@
+{
+  "title": "TANEČNĚ-POHYBOVÁ TERAPIE",
+  "hero": {
+    "title": "TANEČNĚ-POHYBOVÁ TERAPIE",
+    "text": "<span class=\"todo\">[DOPLNIT: úvodní věta nebo motto terapie]</span>"
+  },
+  "sections": [
+    {
+      "title": "O terapii",
+      "paragraphs": ["<span class=\"todo\">[DOPLNIT: co je tanečně-pohybová terapie]</span>"]
+    },
+    {
+      "title": "Pro koho",
+      "paragraphs": ["<span class=\"todo\">[DOPLNIT: pro koho je terapie určená]</span>"]
+    },
+    {
+      "title": "Jak probíhá",
+      "paragraphs": ["<span class=\"todo\">[DOPLNIT: průběh, délka a forma setkání, cena]</span>"]
+    },
+    {
+      "title": "Lektorka: Magdaléna Mauerová",
+      "paragraphs": [
+        "umělecká vedoucí • choreografka • taneční pedagožka • tanečně-pohybová terapeutka",
+        "V roce 2017 získala diplom v oboru <strong>tanečně-pohybové terapie</strong>, garantovaný Mezinárodní asociací uměleckých terapií MAUT a Českou hudební společností – Společností pro hudební terapii.",
+        "Ve své práci s tanečníky klade důraz na individuální možnosti každého člověka, zdravý pohyb, mobilitu, vnímání vlastního těla, psychickou pohodu a radost z pohybu.",
+        "<span class=\"todo\">[DOPLNIT: fotka lektorky pro terapii]</span>"
+      ]
+    }
+  ],
+  "contact": {
+    "title": "Kontakt",
+    "text": "<a href=\"mailto:info@monsignore.cz\">info@monsignore.cz</a> · <a href=\"tel:+420775765556\">775 765 556</a>",
+    "cta": { "label": "Napsat nám", "href": "mailto:info@monsignore.cz?subject=Tane%C4%8Dn%C4%9B-pohybov%C3%A1%20terapie" }
+  }
+}

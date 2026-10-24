@@ -76,7 +76,7 @@ Pořadí bloků přesně podle briefu 3.1. Bloky, které tam nejsou (galerie kur
 
 **Hotovo, když:** po 15. 11. 2026 workshop zmizí sám, `.ics` jde importovat do Apple i Google kalendáře a Letní škola má vlastní barvy. (C1, C2, C5, C7, C9, C10)
 
-## Krok 7: Terapie (kostra)
+## Krok 7: Terapie (kostra) ✅ hotovo 24. 10. 2026
 
 - `/terapie` ve světě `terapie`: hero, o terapii, pro koho, jak probíhá, lektorka, kontakt. Vše `[DOPLNIT]` kromě kontaktu.
 - Oddělitelné: vlastní stránky a data (`src/data/terapie.json`), žádné sdílené texty s centrem.

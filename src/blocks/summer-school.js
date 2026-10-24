@@ -1,20 +1,6 @@
 import { paragraphs, patternPanel } from './layout.js';
 
-// Letní taneční škola: vlastní svět (data-world="letni-skola"), fotky ve složce zatím chybí,
-// proto úvod stojí na barevném panelu místo fotky
-export const summerHero = ({ title, accent, place, date }) => `
-  <section class="summer-hero">
-    <div class="site-container">
-      <div class="pattern-panel summer-hero__panel reveal">
-        <p class="pattern-panel__accent">${accent}</p>
-        <h1 class="pattern-panel__title summer-hero__title">${title}</h1>
-        <span class="rule" aria-hidden="true"></span>
-        <p class="pattern-panel__text">${place}</p>
-        <p class="summer-hero__date">${date}</p>
-      </div>
-    </div>
-  </section>`;
-
+// Letní taneční škola: vlastní svět (data-world="letni-skola"). Úvod je panelHero z layout.js.
 export const summerIntro = ({ intro, courses }) => `
   <section class="section">
     <div class="site-container summer-intro">

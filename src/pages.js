@@ -11,14 +11,13 @@ import proVas from './data/pro-vas.json';
 import akce from './data/akce.json';
 import letniSkola from './data/letni-skola.json';
 import { eventsCalendar } from './blocks/events.js';
-import {
-  summerHero, summerIntro, summerSignup, summerTeam,
-} from './blocks/summer-school.js';
+import { summerIntro, summerSignup, summerTeam } from './blocks/summer-school.js';
+import terapie from './data/terapie.json';
 import {
   contact, faq, gallery, testimonials,
 } from './blocks/pro-vas.js';
 import {
-  continueTo, framed, pageIntro, paragraphs, patternPanel, sectionTitle, split, timeline, wideFigure,
+  continueTo, framed, pageIntro, panelHero, paragraphs, patternPanel, sectionTitle, split, textSection, timeline, wideFigure,
 } from './blocks/layout.js';
 import adult012 from '../assets/adult-012.jpg';
 import adult014 from '../assets/adult-014.jpg';
@@ -118,10 +117,22 @@ const pages = {
     title: pageTitle(letniSkola.title),
     description: `${letniSkola.accent}. ${letniSkola.place}.`,
     world: 'letni-skola',
-    html: `${summerHero(letniSkola)}
+    html: `${panelHero({
+      accent: letniSkola.accent, title: letniSkola.title, text: letniSkola.place, note: letniSkola.date,
+    })}
     ${summerIntro(letniSkola)}
     ${summerTeam(letniSkola.team)}
     ${summerSignup(letniSkola.signup)}`,
+  },
+  // Tanečně-pohybová terapie (brief 3.6): samostatný svět, později terapie.monsignore.cz
+  terapie: {
+    title: pageTitle(terapie.title),
+    world: 'terapie',
+    html: `${panelHero(terapie.hero)}
+    ${terapie.sections.map((section, index) => textSection({ ...section, tone: index % 2 ? 'section--surface' : '' })).join('')}
+    <section class="section">
+      <div class="site-container">${patternPanel(terapie.contact)}</div>
+    </section>`,
   },
   // Pro vás a Kontakt (brief 3.4 a 3.5)
   'pro-vas/caste-dotazy': {

@@ -355,6 +355,12 @@
   .map__label { @apply mt-2 text-[12px] font-medium uppercase tracking-label; }
   .map__hint { @apply text-[13px] text-muted; }
 
+  /* Úvod stránky na barevném panelu */
+  .panel-hero { @apply pt-10 md:pt-16; }
+  .panel-hero__panel { @apply py-20 md:py-32; }
+  .panel-hero__title { @apply text-[clamp(2rem,5vw,3.6rem)]; }
+  .panel-hero__note { @apply mt-4 text-[15px]; }
+
   /* Kalendář akcí */
   .event-card { @apply mx-auto grid max-w-5xl gap-10 bg-page p-6 md:grid-cols-[minmax(0,.8fr)_minmax(0,1.2fr)] md:gap-14 md:p-10; }
   .event-card + .event-card { @apply mt-8; }
@@ -365,10 +371,6 @@
   .event-card__actions { @apply mt-10 flex flex-wrap items-center gap-x-8 gap-y-5; }
 
   /* Letní taneční škola */
-  .summer-hero { @apply pt-10 md:pt-16; }
-  .summer-hero__panel { @apply py-20 md:py-32; }
-  .summer-hero__title { @apply text-[clamp(2rem,5vw,3.6rem)]; }
-  .summer-hero__date { @apply mt-4 text-[15px]; }
   .summer-intro { @apply grid gap-14 md:grid-cols-2 md:gap-20; }
   .summer-intro__text p:first-child { @apply text-[17px] leading-[1.8] text-ink md:text-[19px]; }
   .chips { @apply mt-6 flex flex-wrap gap-2; }
