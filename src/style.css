@@ -1,6 +1,3 @@
-Warning: truncated output (original token count: 8344)
-Total output lines: 444
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -217,7 +214,25 @@ Total output lines: 444
   .squares-section { @apply relative isolate py-24 md:py-36; }
   .squares-section::before { @apply absolute inset-x-0 bottom-0 -z-10 bg-secondary-soft; content: ''; height: 64%; clip-path: polygon(0 34%, 100% 0, 100% 100%, 0 100%); }
   .squares { @apply site-container grid gap-20 md:grid-cols-2 md:gap-12 lg:gap-20; }
-  .square:nth-child(2)…344 tokens truncated…ary px-6 py-16 text-center md:px-16 md:py-24; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='84' fill='none' stroke='white' stroke-opacity='.55'%3E%3Ccircle r='42'/%3E%3Ccircle cx='84' r='42'/%3E%3Ccircle cy='84' r='42'/%3E%3Ccircle cx='84' cy='84' r='42'/%3E%3Ccircle cx='42' cy='42' r='42'/%3E%3C/svg%3E"); background-size: 84px 84px; }
+  .square:nth-child(2) { @apply md:mt-40; }
+  .square__media { @apply relative block aspect-square overflow-hidden bg-secondary-soft; }
+  .square__card { @apply relative z-10 -mt-20 ml-6 bg-page px-7 py-9 md:-mt-28 md:ml-12 md:px-10 md:py-11; }
+  .square__title { @apply text-[clamp(1.35rem,2.4vw,1.9rem)] leading-tight; }
+  .square__subtitle { @apply mt-3 text-[11px] font-medium uppercase tracking-label text-primary; }
+  .square__quote { @apply mt-5; }
+  .square__quote p { @apply accent text-[clamp(1.9rem,3.2vw,2.5rem)] text-primary; }
+  .square__quote cite { @apply block text-[11px] font-medium not-italic uppercase tracking-label text-muted; }
+  .square__text { @apply mt-5 text-[15px] leading-[1.85]; }
+  .square__link { @apply mt-7; }
+
+  /* Náš příběh: fotka přes celou šířku jako atmosféra, přes její spodní hranu přesahuje vzorovaný panel */
+  .story { @apply relative pb-24 md:pb-36; padding-top: clamp(12rem, 26vw, 22rem); }
+  .story__backdrop { @apply absolute inset-x-0 top-0 bottom-[13rem] overflow-hidden bg-dark md:bottom-[19rem]; }
+  .story__backdrop .photo { @apply absolute inset-x-0; top: -12%; height: 124%; transition: none; }
+  .story__panel { @apply relative mx-5 md:mx-10 lg:mx-auto lg:max-w-[64rem]; }
+
+  /* Pudrový panel se vzorem oblouků (odkazuje na oblouky v logu), bílá na barvě světa */
+  .pattern-panel { @apply bg-secondary px-6 py-16 text-center md:px-16 md:py-24; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='84' fill='none' stroke='white' stroke-opacity='.55'%3E%3Ccircle r='42'/%3E%3Ccircle cx='84' r='42'/%3E%3Ccircle cy='84' r='42'/%3E%3Ccircle cx='84' cy='84' r='42'/%3E%3Ccircle cx='42' cy='42' r='42'/%3E%3C/svg%3E"); background-size: 84px 84px; }
   .pattern-panel__accent { @apply accent block text-[clamp(2.4rem,5vw,3.8rem)] text-primary-dark; }
   .pattern-panel__title { @apply -mt-3 text-[clamp(1.55rem,3.2vw,2.45rem)]; }
   .pattern-panel__text { @apply mx-auto max-w-xl text-base text-ink md:text-[17px]; }
@@ -426,4 +441,3 @@ Total output lines: 444
   .hero__media .photo { transform: none; }
   .hero__slide.is-active .hero__motto, .hero__slide.is-active .hero__title, .hero__slide.is-active .hero__text { animation: none; }
 }
-
