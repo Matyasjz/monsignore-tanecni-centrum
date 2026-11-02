@@ -1,6 +1,6 @@
 # PLAN – nový web TC Monsignore
 
-Pořadí podle briefu, sekce 6. Krok 0 je technický předpoklad navíc. Po každém kroku: shrnutí, `npm run build`, zápis do `CHANGELOG.md` (build pak ručně nahraje uživatel na wp.heurekazo.cz) a nové otevřené věci do `TODO.md`.
+Strukturu a pořadí obsahu řídí primárně DOCX „hlavní STRUKTURA NOVÉHO WEBU TC MONSIGNORE“. Brief doplňuje vzhled, technické požadavky a omezení. Krok 0 je technický předpoklad navíc. Po každém větším kroku: shrnutí, `npm run build`, zápis do `CHANGELOG.md` a nové otevřené věci do `TODO.md`.
 
 Odkazy na checklist (brief, sekce 9):
 **C1** menu a pořadí bloků 1:1 · **C2** správná složka fotek · **C3** texty doslova · **C4** fonty a diakritika · **C5** 3 světy · **C6** rozvrh sedí s detaily · **C7** CTA na `mailto:`/`tel:` · **C8** mobil bez horizontálního scrollu · **C9** vše editovatelné · **C10** nic vymyšleného, místo toho `[DOPLNIT]` · **C11** nasazeno a zapsáno v `CHANGELOG.md`
@@ -27,7 +27,7 @@ Starý web dál poběží, nic se nezálohuje. Fakta pro Letní školu se v krok
 - Barvy: centrum = současná paleta webu, terapie zeleno-béžová a letní škola odvozené ve stejném duchu. Až dodá Aneta, nahradí se jen hodnoty.
 - Fonty: DM Sans, Now a Respondent self-host (woff2). Montserrat a Allura odstraněny.
 - Logo: `public/brand/logo-mask.png` + `.logo` přes `mask-image`. Statické varianty (favicon 32/180/512, OG 1200 × 630, e-mailová PNG) vygeneruje skript.
-- Hlavička: logo → Home, menu **Tančete s námi · Akce · Pro vás · Kontakt** a vstupy **Terapie / Letní škola**.
+- Hlavička: logo → Home, menu **Tančete s námi · Akce · Pro vás · Kontakt** podle DOCX. Letní škola zůstává dostupná pod Akce; Terapie není v hlavní navigaci.
 - Soubory: `src/style.css`, `tailwind.config.js`, `index.html`, `public/fonts/`, `public/brand/`, `scripts/logo.sh`.
 
 **Hotovo, když:** přepnutí `data-world` na `<main>` přebarví stránku i logo, kontrast textu i loga je AA ve všech světech a menu odpovídá briefu 3. (C1, C4, C5)
@@ -100,3 +100,4 @@ Pořadí bloků přesně podle briefu 3.1. Bloky, které tam nejsou (galerie kur
 - Projít celý checklist C1–C11 a výsledek zapsat do `CHANGELOG.md`.
 
 **Hotovo, když:** všech 11 bodů checklistu je splněných nebo vědomě odložených v `TODO.md`.
+

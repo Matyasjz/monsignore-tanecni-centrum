@@ -1,3 +1,6 @@
+Warning: truncated output (original token count: 8344)
+Total output lines: 444
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -167,10 +170,6 @@
   .nav-submenu a { @apply block px-7 py-2 text-[14px] leading-[1.6] text-muted transition-colors duration-200 hover:text-primary; }
   .nav-submenu a[aria-current='page'] { @apply text-primary; }
   .nav-submenu a[aria-disabled='true'] { @apply cursor-default text-muted/50 hover:text-muted/50; }
-  /* Vstupy do světů: odkaz nese data-world, takže má barvy svého světa */
-  .world-links { @apply hidden items-center gap-2 lg:flex; }
-  .world-link { @apply inline-flex min-h-[36px] items-center rounded-full border border-primary/40 px-4 text-[11px] font-medium uppercase tracking-[.16em] text-primary transition-colors duration-300 hover:border-primary hover:bg-primary hover:text-page; }
-  .world-link[aria-disabled='true'] { @apply cursor-default opacity-50 hover:border-primary/40 hover:bg-transparent hover:text-primary; }
   .menu-toggle { @apply relative z-50 flex h-11 w-11 flex-col items-center justify-center gap-[6px] lg:hidden; }
   .menu-toggle span { @apply h-px w-6 bg-ink transition-transform duration-300; }
   .menu-toggle[aria-expanded='true'] span:first-child { transform: translateY(3.5px) rotate(45deg); }
@@ -184,7 +183,6 @@
   .mobile-nav-group > .nav-submenu { @apply flex overflow-hidden; max-height: 0; visibility: hidden; transition: max-height .34s cubic-bezier(.2,.7,.2,1), visibility 0s linear .34s; }
   .mobile-nav-group[open] > .nav-submenu { max-height: var(--submenu-height, 22rem); visibility: visible; transition-delay: 0s; }
   .mobile-nav-group > .nav-submenu a { @apply pl-4 pr-0; }
-  .mobile-nav .world-links { @apply mt-6 flex flex-wrap; }
 
   /* Hero: 3 rotující fotky, text uprostřed */
   .hero { @apply relative overflow-hidden bg-dark text-center; height: min(calc(100svh - var(--header-height)), 58rem); min-height: 34rem; }
@@ -219,25 +217,7 @@
   .squares-section { @apply relative isolate py-24 md:py-36; }
   .squares-section::before { @apply absolute inset-x-0 bottom-0 -z-10 bg-secondary-soft; content: ''; height: 64%; clip-path: polygon(0 34%, 100% 0, 100% 100%, 0 100%); }
   .squares { @apply site-container grid gap-20 md:grid-cols-2 md:gap-12 lg:gap-20; }
-  .square:nth-child(2) { @apply md:mt-40; }
-  .square__media { @apply relative block aspect-square overflow-hidden bg-secondary-soft; }
-  .square__card { @apply relative z-10 -mt-20 ml-6 bg-page px-7 py-9 md:-mt-28 md:ml-12 md:px-10 md:py-11; }
-  .square__title { @apply text-[clamp(1.35rem,2.4vw,1.9rem)] leading-tight; }
-  .square__subtitle { @apply mt-3 text-[11px] font-medium uppercase tracking-label text-primary; }
-  .square__quote { @apply mt-5; }
-  .square__quote p { @apply accent text-[clamp(1.9rem,3.2vw,2.5rem)] text-primary; }
-  .square__quote cite { @apply block text-[11px] font-medium not-italic uppercase tracking-label text-muted; }
-  .square__text { @apply mt-5 text-[15px] leading-[1.85]; }
-  .square__link { @apply mt-7; }
-
-  /* Náš příběh: fotka přes celou šířku jako atmosféra, přes její spodní hranu přesahuje vzorovaný panel */
-  .story { @apply relative pb-24 md:pb-36; padding-top: clamp(12rem, 26vw, 22rem); }
-  .story__backdrop { @apply absolute inset-x-0 top-0 bottom-[13rem] overflow-hidden bg-dark md:bottom-[19rem]; }
-  .story__backdrop .photo { @apply absolute inset-x-0; top: -12%; height: 124%; transition: none; }
-  .story__panel { @apply relative mx-5 md:mx-10 lg:mx-auto lg:max-w-[64rem]; }
-
-  /* Pudrový panel se vzorem oblouků (odkazuje na oblouky v logu), bílá na barvě světa */
-  .pattern-panel { @apply bg-secondary px-6 py-16 text-center md:px-16 md:py-24; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='84' fill='none' stroke='white' stroke-opacity='.55'%3E%3Ccircle r='42'/%3E%3Ccircle cx='84' r='42'/%3E%3Ccircle cy='84' r='42'/%3E%3Ccircle cx='84' cy='84' r='42'/%3E%3Ccircle cx='42' cy='42' r='42'/%3E%3C/svg%3E"); background-size: 84px 84px; }
+  .square:nth-child(2)…344 tokens truncated…ary px-6 py-16 text-center md:px-16 md:py-24; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='84' fill='none' stroke='white' stroke-opacity='.55'%3E%3Ccircle r='42'/%3E%3Ccircle cx='84' r='42'/%3E%3Ccircle cy='84' r='42'/%3E%3Ccircle cx='84' cy='84' r='42'/%3E%3Ccircle cx='42' cy='42' r='42'/%3E%3C/svg%3E"); background-size: 84px 84px; }
   .pattern-panel__accent { @apply accent block text-[clamp(2.4rem,5vw,3.8rem)] text-primary-dark; }
   .pattern-panel__title { @apply -mt-3 text-[clamp(1.55rem,3.2vw,2.45rem)]; }
   .pattern-panel__text { @apply mx-auto max-w-xl text-base text-ink md:text-[17px]; }
@@ -446,3 +426,4 @@
   .hero__media .photo { transform: none; }
   .hero__slide.is-active .hero__motto, .hero__slide.is-active .hero__title, .hero__slide.is-active .hero__text { animation: none; }
 }
+

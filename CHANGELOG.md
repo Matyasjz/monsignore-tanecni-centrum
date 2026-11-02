@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2026-11-02: Sjednocení navigace se strukturou klientky
+- Hlavní navigace nyní obsahuje pouze logo na Home, Tančete s námi, Akce, Pro vás a Kontakt podle DOCX. Samostatné odkazy na Terapie a Letní školu i jejich nevyužité styly byly z desktopového i mobilního menu odstraněny.
+- DOCX je zaznamenán jako primární zdroj struktury; brief doplňuje vizuální a technické požadavky. Letní škola zůstává pod Akce a její obsah se kvůli pozastavení zatím nemění.
+- Produkční sestavení Vite prošlo po aktualizaci navigace i CSS.
+
 ## 2026-10-24: Krok 8, Náš přístup, Vedení, Náš příběh
 - Tři podstránky přepsané doslova z textů klientky s opravami z briefu (Naším cílem, sebevědomí, Magdaléna). Věta „Ne každý tanečník musí stát jednou na profesionálním jevišti…“ je jen jednou, jako závěrečný citát. Vymyšlené texty, Tanec PLUS a ukázková akce jsou pryč.
 - Vedení a Náš příběh mají úvod viditelný a delší část za „Zjistit více“. Náš přístup řadí témata do mřížek (Jak učíme, Proč učíme tanec) a končí citátem na vzorovaném panelu.
@@ -39,3 +44,4 @@
 - **Home podle briefu 3.1:** hero se 3 rotujícími fotkami (motto, nadpis a podtext z tabulky briefu, autoplay 6 s, pauza při hoveru, tlačítko stop, bez animace při reduced-motion), dva čtverce Náš přístup / Vedení a blok Náš příběh. Původní bloky Home (kurzy, čísla, citáty, akce, vedení, CTA) jsou pryč.
 - **Design systém:** 3 barevné světy (`centrum`, `terapie`, `letni-skola`) a nálady (`soft`, `night`) přes CSS proměnné, všechny kombinace textu splňují WCAG AA. Fonty Now (nadpisy), DM Sans (text) a Respondent (motta) jsou self-hostované. Logo je maska z `LOGO.png` a barví se podle světa.
 - **Menu podle briefu:** Tančete s námi · Akce · Pro vás · Kontakt a vstupy Terapie / Letní škola. Router zvládá víceúrovňové slugy (`#/kurzy/individualni-vyuka`). Fotky se zpracovávají skriptem (WebP + JPG, `srcset`, EXIF orientace), favicon a OG obrázek se generují z tokenů. Build připravený k nahrání na wp.heurekazo.cz.
+

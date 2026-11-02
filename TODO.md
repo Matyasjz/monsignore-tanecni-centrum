@@ -1,5 +1,12 @@
 # TODO – otevřené věci
 
+## Aktualizace podle struktury DOCX, 2. 11. 2026
+- [x] Lokální větev `test` je synchronizovaná s `origin/test` na commitu `c4fe86a`.
+- [x] DOCX je hlavní zdroj menu a struktury; `BRIEF-monsignore.md` doplňuje vizuální a technické požadavky. Tuto hierarchii uvádí také `AGENTS.md`.
+- [x] Hlavní navigace odpovídá DOCX: logo na Home, Tančete s námi, Akce, Pro vás a Kontakt. Terapie už není přidaná jako další položka; Letní škola je dostupná pod Akce.
+- [ ] Vyjasnit pozastavení Letní školy v briefu vůči její položce ve struktuře DOCX; do té doby její stávající obsah neměnit.
+- [ ] Dokončit obsahovou kontrolu všech stránek proti DOCX a `texty-monsignore.md`; stávající TODO níže zachovávají známé nevyřešené údaje.
+
 ## Rozhodnuto 24. 10. 2026
 - [x] Routing: v šabloně hash, slugy = budoucí hezké URL (tabulka v `AGENTS.md`). SEO a 301 až v editoru.
 - [x] Inline editace: řeší vlastní editor, šablona jen drží data a bloky oddělené.
@@ -68,3 +75,4 @@
 - [ ] Vedení: druhý úvodní odstavec má neobvyklý slovosled („Magdaléna Mauerová více než třicet let se věnuje…“). Ponecháno doslova.
 - [ ] Náš příběh: závěrečná věta („Tanec se může měnit spolu s námi…“) je vytažená jako citát pod rozbalovací částí, ne uvnitř ní.
 - [ ] Vedení: chybí druhá fotka (při výuce), složka VEDENÍ má jen portrét.
+

@@ -6,19 +6,20 @@ Web Tanečního centra Monsignore (Lány u Dašic u Pardubic, od 1988 / 1992). S
 
 | Soubor | Co určuje |
 |---|---|
-| `BRIEF-monsignore.md` | **Struktura a vzhled.** Pořadí bloků a menu (sekce 3), tokeny (2), fotky (4), technické minimum (5), postup (6), rozhodnuté opravy (7), checklist (9). |
+| `hlavní STRUKTURA NOVÉHO WEBU TC MONSIGNORE.docx` (podklad dodaný uživatelem) | **Hlavní zdroj struktury.** Menu, stránky, obsahový záměr a pořadí bloků. Při strukturálním rozporu má přednost před briefem. |
+| `BRIEF-monsignore.md` | **Doplňující zadání.** Vizuální směr, technické požadavky, přístupnost, obsahové zákazy a pracovní postup. Nesmí potichu přepsat strukturu z DOCX. |
 | `texty-monsignore.md` | **Obsah.** Texty se přebírají **doslova**. Jedinou výjimkou jsou opravy v briefu, sekce 7. |
 | `PLAN.md` | Pořadí práce a definice „hotovo“ pro každý krok. |
 | `TODO.md` | Vše, co chybí nebo čeká na klientku. |
 | `CHANGELOG.md` | 2–3 řádky po každém větším kroku a nasazení. |
 
-Když se brief a kód rozcházejí, platí brief. Když se brief a texty rozcházejí v obsahu, platí texty. Výjimkou jsou hero texty, kde platí tabulka v briefu 3.1. Rozpor, který nejde rozhodnout, se zapíše do `TODO.md` a řeší se s Filipem.
+Když se DOCX a kód rozcházejí ve struktuře, platí DOCX. Brief doplňuje vzhled a techniku. Když se brief a zdrojové texty rozcházejí, nepřepisuj text bez rozhodnutí a zaznamenej rozpor v `TODO.md`. Nevyřešené konflikty rozsahu (například Letní škola v DOCX a její pozastavení v briefu) se evidují v `TODO.md`.
 
 ## Pravidla
 
 1. **Texty doslova.** Nepřepisovat, nezkracovat, nespojovat odstavce, nevymýšlet nadpisy, „ozdobná slova“, citáty ani popisky. Opravují se jen překlepy z briefu (sekce 7): „Naším cílem“, „sebevědomí“, „Magdaléna Mauerová“ (všude stejně).
 2. **Nic nevymýšlet.** Čísla, data, ceny, jména a citace jen z podkladů. Chybějící obsah má viditelný placeholder `[DOPLNIT: …]` (třída `.todo`) a **zároveň** záznam v `TODO.md`.
-3. **Struktura 1:1 s briefem, sekce 3.** Žádné bloky navíc. Klientka byla nespokojená hlavně proto, že první verze strukturu nedodržela.
+3. **Struktura podle DOCX.** Dodrž menu, názvy stránek a pořadí bloků z hlavního strukturálního dokumentu. Brief použij pro vizuální/technické detaily; nevyřešený rozpor zapiš do `TODO.md`.
 4. **Neplatí a nikde se neuvádí:** kurzy pro děti, školka Tiny Tutus, Tanec PLUS. Fotky dětí se nepoužívají.
 5. **Všechno editovatelné.** Tento repozitář je **šablona**. Ostrý web se později postaví v našem vlastním editoru, který inline editaci už má. Tady proto žádný editor nestavíme. Každý text, obrázek a položka kolekce (rozvrh, akce, FAQ, ohlasy, galerie) je ale **data**, ne natvrdo psané HTML. Bloky jsou funkce `blok(data) → HTML` (viz Architektura), aby se daly 1:1 převést na komponenty editoru.
 6. **Neměnit stack ani architekturu.** Vite + Tailwind 3 + vanilla JS. Žádný framework, CMS ani nové runtime závislosti bez souhlasu Filipa.
@@ -144,3 +145,4 @@ npm run preview
 - **Test deploy na https://wp.heurekazo.cz nahrává uživatel ručně** (obsah `dist/`). Agent po každém větším kroku spustí `npm run build`, ověří, že projde, zapíše do `CHANGELOG.md` datum a 2–3 řádky, co se změnilo, a oznámí, že build je připravený k nahrání. Sám nic nenahrává.
 - Po každém kroku z `PLAN.md` odškrtni hotové a nové otevřené věci zapiš do `TODO.md`.
 - Referenční šablona `Arabesque.webarchive` je v kořeni repozitáře a do buildu se nedostává.
+
