@@ -121,7 +121,9 @@
       { "key": "galerie/adult-015", "alt": "Skupina tanečníků v zemitých kostýmech ve zvedačce" },
       { "key": "galerie/adult-017", "alt": "Tanečníci v černých lesklých kostýmech" },
       { "key": "galerie/adult-018", "alt": "Tanečník drží tanečnici ve zvedačce v barevném světle" },
-      { "key": "galerie/adult-020", "alt": "Dvě tanečnice v zelených trikotech při vystoupení" }
+      { "key": "galerie/adult-020", "alt": "Dvě tanečnice v zelených trikotech při vystoupení" },
+      { "key": "akce/relax", "alt": "Relaxační místnost s polštáři a nízkým stolem u velkých oken" },
+      { "key": "akce/vecerni-sal", "alt": "Taneční sál připravený na večerní workshop při tlumeném osvětlení" }
     ]
   },
   "contact": {
@@ -142,3 +144,4 @@
     "image": { "key": "telocvicna/sal", "alt": "Prázdný taneční sál s baletními tyčemi, zrcadly a okny do zahrady" }
   }
 }
+
